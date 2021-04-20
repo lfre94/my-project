@@ -18,6 +18,8 @@ function make_slides(f) {
     start: function() {
       // hide error message
       $('.err').hide();
+      // this.init_sliders();
+      // exp.sliderPost=null;
     },
 
     // this is executed when the participant clicks the "Continue button"
@@ -95,19 +97,19 @@ function make_slides(f) {
   slides.trial = slide({
     name: "trial",
 
-    start: function() {
-      var stim = {
-        "TGrep": "37224:9",
-        "Context": "Speaker A:  and, and i, you know, i still provide most of the things that  go on around the house.<p>Speaker B: right.<p>Speaker A: so, uh, yeah and for a while i was going to school too, and tha-, it was tough.<p>Speaker B: yeah,  i uh, i think that while it 's a good change for i think women to be able  to fulfill their potential in whatever they feel, you know, their expertise may be .<p>Speaker A: uh-huh.<p>Speaker B: uh-huh.<p>Speaker A: uh, i think sometimes other things suffer and tha-, i think it 's hard to find a balance there.<p>Speaker B: ",
-        "EntireSentence": "but in some ways i think we are expected  to do it all.",
-        "ButNotAllSentence": "but in <strong>some, but not all</strong> ways i think we are expected  to do it all."
-      }    
+    // start: function() {
+    //   var stim = {
+    //     "TGrep": "37224:9",
+    //     "Context": "Speaker A:  and, and i, you know, i still provide most of the things that  go on around the house.<p>Speaker B: right.<p>Speaker A: so, uh, yeah and for a while i was going to school too, and tha-, it was tough.<p>Speaker B: yeah,  i uh, i think that while it 's a good change for i think women to be able  to fulfill their potential in whatever they feel, you know, their expertise may be .<p>Speaker A: uh-huh.<p>Speaker B: uh-huh.<p>Speaker A: uh, i think sometimes other things suffer and tha-, i think it 's hard to find a balance there.<p>Speaker B: ",
+    //     "EntireSentence": "but in some ways i think we are expected  to do it all.",
+    //     "ButNotAllSentence": "but in <strong>some, but not all</strong> ways i think we are expected  to do it all."
+    //   }    
     // The 7 lines above from "start:..." to the end of var stim = {...}" define a placeholder stimulus that you will have to delete when
     // loading in the individual stimulus data. 
 
     // To rotate through stimulus list, comment out the above 7 lines and  uncomment the following 2:
-    // present: exp.stimuli,
-    // present_handle : function(stim) {
+    present: exp.stimuli,
+    present_handle : function(stim) {
 
       // unselect all radio buttons at the beginning of each trial
       // (by default, the selection of the radio persists across trials)
@@ -116,6 +118,8 @@ function make_slides(f) {
 
       // store stimulus data
       this.stim = stim;
+      this.init_sliders();
+      exp.sliderPost=null;
 
       // extract original and sentence with "but not all"
       var original_sentence = stim.EntireSentence;
@@ -124,14 +128,14 @@ function make_slides(f) {
       //handle display of context 
       // if (exp.condition == "context") {
       //   // extract context data
-      //   var contexthtml = stim.Context;
+        var contexthtml = stim.Context;
       //   // reformat the speaker information for context
       //   contexthtml = contexthtml.replace(/Speaker A:/g, "<b>Speaker #1:</b>");
       //   contexthtml = contexthtml.replace(/Speaker B:/g, "<b>Speaker #2:</b>");
       //   $(".case").html(contexthtml);
       // } else {
       //   var contexthtml = "";
-      //   $(".case").html(contexthtml);
+        $(".case").html(contexthtml);
       // }
 
       // replace the placeholder in the HTML document with the relevant sentences for this trial
@@ -145,23 +149,32 @@ function make_slides(f) {
     button: function() {
       this.radio = $("input[name='number']:checked").val();
       this.strange = $("#check-strange:checked").val() === undefined ? 0 : 1;
-      if (this.radio) {
+      if (this.radio) && (exp.sliderPost!= null){
         this.log_responses();
-        exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
-        // _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
+        // exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
+        _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
       } else {
         $('.err').show();
       }
+    },
+
+    // implementing sliders
+    // this initializes the slider
+    init_sliders : function() {
+      utils.make_slider("#single_slider", function(event, ui) {
+        exp.sliderPost = ui.value;
+      });
     },
 
     // save response
     log_responses: function() {
       exp.data_trials.push({
         "id": this.stim.TGrep,
-        // "sentence": this.stim.ButNotAllSentence,
-        // "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
+        "sentence": this.stim.ButNotAllSentence,
+        "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
         "response": this.radio,
         "strangeSentence": this.strange
+        // "response_slider": exp.sliderPost
       });
     },
   });
@@ -210,7 +223,9 @@ function init() {
   exp.catch_trials = [];
   var stimuli = all_stims;
 
-  exp.stimuli = stimuli; //call _.shuffle(stimuli) to randomize the order;
+  exp.stimuli = _.shuffle(stimuli); //call _.shuffle(stimuli) to randomize the order;
+
+  console.log(exp.stimuli)
   exp.n_trials = exp.stimuli.length;
 
   // exp.condition = _.sample(["context", "no-context"]); //can randomize between subjects conditions here
@@ -252,3 +267,4 @@ function init() {
 
   exp.go(); //show first slide
 }
+console.log("hello");
