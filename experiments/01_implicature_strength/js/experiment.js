@@ -18,8 +18,8 @@ function make_slides(f) {
     start: function() {
       // hide error message
       $('.err').hide();
-      // this.init_sliders();
-      // exp.sliderPost=null;
+      // this.init_sliders(); // this calls the function pasted below to initialize the slider
+      // exp.sliderPost = null;  //this erases the current slider value
     },
 
     // this is executed when the participant clicks the "Continue button"
@@ -36,8 +36,15 @@ function make_slides(f) {
         // participant gave non-reasonable response --> show error message
         $('.err').show();
         this.log_responses();
-      }
+      } 
     },
+
+      // this initializes the slider
+      // init_sliders : function() {
+      // utils.make_slider("#single_slider", function(event, ui) {
+      //   exp.sliderPost = ui.value;
+      // });
+      // },
 
     log_responses: function() {
       // add response to exp.data_trials
@@ -48,6 +55,7 @@ function make_slides(f) {
         "response": this.radio,
         "strangeSentence": "",
         "sentence": "",
+        // "response_slider": exp.sliderPost,
       });
     },
   });
@@ -149,7 +157,7 @@ function make_slides(f) {
     button: function() {
       this.radio = $("input[name='number']:checked").val();
       this.strange = $("#check-strange:checked").val() === undefined ? 0 : 1;
-      if (this.radio) && (exp.sliderPost!= null){
+      if ((this.radio) && (exp.sliderPost!= null)){
         this.log_responses();
         // exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
         _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
@@ -173,8 +181,8 @@ function make_slides(f) {
         "sentence": this.stim.ButNotAllSentence,
         "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
         "response": this.radio,
-        "strangeSentence": this.strange
-        // "response_slider": exp.sliderPost
+        "strangeSentence": this.strange,
+        "response_slider": exp.sliderPost,
       });
     },
   });
