@@ -2,11 +2,6 @@
 
 var all_stims =
   [{
-    "TGrep": "150826:22",
-    "Context": "actor context",
-    "EntireSentence": "but i wonder if maybe in some civil cases it doesn't work as well.",
-    "ButNotAllSentence": "but i wonder if maybe in <strong>some, but not all</strong> civil cases it doesn't work as well."
-  },  {
     "TGrep": "37224:9",
     "Item": "hairsalon_neutralNoCG_DA",
     "ItemType": "hair salon",

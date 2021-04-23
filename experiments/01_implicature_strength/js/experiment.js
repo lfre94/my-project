@@ -24,19 +24,7 @@ function make_slides(f) {
 
     // this is executed when the participant clicks the "Continue button"
     button: function() {
-      // read in the value of the selected radio button
-      this.radio = $("input[name='number']:checked").val();
-      // check whether the participant selected a reasonable value (i.e, 5, 6, or 7)
-      if (this.radio == "5" || this.radio == "6" || this.radio == "7") {
-        // log response
-        this.log_responses();
-        // continue to next slide
-        exp.go();
-      } else {
-        // participant gave non-reasonable response --> show error message
-        $('.err').show();
-        this.log_responses();
-      } 
+      exp.go();
     },
 
       // this initializes the slider
@@ -71,15 +59,9 @@ function make_slides(f) {
 
     // handle button click
     button: function() {
-      this.radio = $("input[name='number']:checked").val();
-      if (this.radio == "1" || this.radio == "2" || this.radio == "3") {
-        this.log_responses();
-        exp.go();
-      } else {
-        $('.err').show();
-        this.log_responses();
-      }
+      exp.go();
     },
+
 
     log_responses: function() {
       exp.data_trials.push({
@@ -88,6 +70,30 @@ function make_slides(f) {
         "response": this.radio,
         "strangeSentence": "",
         "sentence": "",
+      });
+    }
+  });
+
+  // set up slide for third example trial
+  slides.example3= slide({
+    name: "example3",
+
+    start: function() {
+      // hide error message
+      $(".err").hide();
+    },
+
+    // handle button click
+    button: function() {
+      exp.go();
+    },
+
+
+    log_responses: function() {
+      exp.data_trials.push({
+        "slide_number_in_experiment": exp.phase,
+        "id": "example3",
+        "response": this.radio,
       });
     }
   });
@@ -126,8 +132,10 @@ function make_slides(f) {
 
       // store stimulus data
       this.stim = stim;
-      this.init_sliders();
-      exp.sliderPost=null;
+      var speaker_name = this.stim.SpeakName;
+      var referent_name = this.stim.RefName
+      // this.init_sliders();
+      // exp.sliderPost=null;
 
       // extract original and sentence with "but not all"
       var original_sentence = stim.EntireSentence;
@@ -149,6 +157,9 @@ function make_slides(f) {
       // replace the placeholder in the HTML document with the relevant sentences for this trial
       $("#trial-originalSen").html(original_sentence);
       $("#trial-targetSen").html(target_sentence);
+      $("#speaker_name").html(speaker_name);
+      $("#referent_name").html(referent_name);
+      $("#speaker_name_two").html(speaker_name);
       $(".err").hide();
 
     },
@@ -157,7 +168,9 @@ function make_slides(f) {
     button: function() {
       this.radio = $("input[name='number']:checked").val();
       this.strange = $("#check-strange:checked").val() === undefined ? 0 : 1;
-      if ((this.radio) && (exp.sliderPost!= null)){
+      this.felicity = $("#felicity_rating").val();
+      this.affect = $("#affect_rating").val();
+      if (this.felicity != 50){
         this.log_responses();
         // exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
         _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
@@ -168,21 +181,27 @@ function make_slides(f) {
 
     // implementing sliders
     // this initializes the slider
-    init_sliders : function() {
-      utils.make_slider("#single_slider", function(event, ui) {
-        exp.sliderPost = ui.value;
-      });
-    },
+    // init_sliders : function() {
+    //   utils.make_slider("#single_slider", function(event, ui) {
+    //     exp.sliderPost = ui.value;
+    //   });
+    // },
 
     // save response
     log_responses: function() {
       exp.data_trials.push({
-        "id": this.stim.TGrep,
         "sentence": this.stim.ButNotAllSentence,
         "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
-        "response": this.radio,
-        "strangeSentence": this.strange,
-        "response_slider": exp.sliderPost,
+        "felicity_rating": this.felicity,
+        "affect_rating" : this.affect,
+        "condition" : this.stim.Condition,
+        "item_type" : this.stim.ItemType,
+        "definite_article": this.stim.DefiniteArticle,
+        "item": this.stim.Item,
+        "referent_name": this.stim.RefName,
+        "referent_gender": this.stim.RefGen,
+        "speaker_name": this.stim.SpeakName,
+        "speaker_gender": this.stim.SpeakGen,
       });
     },
   });
@@ -252,6 +271,7 @@ function init() {
     "i0",
     "example1",
     "example2",
+    "example3",
     "startExp",
     "trial",
     "subj_info",

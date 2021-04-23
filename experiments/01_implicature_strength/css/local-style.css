@@ -1,8 +1,9 @@
 .slider {
   /* default is width 400 and margin 10 */
 	width: 400;
-	margin: 10px;
+	margin: 5px;
 }
+
 .hidden {
     display: none; }
 
@@ -31,13 +32,14 @@
 .instruction{
     color:#424242;
     text-align: justify;
-    font-size: 17px;
+    font-size: 22px;
     padding-top: 0.5cm;
     padding-bottom: 0.5cm;
 
 }
 .targetSen{
-    color:#2E9AFE;
+    color:#0047AB;
+    font-weight: bold;
 }
 
 .notBoth{
@@ -140,4 +142,8 @@ td:nth-child(9) {
 
 .slide {
 	border: 1px solid #666;
+}
+
+.case {
+  font-weight: bold;
 }
