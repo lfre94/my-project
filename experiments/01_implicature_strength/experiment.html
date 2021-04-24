@@ -9,7 +9,7 @@
     <script src="shared/js/jquery-1.11.1.min.js"></script>
     <script src="shared/full-projects/jquery-ui/jquery-ui.min.js"></script>
     <script src="shared/js/underscore-min.js"></script>
-    
+
     <!-- experiment logic -->
     <script src="shared/js/exp-V2.js"></script>
     <script src="shared/js/stream-V2.js"></script>
@@ -33,7 +33,7 @@
 
   <body onload="init()">
     <noscript>This task requires JavaScript.</noscript>
-    
+
     <!-- initial slide -->
     <div class="slide" id="i0">
       <p class="left">
@@ -60,7 +60,7 @@
       <p class="case" style="text-align: left;">
         Context
       </p>
-      
+
       <!-- placeholders for stimuli -->
       <p class="targetSen" id="example1_target">
         Target sentence
@@ -98,7 +98,7 @@
       <p class="case" style="text-align: left;">
         Context
       </p>
-      
+
       <!-- placeholders for stimuli -->
       <p class="targetSen" id="example1_target">
         Target sentence
@@ -107,13 +107,13 @@
         <i>Imagine the person is from the same place as you. How does their statement sound like to you?</i>
       </div>
       <div class="slidecontainer">
-        <p>Raro<input type="range" min="0" max="100" value=50 class="slider" id="felicity_rating">Natural</p>
+        <p>Raro<input type="range" min="0" max="100" class="slider" value = 50 id="felicity_rating">Natural</p>
       </div>
        <div class="instruction">
         <i>Piensa que PERSONA 1 expresa una actitud positiva o negativa hacia PERSONA 2?</i>
       </div>
       <div class="slidecontainer">
-        <p>Negative <input type="range" min="0" max="100" class="slider" id="affect_rating">Positive</p>
+        <p>Negative <input type="range" min="0" max="100" class="slider" value = 50 id="affect_rating">Positive</p>
       </div>
       <div class="center">
         <button class="continueButton" onclick="_s.button()">Continuar</button>
@@ -135,7 +135,7 @@
       <p class="case" style="text-align: left;">
         Context
       </p>
-      
+
       <!-- placeholders for stimuli -->
       <p class="targetSen" id="example1_target">
         Target sentence
@@ -150,7 +150,7 @@
         <i>Piensa que PERSONA 1 expresa una actitud positiva o negativa hacia PERSONA 2?</i>
       </div>
       <div class="slidecontainer">
-        <p>Negative <input type="range" min="0" max="100" class="slider" id="affect_rating">Positive</p>
+        <p>Expresa una actitud muy negativa <input type="range" min="0" max="100" class="slider" id="affect_rating">Positive</p>
       </div>
       <div class="center">
         <button class="continueButton" onclick="_s.button()">Continuar</button>
@@ -180,7 +180,7 @@
 
       <!-- placeholders for contexts -->
       <p class="case" style="text-align: left;"></p>
-      
+
       <!-- placeholders for stimuli -->
       <p class="targetSen" id="trial-targetSen">
         {{target sentence}}
@@ -188,24 +188,17 @@
       <div class="instruction">
         <i>Imagine <span id="speaker_name">{{speaker_name}}</span> is from the same place as you. How does their statement sound like to you?</i>
       </div>
-      <div class="slidecontainer">
-        <p>Raro<input type="range" min="0" max="100" value=50 class="slider" id="felicity_rating">Natural</p>
-      </div>
+      <table class="slider_table">
+        <tr><td class="left">Muy raro</td><td class="center" width="100%"><div class="center" id="felicity_slider"></div></td><td class="right">Muy natural</td></tr>
+      </table>
        <div class="instruction">
         <i>Piensa que <span id="speaker_name_two">{{speaker_name}}</span> expresa una actitud positiva o negativa hacia <span id="referent_name">{{referent_name}}</span>?</i>
       </div>
-      <div class="slidecontainer">
-        <p>Negative <input type="range" min="0" max="100" class="slider" id="affect_rating">Positive</p>
-      </div>
-      <div class="center">
-        <button class="continueButton" onclick="_s.button()">Continue</button>
-      </div>
-      <div class="err">
-        <br>
-        <p>
-          Make sure you selected a radio button before clicking 'Continue'
-        </p>
-      </div>
+      <table class="slider_table">
+        <tr><td class="left">Expresa una actitud muy negativa</td><td width="100%"><div id="affect_slider"></div></td><td class="right">Expresa una actitud muy positiva</td></tr>
+      </table>
+      <button class ="continueButton" onclick="_s.button()">Continue</button>
+        <div class="err">Please adjust all sliders before continuing.</div>
     </div>
 
     <!-- subject information slide -->
@@ -215,7 +208,7 @@
           Información adicional
         </div>
         <p class="info">
-          Favor de responder a las siguientes preguntas. Sus respuestas nos ayudarán a entender las diferencias lingüísticas en el mundo hispanohablante.  
+          Favor de responder a las siguientes preguntas. Sus respuestas nos ayudarán a entender las diferencias lingüísticas en el mundo hispanohablante.
         </p>
         <p>
           ¿Leyó las instrucciones y cree que hizo el experimento correctamente?

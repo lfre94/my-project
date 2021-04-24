@@ -28,11 +28,11 @@ function make_slides(f) {
     },
 
       // this initializes the slider
-      // init_sliders : function() {
-      // utils.make_slider("#single_slider", function(event, ui) {
-      //   exp.sliderPost = ui.value;
-      // });
-      // },
+    init_sliders : function() {
+    utils.make_slider("#felicity_rating", function(event, ui) {
+      exp.sliderPost = ui.value;
+    });
+    },
 
     log_responses: function() {
       // add response to exp.data_trials
@@ -111,19 +111,13 @@ function make_slides(f) {
   slides.trial = slide({
     name: "trial",
 
-    // start: function() {
-    //   var stim = {
-    //     "TGrep": "37224:9",
-    //     "Context": "Speaker A:  and, and i, you know, i still provide most of the things that  go on around the house.<p>Speaker B: right.<p>Speaker A: so, uh, yeah and for a while i was going to school too, and tha-, it was tough.<p>Speaker B: yeah,  i uh, i think that while it 's a good change for i think women to be able  to fulfill their potential in whatever they feel, you know, their expertise may be .<p>Speaker A: uh-huh.<p>Speaker B: uh-huh.<p>Speaker A: uh, i think sometimes other things suffer and tha-, i think it 's hard to find a balance there.<p>Speaker B: ",
-    //     "EntireSentence": "but in some ways i think we are expected  to do it all.",
-    //     "ButNotAllSentence": "but in <strong>some, but not all</strong> ways i think we are expected  to do it all."
-    //   }    
-    // The 7 lines above from "start:..." to the end of var stim = {...}" define a placeholder stimulus that you will have to delete when
-    // loading in the individual stimulus data. 
-
     // To rotate through stimulus list, comment out the above 7 lines and  uncomment the following 2:
     present: exp.stimuli,
     present_handle : function(stim) {
+
+      this.init_sliders();
+      exp.affectPost = null;
+      exp.felicityPost = null;
 
       // unselect all radio buttons at the beginning of each trial
       // (by default, the selection of the radio persists across trials)
@@ -141,7 +135,7 @@ function make_slides(f) {
       var original_sentence = stim.EntireSentence;
       var target_sentence = stim.ButNotAllSentence;
 
-      //handle display of context 
+      //handle display of context
       // if (exp.condition == "context") {
       //   // extract context data
         var contexthtml = stim.Context;
@@ -168,9 +162,9 @@ function make_slides(f) {
     button: function() {
       this.radio = $("input[name='number']:checked").val();
       this.strange = $("#check-strange:checked").val() === undefined ? 0 : 1;
-      this.felicity = $("#felicity_rating").val();
-      this.affect = $("#affect_rating").val();
-      if (this.felicity != 50){
+      this.felicity = exp.felicityPost;
+      this.affect = exp.affectPost;
+      if ((this.felicity) && (this.affect)){
         this.log_responses();
         // exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
         _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
@@ -179,13 +173,14 @@ function make_slides(f) {
       }
     },
 
-    // implementing sliders
-    // this initializes the slider
-    // init_sliders : function() {
-    //   utils.make_slider("#single_slider", function(event, ui) {
-    //     exp.sliderPost = ui.value;
-    //   });
-    // },
+    init_sliders : function() {
+      utils.make_slider("#affect_slider", function(event, ui) {
+        exp.affectPost = ui.value;
+      });
+      utils.make_slider("#felicity_slider", function(event,ui) {
+        exp.felicityPost = ui.value;
+      });
+    },
 
     // save response
     log_responses: function() {
@@ -224,7 +219,7 @@ function make_slides(f) {
     }
   });
 
-  // 
+  //
   slides.thanks = slide({
     name: "thanks",
     start: function() {
@@ -256,7 +251,7 @@ function init() {
   exp.n_trials = exp.stimuli.length;
 
   // exp.condition = _.sample(["context", "no-context"]); //can randomize between subjects conditions here
-  
+
   exp.system = {
     Browser: BrowserDetect.browser,
     OS: BrowserDetect.OS,

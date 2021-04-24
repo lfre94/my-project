@@ -94,6 +94,7 @@ textarea {
 	display: inline;
 	text-align: left;
 	float: left;
+	width: 150px;
 }
 
 .slider_table .right {
@@ -101,6 +102,7 @@ textarea {
 	display: inline;
 	text-align: right;
 	float: right;
+	width: 150px;
 }
 
 .thin {

@@ -67,10 +67,10 @@ var utils = {
 		$(label + ' .ui-slider-handle').hide();
 		$(label).mousedown(function(){
 			$(label + ' .ui-slider-handle').show();
-			$(label).css({"background":"#99D6EB"});
+			$(label).css({"background":"#d3d3d3"});
 			$(label + ' .ui-slider-handle').css({
 				"background":"#667D94",
-				"border-color": "#001F29"
+				"border-color": "#001F29",
 			});
 		});
 		$(label).css({"background":"#eee"});
