@@ -19,6 +19,8 @@ function make_slides(f) {
       // hide error message
       $('.err').hide();
 
+      this.init_sliders();
+
     },
 
     // this is executed when the participant clicks the "Continue button"
@@ -29,10 +31,11 @@ function make_slides(f) {
     button: function() {
       this.felicity = exp.felicityPost;
       this.affect = exp.affectPost;
-      if ((this.felicity) && (this.affect)){
+      // if ((this.felicity) && (this.affect)){
+      if ((this.felicity != null) && (this.felicity < .5)){
         this.log_responses();
-        // exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
-        _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
+        exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
+        // _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
       } else {
         $('.err').show();
       }
@@ -41,22 +44,14 @@ function make_slides(f) {
 
     // this initializes the slider
     init_sliders : function() {
-      utils.make_slider("#affect_slider_ex_one", function(event, ui) {
-        exp.affectPost = ui.value;
-      });
+      // utils.make_slider("#affect_slider_ex_one", function(event, ui) {
+      //   exp.affectPost = ui.value;
+      // });
       utils.make_slider("#felicity_slider_ex_one", function(event,ui) {
         exp.felicityPost = ui.value;
       });
     },
 
-
-
-      // this initializes the slider
-    // init_sliders : function() {
-    // utils.make_slider("#felicity_rating", function(event, ui) {
-    //   exp.sliderPost = ui.value;
-    // });
-    // },
 
     log_responses: function() {
       // add response to exp.data_trials
@@ -68,7 +63,7 @@ function make_slides(f) {
         "strangeSentence": "",
         "sentence": "",
         "felicity_rating": this.felicity,
-        "affect_rating": this.affect,
+        // "affect_rating": this.affect,
       });
     },
   });
@@ -77,29 +72,62 @@ function make_slides(f) {
   slides.example2 = slide({
     name: "example2",
 
+// this is executed when the slide is shown
     start: function() {
       // hide error message
-      $(".err").hide();
+      $('.err').hide();
+
+      this.init_sliders();
+
     },
 
-    // handle button click
+    // this is executed when the participant clicks the "Continue button"
     button: function() {
       exp.go();
     },
 
+    button: function() {
+      // this.felicity = exp.felicityPost;
+      this.affect = exp.affectPost;
+      // if ((this.felicity) && (this.affect)){
+      if ((this.affect != null) && (this.affect > .5)){
+        this.log_responses();
+        exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
+        // _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
+      } else {
+        $('.err').show();
+      }
+    },
+
+
+    // this initializes the slider
+    init_sliders : function() {
+      utils.make_slider("#affect_slider_ex_two", function(event, ui) {
+        exp.affectPost = ui.value;
+      });
+      // utils.make_slider("#felicity_slider_ex_two", function(event,ui) {
+      //   exp.felicityPost = ui.value;
+      // });
+    },
+
 
     log_responses: function() {
+      // add response to exp.data_trials
+      // this data will be submitted at the end of the experiment
       exp.data_trials.push({
         "slide_number_in_experiment": exp.phase,
         "id": "example2",
         "response": this.radio,
         "strangeSentence": "",
         "sentence": "",
+        // "felicity_rating": this.felicity,
+        "affect_rating": this.affect,
       });
-    }
+    },
   });
 
   // set up slide for third example trial
+
   slides.example3= slide({
     name: "example3",
 
@@ -132,6 +160,63 @@ function make_slides(f) {
       exp.go(); //use exp.go() if and only if there is no "present" data.
     },
   });
+
+  // slides.example3= slide({
+  // name: "example3",
+
+  // // this is executed when the slide is shown
+  //   start: function() {
+  //     // hide error message
+  //     $('.err').hide();
+
+  //     this.init_sliders();
+
+  //   },
+
+  //   // this is executed when the participant clicks the "Continue button"
+  //   button: function() {
+  //     exp.go();
+  //   },
+
+  //   button: function() {
+  //     // this.felicity = exp.felicityPost;
+  //     this.affect = exp.affectPost;
+  //     // if ((this.felicity) && (this.affect)){
+  //     if ((this.affect) && (this.affect < .5)){
+  //       this.log_responses();
+  //       exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
+  //       // _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
+  //     } else {
+  //       $('.err').show();
+  //     }
+  //   },
+
+
+  //   // this initializes the slider
+  //   init_sliders : function() {
+  //     utils.make_slider("#affect_slider_ex_three", function(event, ui) {
+  //       exp.affectPost = ui.value;
+  //     });
+  //     // utils.make_slider("#felicity_slider_ex_two", function(event,ui) {
+  //     //   exp.felicityPost = ui.value;
+  //     // });
+  //   },
+
+
+  //   log_responses: function() {
+  //     // add response to exp.data_trials
+  //     // this data will be submitted at the end of the experiment
+  //     exp.data_trials.push({
+  //       "slide_number_in_experiment": exp.phase,
+  //       "id": "example3",
+  //       "response": this.radio,
+  //       "strangeSentence": "",
+  //       "sentence": "",
+  //       // "felicity_rating": this.felicity,
+  //       "affect_rating": this.affect,
+  //     });
+  //   },
+  // });
 
   slides.trial = slide({
     name: "trial",
@@ -188,7 +273,7 @@ function make_slides(f) {
       this.strange = $("#check-strange:checked").val() === undefined ? 0 : 1;
       this.felicity = exp.felicityPost;
       this.affect = exp.affectPost;
-      if ((this.felicity) && (this.affect)){
+      if ((this.felicity != null) && (this.affect != null)){
         this.log_responses();
         // exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
         _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
@@ -236,6 +321,10 @@ function make_slides(f) {
         age: $("#age").val(),
         gender: $("#gender").val(),
         education: $("#education").val(),
+        places_lived: $("#places_lived").val(),
+        reported_usage: $("#reported_usage").val(),
+        reported_familiarity: $("#reported_familiarity").val(),
+        language_attitude: $("#language_attitude").val(),
         fairprice: $("#fairprice").val(),
         comments: $("#comments").val()
       };

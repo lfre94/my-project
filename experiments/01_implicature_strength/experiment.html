@@ -29,6 +29,15 @@
 
     <!-- stimulus file -->
     <script src="js/stimuli.js"></script>
+
+    <!-- horizontal line -->
+    <style>
+      hr {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
   </head>
 
   <body onload="init()">
@@ -57,8 +66,51 @@
     <!-- first example slide -->
      <div class="slide" id="example1">
       <h3>
-        Ejemplo 1
+        Ejemplo 1: ¿Raro o natural?
       </h3>
+      <p class="left">
+        Instruction
+        <br><br>
+      </p>
+      <!-- placeholders for contexts -->
+      <p class="case" style="text-align: left;">
+        Context
+      </p>
+
+      <!-- placeholders for stimuli -->
+      <p class="targetSen" id="example1_target">
+        Target sentence
+      </p>
+
+      <div class="instruction">
+        <i>Imagínese que PERSONA 1 es del mismo lugar que usted. ¿Cómo le parece lo que ha dicho? (La oración en azul.)</i>
+      </div>
+      <table class="slider_table">
+        <tr><td class="left">Muy raro</td><td class="center" width="100%"><div class="center" id="felicity_slider_ex_one"></div></td><td class="right">Muy natural</td></tr>
+      </table>
+  <!--      <div class="instruction">
+        <i>¿Usted piensa que PERSONA 1 expresa una actitud positiva o negativa hacia PERSONA 2? (La oración en azul.)</i>
+      </div>
+      <table class="slider_table">
+        <tr><td class="left">Expresa una actitud muy negativa</td><td width="100%"><div id="affect_slider_ex_one"></div></td><td class="right">Expresa una actitud muy positiva</td></tr>
+      </table> -->
+      <button class ="continueButton" onclick="_s.button()">Siguiente</button>
+        <br>
+        <br>
+        <div class="err">La oración azul no es una expresión típica en esta situación. <p>Por favor ajuste el control deslizante hacia "Muy raro."</p></div>
+      </div>
+    </div>
+
+
+    <!-- second example slide -->
+      <div class="slide" id="example2">
+      <h3>
+        Ejemplo 2: ¿Positivo o negativo?
+      </h3>
+      <p class="left">
+        Instruction
+        <br><br>
+      </p>
       <!-- placeholders for contexts -->
       <p class="case" style="text-align: left;">
         Context
@@ -69,89 +121,33 @@
         Target sentence
       </p>
 <!--       <div class="instruction">
-        <i>Imagine the person is from the same place as you. How does their statement sound like to you?</i>
-      </div>
-      <div class="slidecontainer">
-        <p>Raro<input type="range" min="0" max="100" value=50 class="slider" id="felicity_rating">Natural</p>
-      </div>
-       <div class="instruction">
-        <i>Piensa que PERSONA 1 expresa una actitud positiva o negativa hacia PERSONA 2?</i>
-      </div>
-      <div class="slidecontainer">
-        <p>Negative <input type="range" min="0" max="100" class="slider" id="affect_rating">Positive</p>
-      </div>
-      <div class="center">
-        <button class="continueButton" onclick="_s.button()">Continuar</button>
-      </div>
-      <div class="err">
-        <br>
-        <p>
-          Make sure you selected a radio button before clicking 'Continue'
-        </p>
-      </div> -->
-      
-      <div class="instruction">
         <i>Imagínese que PERSONA 1 es del mismo lugar que usted. ¿Cómo le parece lo que ha dicho? (La oración en azul.)</i>
       </div>
       <table class="slider_table">
-        <tr><td class="left">Muy raro</td><td class="center" width="100%"><div class="center" id="felicity_slider_ex_one"></div></td><td class="right">Muy natural</td></tr>
-      </table>
+        <tr><td class="left">Muy raro</td><td class="center" width="100%"><div class="center" id="felicity_slider_ex_two"></div></td><td class="right">Muy natural</td></tr>
+      </table> -->
        <div class="instruction">
         <i>¿Usted piensa que PERSONA 1 expresa una actitud positiva o negativa hacia PERSONA 2? (La oración en azul.)</i>
       </div>
       <table class="slider_table">
-        <tr><td class="left">Expresa una actitud muy negativa</td><td width="100%"><div id="affect_slider_ex_one"></div></td><td class="right">Expresa una actitud muy positiva</td></tr>
+        <tr><td class="left">Expresa una actitud muy negativa</td><td width="100%"><div id="affect_slider_ex_two"></div></td><td class="right">Expresa una actitud muy positiva</td></tr>
       </table>
       <button class ="continueButton" onclick="_s.button()">Siguiente</button>
         <br>
         <br>
-        <div class="err">Por favor ajuste los DOS controles deslizantes antes de continuar.</div>
-      </div>
-    </div>
-
-
-    <!-- second example slide -->
-      <div class="slide" id="example2">
-      <h3>
-        Example 2
-      </h3>
-      <!-- placeholders for contexts -->
-      <p class="case" style="text-align: left;">
-        Context
-      </p>
-
-      <!-- placeholders for stimuli -->
-      <p class="targetSen" id="example1_target">
-        Target sentence
-      </p>
-      <div class="instruction">
-        <i>Imagine the person is from the same place as you. How does their statement sound like to you?</i>
-      </div>
-      <div class="slidecontainer">
-        <p>Raro<input type="range" min="0" max="100" class="slider" value = 50 id="felicity_rating">Natural</p>
-      </div>
-       <div class="instruction">
-        <i>Piensa que PERSONA 1 expresa una actitud positiva o negativa hacia PERSONA 2?</i>
-      </div>
-      <div class="slidecontainer">
-        <p>Negative <input type="range" min="0" max="100" class="slider" value = 50 id="affect_rating">Positive</p>
-      </div>
-      <div class="center">
-        <button class="continueButton" onclick="_s.button()">Continuar</button>
-      </div>
-      <div class="err">
-        <br>
-        <p>
-          Make sure you selected a radio button before clicking 'Continue'
-        </p>
+        <div class="err">La oración azul no es una expresión negativa en esta situación. <p>Por favor ajuste el control deslizante hacia "Expresa una actitud muy positiva."</div>
       </div>
     </div>
 
      <!-- third example slide -->
       <div class="slide" id="example3">
       <h3>
-        Example 3
+        Ejemplo 3: ¿Positivo o negativo?
       </h3>
+      <p class="left">
+        Instruction
+        <br><br>
+      </p>
       <!-- placeholders for contexts -->
       <p class="case" style="text-align: left;">
         Context
@@ -161,26 +157,16 @@
       <p class="targetSen" id="example1_target">
         Target sentence
       </p>
-      <div class="instruction">
-        <i>Imagine the person is from the same place as you. How does their statement sound like to you?</i>
-      </div>
-      <div class="slidecontainer">
-        <p>Raro<input type="range" min="0" max="100" value=50 class="slider" id="felicity_rating">Natural</p>
-      </div>
        <div class="instruction">
-        <i>Piensa que PERSONA 1 expresa una actitud positiva o negativa hacia PERSONA 2?</i>
+        <i>¿Usted piensa que PERSONA 1 expresa una actitud positiva o negativa hacia PERSONA 2? (La oración en azul.)</i>
       </div>
-      <div class="slidecontainer">
-        <p>Expresa una actitud muy negativa <input type="range" min="0" max="100" class="slider" id="affect_rating">Positive</p>
-      </div>
-      <div class="center">
-        <button class="continueButton" onclick="_s.button()">Continuar</button>
-      </div>
-      <div class="err">
+      <table class="slider_table">
+        <tr><td class="left">Expresa una actitud muy negativa</td><td width="100%"><div id="affect_slider_ex_three"></div></td><td class="right">Expresa una actitud muy positiva</td></tr>
+      </table>
+      <button class ="continueButton" onclick="_s.button()">Siguiente</button>
         <br>
-        <p>
-          Make sure you selected a radio button before clicking 'Continue'
-        </p>
+        <br>
+        <div class="err">La oración azul no es una expresión negativa en esta situación. <p>Por favor ajuste el control deslizante hacia "Expresa una actitud muy positiva."</div>
       </div>
     </div>
 
@@ -189,10 +175,10 @@
       <br>
       <br>
       <p id="instruct-text" class="left">
-        Great! Now we can start the real experiment. You will now read 20 sentences. Your task is to rate how similar the red sentence is to the blue sentence where the word 'some' is replaced with 'some, but not all'. Sometimes, the blue sentence will sound strange. In this case, give a rating to the best of your ability, but also click the checkbox next to "The blue sentence sounds strange".
+        ¡Muy bien! Ahora podemos comenzar el experimento real. <strong>Se le presentarán 24 escenas. Su tarea es contestar dos preguntas sobre lo que se ha dicho en estas conversaciones.</strong> Primero, tiene que evaluar si la oración en azul le parece extraña o natural. Segundo, tiene que evaluar si la persona que ha dicho la oración en azul expresa una actitud positiva o negativa. 
       </p>
       <div class="center">
-        <button class="continueButton" onclick="_s.button()">Continue</button>
+        <button class="continueButton" onclick="_s.button()">Siguiente</button>
       </div>
     </div>
 
@@ -231,11 +217,8 @@
           Información adicional
         </div>
         <p class="info">
-          Favor de responder a las siguientes preguntas. Sus respuestas nos ayudarán a entender las diferencias lingüísticas en el mundo hispanohablante.
+          Favor de responder a las siguientes preguntas.<br>Sus respuestas nos ayudarán a entender las diferencias lingüísticas en el mundo hispanohablante.
         </p>
-        <p>
-          ¿Leyó las instrucciones y cree que hizo el experimento correctamente?
-        </p><label><input type="radio" name="assess" value="No">No</label> <label><input type="radio" name="assess" value="Yes">Sí</label> <label><input type="radio" name="assess" value="Confused">Estaba confundido/a</label>
         <p>
           Género: <select id="gender">
             <option value="">
@@ -245,6 +228,9 @@
             </option>
             <option value="Female">
               Femenino
+            </option>
+            <option value="NonBinary">
+              No binario
             </option>
             <option value="Other">
               Otro
@@ -283,21 +269,65 @@
           Ciudad y país de origen: <input type="text" id="region">
         </p>
         <p>
-          Si ha vivido en otro lugar por más de un año,<br> escriba la ciudad y el país, seguido por cuantos años ha vivido en ese lugar.
+          Si ha vivido en otro lugar por más de un año,<br> escriba la ciudad y el país, seguido por cuantos años estuvo/ha estado en ese lugar.
         </p>
         <textarea id="places_lived" rows="3" cols="50"></textarea><br>
         <p>
-          ¿Cree que el pago fue justo?
-        </p><select id="fairprice">
-          <option value="-1">
-          </option>
-          <option value="0">
-            El pago fue demasiado bajo
-          </option>
-          <option value="1">
-            El pago fue justo
-          </option>
-        </select>
+          ¿Con que frecuencia dice <i>el</i> o <i>la</i> antes de un nombre?<br>(Por ejemplo: El Juan, La María, etc.)
+        </p><select id="reported_usage">
+            <option value="-1">
+            </option>
+            <option value="0">
+              Nunca digo esto
+            </option>
+            <option value="1">
+              De vez en cuando (p.ej. 1-2 veces por mes)
+            </option>
+            <option value="2">
+              Muy seguido (p.ej. 3-4 veces por semana)
+            </option>
+            <option value="3">
+              Casi siempre (p.ej. 1-2 o más veces por día)
+            </option>
+            <option value="4">
+              No sé
+            </option>
+          </select>
+        </p>
+        <p>
+          ¿Con que frecuencia escucha que <strong>OTROS</strong> digan <i>el</i> o <i>la</i> antes de un nombre?<br>(Por ejemplo: El Juan, La María, etc.)
+        </p><select id="reported_familiarity">
+            <option value="-1">
+            </option>
+            <option value="0">
+              Nunca escucho esto
+            </option>
+            <option value="1">
+              De vez en cuando (p.ej. 1-2 veces por mes)
+            </option>
+            <option value="2">
+              Muy seguido (p.ej. 3-4 veces por semana)
+            </option>
+            <option value="3">
+              Casi siempre (p.ej. 1-2 o más veces por día)
+            </option>
+            <option value="4">
+              No sé
+            </option>
+          </select>
+        </p>
+        <p>
+          Opcional: ¿Qué piensa usted sobre el uso de  <i>el</i> o <i>la</i> con nombres propios de persona?<br>(ya sea en general o en su país)
+        </p>
+        <textarea id="language_attitude" rows="3" cols="50"></textarea><br>
+        <p>
+        <br><hr /><br>
+        <p class="info">
+          Las siguientes preguntas tratan con el formato del experimento y son opcionales.
+        </p>
+        <p>
+          ¿Leyó las instrucciones y cree que hizo el experimento correctamente?
+        </p><label><input type="radio" name="assess" value="No">No</label> <label><input type="radio" name="assess" value="Yes">Sí</label> <label><input type="radio" name="assess" value="Confused">Estaba confundido/a</label>
         <p>
           ¿Disfrutó del experimento?
         </p><select id="enjoyment">
@@ -314,10 +344,22 @@
           </option>
         </select>
         <p>
+          ¿Cree que el pago fue justo?
+        </p><select id="fairprice">
+          <option value="-1">
+          </option>
+          <option value="0">
+            El pago fue demasiado bajo
+          </option>
+          <option value="1">
+            El pago fue justo
+          </option>
+        </select>
+        <p>
           Si tiene cualquier otro comentario sobre este experimento, por favor escríbalo aquí:
         </p>
-        <textarea id="comments" rows="3" cols="50"></textarea><br>
-        <button onclick="_s.submit()">Submit</button>
+        <textarea id="comments" rows="3" cols="50"></textarea><br><br>
+        <button onclick="_s.submit()">Concluir</button>
       </div>
     </div>
 
