@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>
-      Language Experiment
+      Experimento lingüístico
     </title><!--JS-->
     <!-- external general utilities -->
     <script src="shared/js/jquery-1.11.1.min.js"></script>
@@ -36,11 +36,14 @@
 
     <!-- initial slide -->
     <div class="slide" id="i0">
+      <h2>
+        Experimento Lingüístico
+      </h2>
       <p class="left">
-        You will read some sentences. These are sentences from transcriptions of real conversations real people had over the phone. <strong>Your task is to answer a question about the red sentence to the best of your ability.</strong><br>
+        Va a leer varias escenas ficticias que abarcan una variedad de temas cotidianos. Cada escena consiste de una conversación. <strong>Su tarea es contestar dos preguntas sobre lo que se ha dicho en estas conversaciones.</strong><br>
         <br>
-        The experiment will take approximately 10 minutes. Let's start with two examples!
-      </p><button id="start_button" type="button">Start experiment</button>
+        El experimento le tomara aproximadamente 20 minutos. ¡Empecemos con unos ejemplos!
+      </p><button id="start_button" type="button">Comenzar experimento</button>
       <p class="left legal">
         <strong><br>
         <br>
@@ -54,7 +57,7 @@
     <!-- first example slide -->
      <div class="slide" id="example1">
       <h3>
-        Example 1
+        Ejemplo 1
       </h3>
       <!-- placeholders for contexts -->
       <p class="case" style="text-align: left;">
@@ -65,7 +68,7 @@
       <p class="targetSen" id="example1_target">
         Target sentence
       </p>
-      <div class="instruction">
+<!--       <div class="instruction">
         <i>Imagine the person is from the same place as you. How does their statement sound like to you?</i>
       </div>
       <div class="slidecontainer">
@@ -85,6 +88,24 @@
         <p>
           Make sure you selected a radio button before clicking 'Continue'
         </p>
+      </div> -->
+      
+      <div class="instruction">
+        <i>Imagínese que PERSONA 1 es del mismo lugar que usted. ¿Cómo le parece lo que ha dicho? (La oración en azul.)</i>
+      </div>
+      <table class="slider_table">
+        <tr><td class="left">Muy raro</td><td class="center" width="100%"><div class="center" id="felicity_slider_ex_one"></div></td><td class="right">Muy natural</td></tr>
+      </table>
+       <div class="instruction">
+        <i>¿Usted piensa que PERSONA 1 expresa una actitud positiva o negativa hacia PERSONA 2? (La oración en azul.)</i>
+      </div>
+      <table class="slider_table">
+        <tr><td class="left">Expresa una actitud muy negativa</td><td width="100%"><div id="affect_slider_ex_one"></div></td><td class="right">Expresa una actitud muy positiva</td></tr>
+      </table>
+      <button class ="continueButton" onclick="_s.button()">Siguiente</button>
+        <br>
+        <br>
+        <div class="err">Por favor ajuste los DOS controles deslizantes antes de continuar.</div>
       </div>
     </div>
 
@@ -186,19 +207,21 @@
         {{target sentence}}
       </p>
       <div class="instruction">
-        <i>Imagine <span id="speaker_name">{{speaker_name}}</span> is from the same place as you. How does their statement sound like to you?</i>
+        <i>Imagínese que <span id="speaker_name">{{speaker_name}}</span> es del mismo lugar que usted. ¿Cómo le parece lo que ha dicho? (La oración en azul.)</i>
       </div>
       <table class="slider_table">
         <tr><td class="left">Muy raro</td><td class="center" width="100%"><div class="center" id="felicity_slider"></div></td><td class="right">Muy natural</td></tr>
       </table>
        <div class="instruction">
-        <i>Piensa que <span id="speaker_name_two">{{speaker_name}}</span> expresa una actitud positiva o negativa hacia <span id="referent_name">{{referent_name}}</span>?</i>
+        <i>¿Usted piensa que <span id="speaker_name_two">{{speaker_name}}</span> expresa una actitud positiva o negativa hacia <span id="referent_name">{{referent_name}}</span>? (La oración en azul.)</i>
       </div>
       <table class="slider_table">
         <tr><td class="left">Expresa una actitud muy negativa</td><td width="100%"><div id="affect_slider"></div></td><td class="right">Expresa una actitud muy positiva</td></tr>
       </table>
-      <button class ="continueButton" onclick="_s.button()">Continue</button>
-        <div class="err">Please adjust all sliders before continuing.</div>
+      <button class ="continueButton" onclick="_s.button()">Siguiente</button>
+        <br>
+        <br>
+        <div class="err">Por favor ajuste los DOS controles deslizantes antes de continuar.</div>
     </div>
 
     <!-- subject information slide -->
@@ -260,7 +283,7 @@
           Ciudad y país de origen: <input type="text" id="region">
         </p>
         <p>
-          Si ha vivido en otro lugar por más de un año,<br> Escriba la ciudad y el país, seguido por cuantos años ha vivido en ese lugar.
+          Si ha vivido en otro lugar por más de un año,<br> escriba la ciudad y el país, seguido por cuantos años ha vivido en ese lugar.
         </p>
         <textarea id="places_lived" rows="3" cols="50"></textarea><br>
         <p>
@@ -308,7 +331,7 @@
 
     <!-- progress bar -->
     <div class="progress">
-      <span>Progress:</span>
+      <span>Progreso:</span>
       <div class="bar-wrapper">
         <div class="bar" style="width: 0%"></div>
       </div>

@@ -18,8 +18,7 @@ function make_slides(f) {
     start: function() {
       // hide error message
       $('.err').hide();
-      // this.init_sliders(); // this calls the function pasted below to initialize the slider
-      // exp.sliderPost = null;  //this erases the current slider value
+
     },
 
     // this is executed when the participant clicks the "Continue button"
@@ -27,12 +26,37 @@ function make_slides(f) {
       exp.go();
     },
 
-      // this initializes the slider
-    init_sliders : function() {
-    utils.make_slider("#felicity_rating", function(event, ui) {
-      exp.sliderPost = ui.value;
-    });
+    button: function() {
+      this.felicity = exp.felicityPost;
+      this.affect = exp.affectPost;
+      if ((this.felicity) && (this.affect)){
+        this.log_responses();
+        // exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
+        _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
+      } else {
+        $('.err').show();
+      }
     },
+
+
+    // this initializes the slider
+    init_sliders : function() {
+      utils.make_slider("#affect_slider_ex_one", function(event, ui) {
+        exp.affectPost = ui.value;
+      });
+      utils.make_slider("#felicity_slider_ex_one", function(event,ui) {
+        exp.felicityPost = ui.value;
+      });
+    },
+
+
+
+      // this initializes the slider
+    // init_sliders : function() {
+    // utils.make_slider("#felicity_rating", function(event, ui) {
+    //   exp.sliderPost = ui.value;
+    // });
+    // },
 
     log_responses: function() {
       // add response to exp.data_trials
@@ -43,7 +67,8 @@ function make_slides(f) {
         "response": this.radio,
         "strangeSentence": "",
         "sentence": "",
-        // "response_slider": exp.sliderPost,
+        "felicity_rating": this.felicity,
+        "affect_rating": this.affect,
       });
     },
   });
@@ -128,8 +153,7 @@ function make_slides(f) {
       this.stim = stim;
       var speaker_name = this.stim.SpeakName;
       var referent_name = this.stim.RefName
-      // this.init_sliders();
-      // exp.sliderPost=null;
+
 
       // extract original and sentence with "but not all"
       var original_sentence = stim.EntireSentence;
@@ -185,6 +209,7 @@ function make_slides(f) {
     // save response
     log_responses: function() {
       exp.data_trials.push({
+        "item": this.stim.Item,
         "sentence": this.stim.ButNotAllSentence,
         "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
         "felicity_rating": this.felicity,
@@ -192,7 +217,6 @@ function make_slides(f) {
         "condition" : this.stim.Condition,
         "item_type" : this.stim.ItemType,
         "definite_article": this.stim.DefiniteArticle,
-        "item": this.stim.Item,
         "referent_name": this.stim.RefName,
         "referent_gender": this.stim.RefGen,
         "speaker_name": this.stim.SpeakName,
