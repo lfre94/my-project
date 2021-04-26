@@ -16,7 +16,7 @@ function make_slides(f) {
 
     // this is executed when the slide is shown
     start: function() {
-      // hide error message
+      // hide error message and call sliders
       $('.err').hide();
 
       this.init_sliders();
@@ -29,13 +29,11 @@ function make_slides(f) {
     },
 
     button: function() {
+      //checks for a felicity rating less than .5 (i.e. label > "muy raro")
       this.felicity = exp.felicityPost;
-      this.affect = exp.affectPost;
-      // if ((this.felicity) && (this.affect)){
       if ((this.felicity != null) && (this.felicity < .5)){
         this.log_responses();
         exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
-        // _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
       } else {
         $('.err').show();
       }
@@ -44,9 +42,6 @@ function make_slides(f) {
 
     // this initializes the slider
     init_sliders : function() {
-      // utils.make_slider("#affect_slider_ex_one", function(event, ui) {
-      //   exp.affectPost = ui.value;
-      // });
       utils.make_slider("#felicity_slider_ex_one", function(event,ui) {
         exp.felicityPost = ui.value;
       });
@@ -59,11 +54,7 @@ function make_slides(f) {
       exp.data_trials.push({
         "slide_number_in_experiment": exp.phase,
         "id": "example1",
-        "response": this.radio,
-        "strangeSentence": "",
-        "sentence": "",
         "felicity_rating": this.felicity,
-        // "affect_rating": this.affect,
       });
     },
   });
@@ -74,7 +65,7 @@ function make_slides(f) {
 
 // this is executed when the slide is shown
     start: function() {
-      // hide error message
+      // hide error message and call sliders
       $('.err').hide();
 
       this.init_sliders();
@@ -87,13 +78,11 @@ function make_slides(f) {
     },
 
     button: function() {
-      // this.felicity = exp.felicityPost;
+    //checks for an affect rating greater than .5 (i.e. label > "muy positivo")  
       this.affect = exp.affectPost;
-      // if ((this.felicity) && (this.affect)){
       if ((this.affect != null) && (this.affect > .5)){
         this.log_responses();
-        exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
-        // _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
+        exp.go();
       } else {
         $('.err').show();
       }
@@ -105,9 +94,6 @@ function make_slides(f) {
       utils.make_slider("#affect_slider_ex_two", function(event, ui) {
         exp.affectPost = ui.value;
       });
-      // utils.make_slider("#felicity_slider_ex_two", function(event,ui) {
-      //   exp.felicityPost = ui.value;
-      // });
     },
 
 
@@ -117,10 +103,6 @@ function make_slides(f) {
       exp.data_trials.push({
         "slide_number_in_experiment": exp.phase,
         "id": "example2",
-        "response": this.radio,
-        "strangeSentence": "",
-        "sentence": "",
-        // "felicity_rating": this.felicity,
         "affect_rating": this.affect,
       });
     },
@@ -132,13 +114,27 @@ function make_slides(f) {
     name: "example3",
 
     start: function() {
-      // hide error message
+      // hide error message and call sliders
       $(".err").hide();
+      this.init_sliders();
     },
 
     // handle button click
     button: function() {
+    //checks for an affect rating less than .5 (i.e. label > "muy negativo")
+    this.affect = exp.affectPost;
+    if ((this.affect != null) && (this.affect < .5)){
+      this.log_responses();
       exp.go();
+    } else {
+      $('.err').show()
+    }
+  },
+
+    init_sliders : function() {
+      utils.make_slider("#affect_slider_ex_three", function(event, ui) {
+        exp.affectPost = ui.value;
+      });
     },
 
 
@@ -147,8 +143,9 @@ function make_slides(f) {
         "slide_number_in_experiment": exp.phase,
         "id": "example3",
         "response": this.radio,
+        "affect_rating": this.affect,
       });
-    }
+    },
   });
 
   // set up slide with instructions for main experiment
@@ -161,63 +158,6 @@ function make_slides(f) {
     },
   });
 
-  // slides.example3= slide({
-  // name: "example3",
-
-  // // this is executed when the slide is shown
-  //   start: function() {
-  //     // hide error message
-  //     $('.err').hide();
-
-  //     this.init_sliders();
-
-  //   },
-
-  //   // this is executed when the participant clicks the "Continue button"
-  //   button: function() {
-  //     exp.go();
-  //   },
-
-  //   button: function() {
-  //     // this.felicity = exp.felicityPost;
-  //     this.affect = exp.affectPost;
-  //     // if ((this.felicity) && (this.affect)){
-  //     if ((this.affect) && (this.affect < .5)){
-  //       this.log_responses();
-  //       exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
-  //       // _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
-  //     } else {
-  //       $('.err').show();
-  //     }
-  //   },
-
-
-  //   // this initializes the slider
-  //   init_sliders : function() {
-  //     utils.make_slider("#affect_slider_ex_three", function(event, ui) {
-  //       exp.affectPost = ui.value;
-  //     });
-  //     // utils.make_slider("#felicity_slider_ex_two", function(event,ui) {
-  //     //   exp.felicityPost = ui.value;
-  //     // });
-  //   },
-
-
-  //   log_responses: function() {
-  //     // add response to exp.data_trials
-  //     // this data will be submitted at the end of the experiment
-  //     exp.data_trials.push({
-  //       "slide_number_in_experiment": exp.phase,
-  //       "id": "example3",
-  //       "response": this.radio,
-  //       "strangeSentence": "",
-  //       "sentence": "",
-  //       // "felicity_rating": this.felicity,
-  //       "affect_rating": this.affect,
-  //     });
-  //   },
-  // });
-
   slides.trial = slide({
     name: "trial",
 
@@ -229,11 +169,6 @@ function make_slides(f) {
       exp.affectPost = null;
       exp.felicityPost = null;
 
-      // unselect all radio buttons at the beginning of each trial
-      // (by default, the selection of the radio persists across trials)
-      $("input[name='number']:checked").prop("checked", false);
-      $("#check-strange").prop("checked", false);
-
       // store stimulus data
       this.stim = stim;
       var speaker_name = this.stim.SpeakName;
@@ -242,23 +177,13 @@ function make_slides(f) {
 
       // extract original and sentence with "but not all"
       var original_sentence = stim.EntireSentence;
-      var target_sentence = stim.ButNotAllSentence;
+      var target_sentence = stim.TargetSentence;
 
       //handle display of context
-      // if (exp.condition == "context") {
-      //   // extract context data
-        var contexthtml = stim.Context;
-      //   // reformat the speaker information for context
-      //   contexthtml = contexthtml.replace(/Speaker A:/g, "<b>Speaker #1:</b>");
-      //   contexthtml = contexthtml.replace(/Speaker B:/g, "<b>Speaker #2:</b>");
-      //   $(".case").html(contexthtml);
-      // } else {
-      //   var contexthtml = "";
-        $(".case").html(contexthtml);
-      // }
+      var contexthtml = stim.Context;
+      $(".case").html(contexthtml);
 
       // replace the placeholder in the HTML document with the relevant sentences for this trial
-      $("#trial-originalSen").html(original_sentence);
       $("#trial-targetSen").html(target_sentence);
       $("#speaker_name").html(speaker_name);
       $("#referent_name").html(referent_name);
@@ -275,7 +200,6 @@ function make_slides(f) {
       this.affect = exp.affectPost;
       if ((this.felicity != null) && (this.affect != null)){
         this.log_responses();
-        // exp.go(); //use exp.go() if and only if there is no "present"ed data, ie no list of stimuli.
         _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
       } else {
         $('.err').show();
@@ -295,7 +219,7 @@ function make_slides(f) {
     log_responses: function() {
       exp.data_trials.push({
         "item": this.stim.Item,
-        "sentence": this.stim.ButNotAllSentence,
+        "sentence": this.stim.TargetSentence,
         "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
         "felicity_rating": this.felicity,
         "affect_rating" : this.affect,

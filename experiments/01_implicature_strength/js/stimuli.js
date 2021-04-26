@@ -12,7 +12,7 @@ var all_stims =
     "SpeakName":"Esmeralda",
     "SpeakGen": "fem",
     "Context": "Esmeralda es una recepcionista en un salón de belleza. Saluda a una cliente llamada Lina y confirma que Lina hizo una cita por teléfono. Esta es la primera vez que Lina visita este salón de belleza. Cuando Lina llega a su cita, Esmeralda va con la estilista encargada y le dice:",
-    "ButNotAllSentence": '"La Lina está aquí."'
+    "TargetSentence": '"La Lina está aquí."'
     },  {
     "TGrep": "37224:9",
     "Item": "hairsalon_neutralCG_DA",
@@ -24,7 +24,7 @@ var all_stims =
     "SpeakName":"Esmeralda",
     "SpeakGen": "fem",
     "Context": "Esmeralda es una recepcionista en un salón de belleza. Saluda a una cliente llamada Lina y confirma que Lina hizo una cita por teléfono. Lina ha visitado este salón de belleza muchas veces. Cuando Lina llega a su cita, Esmeralda va con la estilista encargada y le dice:",
-    "ButNotAllSentence": '"La Lina está aquí."'
+    "TargetSentence": '"La Lina está aquí."'
     },  {
     "TGrep": "37224:9",
     "Item": "hairsalon_positive_DA",
@@ -36,7 +36,7 @@ var all_stims =
     "SpeakName":"Esmeralda",
     "SpeakGen": "fem",
     "Context": "Esmeralda es una recepcionista en un salón de belleza. Saluda a una cliente llamada Lina y confirma que Lina hizo una cita por teléfono. Lina ha visitado este salón de belleza muchas veces y es amiga con los empleados. Cuando Lina llega a su cita, Esmeralda va con la estilista encargada y le dice:",
-    "ButNotAllSentence": '"La Lina está aquí."'
+    "TargetSentence": '"La Lina está aquí."'
     },  {
     "TGrep": "37224:9",
     "Item": "hairsalon_negative_DA",
@@ -48,7 +48,7 @@ var all_stims =
     "SpeakName":"Esmeralda",
     "SpeakGen": "fem",
     "Context": "Esmeralda es una recepcionista en un salón de belleza. Saluda a una cliente llamada Lina y confirma que Lina hizo una cita por teléfono. Lina ha visitado este salón de belleza muchas veces y no se lleva bien con los empleados. Cuando Lina llega a su cita, Esmeralda va con la estilista encargada y le dice:",
-    "ButNotAllSentence": '"La Lina está aquí."'
+    "TargetSentence": '"La Lina está aquí."'
       },  {
     "TGrep": "37224:9",
     "Item": "hairsalon_neutralNoCG_noDA",
@@ -60,7 +60,7 @@ var all_stims =
     "SpeakName":"Esmeralda",
     "SpeakGen": "fem",
     "Context": "Esmeralda es una recepcionista en un salón de belleza. Saluda a una cliente llamada Lina y confirma que Lina hizo una cita por teléfono. Esta es la primera vez que Lina visita este salón de belleza. Cuando Lina llega a su cita, Esmeralda va con la estilista encargada y le dice:",
-    "ButNotAllSentence": '"Lina está aquí."'
+    "TargetSentence": '"Lina está aquí."'
     },  {
     "TGrep": "37224:9",
     "Item": "hairsalon_neutralCG_noDA",
@@ -72,7 +72,7 @@ var all_stims =
     "SpeakName":"Esmeralda",
     "SpeakGen": "fem",
     "Context": "Esmeralda es una recepcionista en un salón de belleza. Saluda a una cliente llamada Lina y confirma que Lina hizo una cita por teléfono. Lina ha visitado este salón de belleza muchas veces. Cuando Lina llega a su cita, Esmeralda va con la estilista encargada y le dice:",
-    "ButNotAllSentence": '"Lina está aquí."'
+    "TargetSentence": '"Lina está aquí."'
     },  {
     "TGrep": "37224:9",
     "Item": "hairsalon_positive_noDA",
@@ -84,7 +84,7 @@ var all_stims =
     "SpeakName":"Esmeralda",
     "SpeakGen": "fem",
     "Context": "Esmeralda es una recepcionista en un salón de belleza. Saluda a una cliente llamada Lina y confirma que Lina hizo una cita por teléfono. Lina ha visitado este salón de belleza muchas veces y es amiga con los empleados. Cuando Lina llega a su cita, Esmeralda va con la estilista encargada y le dice:",
-    "ButNotAllSentence": '"Lina está aquí."'
+    "TargetSentence": '"Lina está aquí."'
     },  {
     "TGrep": "37224:9",
     "Item": "hairsalon_negative_noDA",
@@ -96,5 +96,5 @@ var all_stims =
     "SpeakName":"Esmeralda",
     "SpeakGen": "fem",
     "Context": "Esmeralda es una recepcionista en un salón de belleza. Saluda a una cliente llamada Lina y confirma que Lina hizo una cita por teléfono. Lina ha visitado este salón de belleza muchas veces y no se lleva bien con los empleados. Cuando Lina llega a su cita, Esmeralda va con la estilista encargada y le dice:",
-    "ButNotAllSentence": '"Lina está aquí."'
+    "TargetSentence": '"Lina está aquí."'
   }]
