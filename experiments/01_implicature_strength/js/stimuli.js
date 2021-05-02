@@ -1,10 +1,12 @@
 // data for all stimuli in the form of a list of JavaScript objects
 
 var all_stims =
+
+
   [{
     "TGrep": "37224:9",
     "Item": "hairsalon_neutralNoCG_DA",
-    "ItemType": "hair salon",
+    "ItemType": "hairsalon",
     "Condition": "neutral_noCG",
     "DefiniteArticle": true,
     "RefName": "Lina",

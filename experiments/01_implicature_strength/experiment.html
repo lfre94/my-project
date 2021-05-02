@@ -57,9 +57,23 @@
         <strong><br>
         <br>
         <br>
-        LEGAL INFORMATION</strong>:<br>
+        INFORMACIÓN LEGAL</strong>:<br>
         <br>
-        IF APPLICABLE, MAKE SURE TO INCLUDE YOUR IRB CONSENT FORM HERE.
+        Lo invitamos a participar en un estudio de producción y comprensión del lenguaje. El experimentador le pedirá realizar una tarea lingüística tal como leer oraciones o palabras, nombrar imágenes o describir escenas, inventar oraciones propias o participar en juegos lingüísticos simples.
+        <br><br>
+        Este estudio no involucra riesgos ni beneficios de ninguna clase.
+        <br><br>
+        Será compensado por su participación con la cantidad especificada.
+        <br><br>
+        Si ha leído este formulario y ha decidido participar en este experimento, por favor comprenda que su participación es voluntaria y usted tiene el derecho de retirar su consentimiento o suspender su participación en cualquier momento, sin recibir sanción alguna ni perder los beneficios que le corresponden. Usted tiene el derecho de negarse a realizar cualquier tarea en particular. Su privacidad será mantenida en todas las publicaciones y escritos que sean resultado de este estudio. Puede imprimir este formulario para sus registros.
+        <br><br>
+        <strong>CONTACTO:</strong><br><br>
+        Si tiene preguntas, preocupaciones o reclamos acerca de este estudio, sus procedimientos, riesgos y beneficios, por favor comuníquese con la Directora de Protocolo Meghan Sumner al (650)-725-9336. 
+        <br><br>
+        Si no está satisfecho con la forma en que este estudio está siendo llevado a cabo, o si tiene alguna preocupación, reclamo o preguntas en general acerca de la investigación o sus derechos como participante, por favor contáctese con la Junta de Revisión Institucional de Stanford (Stanford IRB) al (650)-723-2480, o sin costo al 1-866-680-2906, para hablar con alguna persona independiente del equipo de investigación. También puede escribir al Stanford IRB, Stanford University, 3000 El Camino Real, Five Palo Alto Square, 4th Floor, Palo Alto, CA 94306 USA. 
+        <br>
+        <br>
+        Si acepta participar, por favor proceda al estudio.
       </p>
     </div>
 
@@ -163,7 +177,7 @@
       <br>
       <br>
       <p id="instruct-text" class="left">
-        ¡Muy bien! Ahora podemos comenzar el experimento real. <strong>Se le presentarán 24 escenas. Su tarea es contestar dos preguntas sobre lo que se ha dicho en estas conversaciones.</strong> Primero, tiene que evaluar si la frase en azul le parece extraña o natural. Segundo, tiene que evaluar si la persona que ha dicho la frase en azul expresa una actitud positiva o negativa. 
+        ¡Muy bien! Ahora podemos comenzar el experimento real. <strong>Se le presentarán 24 escenas. Su tarea es contestar dos preguntas sobre lo que se ha dicho en estas conversaciones.</strong> Primero, tiene que evaluar si la frase en azul le parece extraña o natural. Segundo, tiene que evaluar si la persona que ha dicho la frase en azul expresa una actitud positiva o negativa. Cuando este listo/a para comenzar, por favor haga clic en el botón que dice "Siguiente."
       </p>
       <div class="center">
         <button class="continueButton" onclick="_s.button()">Siguiente</button>
@@ -205,10 +219,10 @@
           Información adicional
         </div>
         <p class="info">
-          Favor de responder a las siguientes preguntas.<br>Sus respuestas nos ayudarán a entender las diferencias lingüísticas en el mundo hispanohablante.
+          Favor de responder a las siguientes preguntas. Sus respuestas nos ayudarán a entender las diferencias lingüísticas en el mundo hispanohablante. <strong>Escriba <i>NA</i> para cualquier pregunta que prefiera no responder.</strong>
         </p>
         <p>
-          Género: <select id="gender">
+          Género*: <select id="gender">
             <option value="">
             </option>
             <option value="Male">
@@ -223,13 +237,16 @@
             <option value="Other">
               Otro
             </option>
+            <option value="PreferNA">
+              Prefiero no responder
+            </option>
           </select>
         </p>
         <p>
-          Edad: <input type="text" id="age">
+          Edad*: <input type="text" id="age">
         </p>
         <p>
-          Nivel de educación: <select id="education">
+          Nivel de educación*: <select id="education">
             <option value="-1">
             </option>
             <option value="0">
@@ -247,21 +264,24 @@
             <option value="4">
               Posgrado
             </option>
+            <option value="PreferNA">
+              Prefiero no responder
+            </option>
           </select>
         </p>
         <p>
-          Idioma principal: <input type="text" id="language">
+          Idioma principal*: <input type="text" id="language">
         </p><label>(que idioma(s) se hablaban en su casa cuando era niño/a)</label>
         <p>
           <p>
-          Ciudad y país de origen: <input type="text" id="region">
+          Ciudad y país de origen*: <input type="text" id="region">
         </p>
         <p>
           Si ha vivido en otro lugar por más de un año,<br> escriba la ciudad y el país, seguido por cuantos años ha vivido en ese lugar.
         </p>
         <textarea id="places_lived" rows="3" cols="50"></textarea><br>
         <p>
-          ¿Con que frecuencia dice <i>el</i> o <i>la</i> antes de un nombre?<br>(Por ejemplo: El Juan, La María, etc.)
+          ¿Con que frecuencia dice <i>el</i> o <i>la</i> antes de un nombre?*<br>(Por ejemplo: El Juan, La María, etc.)
         </p><select id="reported_usage">
             <option value="-1">
             </option>
@@ -280,15 +300,18 @@
             <option value="4">
               No sé
             </option>
+            <option value="PreferNA">
+              Prefiero no responder
+            </option>
           </select>
         </p>
         <p>
           Opcional: Si respondió que sí a la pregunta previa, ¿en que contextos usa <i>el</i> o <i>la</i> antes de un nombre?<br>(Por ejemplo: El Juan, La María, etc.)
         </p>
-        <textarea id="language_attitude" rows="3" cols="50"></textarea><br>
+        <textarea id="usage_description" rows="3" cols="50"></textarea><br>
         <p>
         <p>
-          ¿Con que frecuencia escucha que <strong>OTROS</strong> digan <i>el</i> o <i>la</i> antes de un nombre?<br>(Por ejemplo: El Juan, La María, etc.)
+          ¿Con que frecuencia escucha que <strong>OTROS</strong> digan <i>el</i> o <i>la</i> antes de un nombre?*<br>(Por ejemplo: El Juan, La María, etc.)
         </p><select id="reported_familiarity">
             <option value="-1">
             </option>
@@ -306,6 +329,9 @@
             </option>
             <option value="4">
               No sé
+            </option>
+            <option value="PreferNA">
+              Prefiero no responder
             </option>
           </select>
         </p>
@@ -335,6 +361,9 @@
           <option value="2">
             Fue mejor que un experimento normal
           </option>
+          <option value="PreferNA">
+              Prefiero no responder
+          </option>
         </select>
         <p>
           ¿Cree que el pago fue justo?
@@ -347,11 +376,15 @@
           <option value="1">
             El pago fue justo
           </option>
+          <option value="PreferNA">
+              Prefiero no responder
+          </option>
         </select>
         <p>
           Si tiene cualquier otro comentario sobre este experimento, por favor escríbalo aquí:
         </p>
         <textarea id="comments" rows="3" cols="50"></textarea><br><br>
+        <br><div class="err">Por favor complete todas las preguntas marcadas con un asterisco (*).</div><br>
         <button onclick="_s.submit()">Concluir</button>
       </div>
     </div>

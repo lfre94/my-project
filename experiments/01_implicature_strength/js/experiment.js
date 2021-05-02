@@ -142,7 +142,6 @@ function make_slides(f) {
       exp.data_trials.push({
         "slide_number_in_experiment": exp.phase,
         "id": "example3",
-        "response": this.radio,
         "affect_rating": this.affect,
       });
     },
@@ -237,23 +236,42 @@ function make_slides(f) {
   // slide to collect subject information
   slides.subj_info = slide({
     name: "subj_info",
+    
+    start: function(){
+      
+      $('.err').hide();
+
+    },
+
     submit: function(e) {
+
+      if (($("#gender").val()) && ($("#age").val()) && ($("#language").val()) && ($("#education").val()) && 
+        ($("#region").val()) && ($("#reported_usage").val()) && ($("#reported_familiarity").val())) {
+
       exp.subj_data = {
-        language: $("#language").val(),
-        enjoyment: $("#enjoyment").val(),
-        asses: $('input[name="assess"]:checked').val(),
-        age: $("#age").val(),
         gender: $("#gender").val(),
+        age: $("#age").val(),
         education: $("#education").val(),
+        language: $("#language").val(),
+        region: $("#region").val(),
         places_lived: $("#places_lived").val(),
         reported_usage: $("#reported_usage").val(),
+        usage_description: $("#usage_description").val(),
         reported_familiarity: $("#reported_familiarity").val(),
         language_attitude: $("#language_attitude").val(),
+        asses: $('input[name="assess"]:checked').val(),
+        enjoyment: $("#enjoyment").val(),
         fairprice: $("#fairprice").val(),
         comments: $("#comments").val()
       };
       exp.go(); //use exp.go() if and only if there is no "present" data.
+    } else {
+
+      $('.err').show();
+
     }
+
+  }
   });
 
   //
