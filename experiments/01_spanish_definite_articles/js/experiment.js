@@ -52,9 +52,20 @@ function make_slides(f) {
       // add response to exp.data_trials
       // this data will be submitted at the end of the experiment
       exp.data_trials.push({
-        "slide_number_in_experiment": exp.phase,
-        "id": "example1",
+
+        "trial_type":"example1",
+        "item_type" : "example1",
+        "sentence": "“Pilar, también trae las galletas.”",
+        "context": "Karlita tiene 10 años y está viendo la televisión con su madre, Pilar. Su mamá se levanta y va a la cocina a traer comida. Karlita le dice:",
+        "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
         "felicity_rating": this.felicity,
+        "affect_rating" : "NA",
+        "condition" : "felicity_test",
+        "speaker_name": "Karlita",
+        "speaker_gender": "fem",
+        "referent_name": "Pilar",
+        "referent_gender": "fem",
+
       });
     },
   });
@@ -101,9 +112,20 @@ function make_slides(f) {
       // add response to exp.data_trials
       // this data will be submitted at the end of the experiment
       exp.data_trials.push({
-        "slide_number_in_experiment": exp.phase,
-        "id": "example2",
-        "affect_rating": this.affect,
+
+        "trial_type":"example2",
+        "item_type" : "example2",
+        "sentence": "“Corazoncito, también trae las galletas.”",
+        "context": "Ahora Pilar está viendo la televisión con su esposo, Marcel. Él se levanta y va a la cocina a traer comida. Pilar le dice:",
+        "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
+        "felicity_rating": "NA",
+        "affect_rating" : this.affect,
+        "condition" : "positive_affect_test",
+        "speaker_name": "Pilar",
+        "speaker_gender": "fem",
+        "referent_name": "Marcel",
+        "referent_gender": "masc",
+
       });
     },
   });
@@ -140,9 +162,20 @@ function make_slides(f) {
 
     log_responses: function() {
       exp.data_trials.push({
-        "slide_number_in_experiment": exp.phase,
-        "id": "example3",
-        "affect_rating": this.affect,
+
+        "trial_type":"example3",
+        "item_type" : "example3",
+        "sentence": "“Ese tonto estará allí.”",
+        "context": "Pilar le está platicando a Marcel sobre un colega, que se llama Marco Antonio. Él la fastidia mucho. Marcel le pregunta a Pilar si Marco Antonio viene a la reunión laboral mañana. Pilar le responde:",
+        "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
+        "felicity_rating": "NA",
+        "affect_rating" : this.affect,
+        "condition" : "negative_affect_test",
+        "speaker_name": "Pilar",
+        "speaker_gender": "fem",
+        "referent_name": "Marco Antonio",
+        "referent_gender": "masc",
+
       });
     },
   });
@@ -175,24 +208,27 @@ function make_slides(f) {
 
       if (stim.TrialType == 'critical') {
       var trial_condition = exp.conditions.pop();
+      exp.condition_save = trial_condition
       } else {
       var trial_condition = 'filler'
+      exp.condition_save = this.stim.condition
       };
-
+      console.log('***')
+      console.log('item:', this.stim.ItemType)
       console.log('condition:', trial_condition);
 
-      var target_sentence = this.stim[trial_condition+'_target_sentence'];
-      console.log('sentence:', target_sentence);
+      exp.target_sentence = this.stim[trial_condition+'_target_sentence'];
+      console.log('sentence:', exp.target_sentence);
 
 
       //handle display of context
       // var contexthtml = stim.Context;
-      var contexthtml = this.stim[trial_condition+'_context'];
-      console.log('context:', contexthtml);
-      $(".case").html(contexthtml);
+      exp.contexthtml = this.stim[trial_condition+'_context'];
+      console.log('context:', exp.contexthtml);
+      $(".case").html(exp.contexthtml);
 
       // replace the placeholder in the HTML document with the relevant sentences for this trial
-      $("#trial-targetSen").html(target_sentence);
+      $("#trial-targetSen").html(exp.target_sentence);
       $("#speaker_name").html(speaker_name);
       $("#referent_name").html(referent_name);
       $("#speaker_name_two").html(speaker_name);
@@ -228,35 +264,16 @@ function make_slides(f) {
       exp.data_trials.push({
         "trial_type":this.stim.TrialType,
         "item_type" : this.stim.ItemType,
-        // "item": this.stim.Item,
-        // "sentence": this.stim.TargetSentence,
+        "sentence": exp.target_sentence,
+        "context": exp.contexthtml,
         "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
         "felicity_rating": this.felicity,
         "affect_rating" : this.affect,
-        "condition" : this.stim.condition,
-        // "definite_article": this.stim.DefiniteArticle,
+        "condition" : exp.condition_save,
         "referent_name": this.stim.RefName,
         "referent_gender": this.stim.RefGen,
         "speaker_name": this.stim.SpeakName,
         "speaker_gender": this.stim.SpeakGen,
-
-        // "neutralNoCG_DA_context":this.stim.neutralNoCG_DA_context,
-        // "neutralNoCG_DA_target_sentence":this.stim.neutralNoCG_DA_target_sentence,
-        // "neutralCG_DA_context":this.stim.neutralCG_DA_context,
-        // "neutralCG_DA_target_sentence":this.stim.neutralCG_DA_target_sentence,
-        // "positive_DA_context":this.stim.positive_DA_context,
-        // "positive_DA_target_sentence":this.stim.positive_DA_target_sentence,
-        // "negative_DA_context":this.stim.negative_DA_context,
-        // "negative_DA_target_sentence":this.stim.negative_DA_target_sentence,
-
-        // "neutralNoCG_noDA_context":this.stim.neutralNoCG_noDA_context,
-        // "neutralNoCG_noDA_target_sentence":this.stim.neutralNoCG_noDA_target_sentence,
-        // "neutralCG_noDA_context":this.stim.neutralCG_noDA_context,
-        // "neutralCG_noDA_target_sentence":this.stim.neutralCG_noDA_target_sentence,
-        // "positive_noDA_context":this.stim.positive_noDA_context,
-        // "positive_noDA_target_sentence":this.stim.positive_noDA_target_sentence,
-        // "negative_noDA_context":this.stim.negative_noDA_context,
-        // "negative_noDA_target_sentence":this.stim.negative_noDA_target_sentence,
 
       });
     },
@@ -359,7 +376,7 @@ function init() {
 
   exp.data_trials = [];
 
-  exp.conditions = _.shuffle(['neutralNoCG_DA','neutralCG_DA','positive_DA','negative_DA','neutralNoCG_noDA','neutralCG_noDA','positive_noDA','negative_noDA']);
+  exp.conditions = _.shuffle(['neutralNoCG_DA','neutralCG_DA','positive_DA','negative_DA','neutralNoCG_noDA','neutralCG_noDA','positive_noDA','negative_noDA','neutralNoCG_DA','neutralCG_DA','positive_DA','negative_DA','neutralNoCG_noDA','neutralCG_noDA','positive_noDA','negative_noDA','neutralNoCG_DA','neutralCG_DA','positive_DA','negative_DA','neutralNoCG_noDA','neutralCG_noDA','positive_noDA','negative_noDA']);
 
   //make corresponding slides:
   exp.slides = make_slides(exp);
