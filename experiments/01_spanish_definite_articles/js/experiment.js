@@ -149,7 +149,7 @@ function make_slides(f) {
     exp.attention = $('input[name="attn_check_example"]:checked').val();
     //checks for an affect rating less than .5 (i.e. label > "muy negativo")
     this.affect = exp.affectPost;
-    if ((this.affect != null) && (this.affect < .5) && (exp.attention = "Yes")){
+    if ((this.affect != null) && (this.affect < .5) && (exp.attention == "Yes")){
       this.log_responses();
       exp.go();
     } else {
