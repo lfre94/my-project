@@ -51,7 +51,7 @@
       <p class="left">
         Va a leer escenas ficticias que abarcan una variedad de temas cotidianos. Cada escena consiste de una conversación. <strong>Su tarea es contestar dos preguntas sobre lo que se ha dicho en estas conversaciones.</strong><br>
         <br>
-        El experimento le tomara aproximadamente 30 minutos. ¡Empecemos con unos ejemplos!
+        El experimento le tomará aproximadamente 30 minutos. ¡Empecemos con unos ejemplos!
       </p><button id="start_button" type="button">Comenzar experimento</button>
       <p class="left legal">
         <strong><br>
@@ -147,7 +147,7 @@
         Ejemplo 3: ¿Positivo o negativo?
       </h3>
       <p class="left">
-        Aquí tenemos un último ejemplo con respecto las actitudes positivas y negativas. 
+        Aquí tenemos un último ejemplo con respecto las actitudes positivas y negativas. También para cada escena, se le hará una pregunta breve sobre el contexto. 
         <br><br>
       </p>
       <!-- placeholders for contexts -->
@@ -159,6 +159,10 @@
       <p class="targetSen" id="example3_target">
         “Ese tonto estará allí.” 
       </p>
+      <div class="instruction">
+        ¿Marcel conoce a Marco Antonio?
+        <label><input type="radio" name="attn_check_example" value="No">No</label> <label><input type="radio" name="attn_check_example" value="Yes">Sí</label>
+      </div>
        <div class="instruction">
         <i>¿Usted piensa que <strong>Pilar</strong> expresa una actitud positiva o negativa hacia <strong>Marco Antonio</strong>? (La frase en azul.)</i>
       </div>
@@ -177,7 +181,7 @@
       <br>
       <br>
       <p id="instruct-text" class="left">
-        ¡Muy bien! Ahora podemos comenzar el experimento real. <strong>Se le presentarán 22 escenas. Su tarea es contestar dos preguntas sobre lo que se ha dicho en estas conversaciones.</strong> Primero, tiene que evaluar si la frase en azul le parece extraña o natural. Segundo, tiene que evaluar si la persona que ha dicho la frase en azul expresa una actitud positiva o negativa. Cuando este listo/a para comenzar, por favor haga clic en el botón que dice "Siguiente."
+        ¡Muy bien! Ahora podemos comenzar el experimento real. <strong>Se le presentarán 24 escenas. Su tarea es contestar TRES preguntas sobre lo que se ha dicho en estas conversaciones.</strong> Primero, tiene que contestar una breve pregunta sobre la escena. Segundo, tiene que evaluar si la frase en azul le parece extraña o natural. Tercero, tiene que evaluar si la persona que ha dicho la frase en azul expresa una actitud positiva o negativa. Cuando este listo/a para comenzar, por favor haga clic en el botón que dice "Siguiente."
       </p>
       <div class="center">
         <button class="continueButton" onclick="_s.button()">Siguiente</button>
@@ -195,6 +199,10 @@
         {{target sentence}}
       </p>
       <div class="instruction">
+        ¿<span id="addressee_name">{{addressee_name}}</span> conoce a <span id="referent_name_two">{{referent_name}}</span>?
+        <label><input type="radio" name="attn_check" value="No">No</label> <label><input type="radio" name="attn_check" value="Yes">Sí</label>
+      </div>
+      <div class="instruction">
         <i>Imagínese que <strong><span id="speaker_name">{{speaker_name}}</span></strong> es de la misma comunidad que usted. ¿Cómo le parece lo que ha dicho? (La frase en azul.)</i>
       </div>
       <table class="slider_table">
@@ -209,7 +217,7 @@
       <button class ="continueButton" onclick="_s.button()">Siguiente</button>
         <br>
         <br>
-        <div class="err">Por favor ajuste las DOS escalas antes de continuar.</div>
+        <div class="err">Por favor conteste las tres preguntas antes de continuar.</div>
     </div>
 
     <!-- subject information slide -->

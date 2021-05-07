@@ -32,6 +32,8 @@ var all_stims =
 
     "SpeakName":"Esmeralda",
     "SpeakGen": "fem",
+    "AddName": "La estilista encargada",
+    "AddGen": "fem", 
     "RefName": "Lina",
     "RefGen": "fem",
     "TrialType": "critical",
@@ -65,6 +67,8 @@ var all_stims =
 
     "SpeakName":"Miguel Ángel",
     "SpeakGen": "masc",
+    "AddName": "El primo",
+    "AddGen": "masc",
     "RefName": "Carmen",
     "RefGen": "fem",
     "TrialType": "critical",
@@ -98,6 +102,8 @@ var all_stims =
 
     "SpeakName":"David",
     "SpeakGen": "masc",
+    "AddName": "La mamá",
+    "AddGen": "fem",
     "RefName": "Antonio",
     "RefGen": "masc",
     "TrialType": "critical",
@@ -131,6 +137,8 @@ var all_stims =
 
     "SpeakName":"María",
     "SpeakGen": "fem",
+    "AddName": "La amiga",
+    "AddGen": "fem",
     "RefName": "Sebastián",
     "RefGen": "masc",
     "TrialType": "critical",
@@ -164,6 +172,8 @@ var all_stims =
 
     "SpeakName":"Ignacio",
     "SpeakGen": "masc",
+    "AddName": "El amigo",
+    "AddGen": "masc",
     "RefName": "Diego",
     "RefGen": "masc",
     "TrialType": "critical",
@@ -197,6 +207,8 @@ var all_stims =
 
     "SpeakName":"Vicente",
     "SpeakGen": "masc",
+    "AddName": "El hermano",
+    "AddGen": "masc",
     "RefName": "Fernando",
     "RefGen": "masc",
     "TrialType": "critical",
@@ -230,6 +242,8 @@ var all_stims =
 
     "SpeakName":"Abril",
     "SpeakGen": "fem",
+    "AddName": "La hermana",
+    "AddGen": "fem",
     "RefName": "Valeria",
     "RefGen": "fem",
     "TrialType": "critical",
@@ -263,6 +277,8 @@ var all_stims =
 
     "SpeakName":"Mariana",
     "SpeakGen": "fem",
+    "AddName": "La hermana",
+    "AddGen": "fem",
     "RefName": "Adrián",
     "RefGen": "masc",
     "TrialType": "critical",
@@ -296,6 +312,8 @@ var all_stims =
 
     "SpeakName":"Gabriela",
     "SpeakGen": "fem",
+    "AddName": "La recepcionista",
+    "AddGen": "fem",
     "RefName": "Tomás",
     "RefGen": "masc",
     "TrialType": "critical",
@@ -329,6 +347,8 @@ var all_stims =
 
     "SpeakName":"Santiago",
     "SpeakGen": "masc",
+    "AddName": "La maestra",
+    "AddGen": "fem",
     "RefName": "Andrea",
     "RefGen": "fem",
     "TrialType": "critical",
@@ -362,6 +382,8 @@ var all_stims =
 
     "SpeakName":"Natalia",
     "SpeakGen": "fem",
+    "AddName": "La amiga",
+    "AddGen": "fem",
     "RefName": "Renata",
     "RefGen": "fem",
     "TrialType": "critical",
@@ -395,6 +417,8 @@ var all_stims =
 
     "SpeakName":"Cristian",
     "SpeakGen": "masc",
+    "AddName": "El tío",
+    "AddGen": "masc",
     "RefName": "Sara",
     "RefGen": "fem",
     "TrialType": "critical",
@@ -407,6 +431,8 @@ var all_stims =
     "condition": "neutralNoCG",
     "SpeakName":"Laura",
     "SpeakGen": "fem",
+    "AddName": "El vendedor ambulante",
+    "AddGen": "masc",
     "RefName": "Armando",
     "RefGen": "masc", 
     "TrialType": "filler"
@@ -419,6 +445,8 @@ var all_stims =
     "condition": "positive",
     "SpeakName":"Ximena",
     "SpeakGen": "fem",
+    "AddName": "La mamá",
+    "AddGen": "fem",
     "RefName": "Miguel",
     "RefGen": "masc", 
     "TrialType": "filler"
@@ -431,6 +459,8 @@ var all_stims =
     "condition": "negative",
     "SpeakName":"Christopher",
     "SpeakGen": "masc",
+    "AddName": "El compañero de cuarto",
+    "AddGen": "masc",
     "RefName": "Felipe",
     "RefGen": "masc", 
     "TrialType": "filler"
@@ -438,11 +468,13 @@ var all_stims =
 
     "ItemType": "sister",
 
-    "filler_context": "Francisco está haciendo una reservación por teléfono en un restaurante. Él quiere mucho a su hermana menor, Karen. Hoy la va a ver por primera vez en más de un año y la quiere invitar a comer a su restaurante favorito. Su mamá escucha a Francisco en el teléfono y cuando él cuelga, ella le pregunta a quién va a invitar a cenar. Francisco le explica:",
+    "filler_context": "Francisco está haciendo una reservación por teléfono en un restaurante. Él quiere mucho a su hermana menor, Karen. Hoy la va a ver por primera vez en más de un año y la quiere invitar a comer a su restaurante favorito. Su papá escucha a Francisco en el teléfono y cuando Francisco cuelga, su papá le pregunta a quién va a invitar a cenar. Francisco le explica:",
     "filler_target_sentence": '“Esta Karen va a llegar hoy.”',
     "condition": "positive",
     "SpeakName":"Francisco",
     "SpeakGen": "masc",
+    "AddName": "El papá",
+    "AddGen": "masc",
     "RefName": "Karen",
     "RefGen": "fem", 
     "TrialType": "filler",
@@ -455,6 +487,8 @@ var all_stims =
     "condition": "neutralCG",
     "SpeakName":"Montserrat",
     "SpeakGen": "fem",
+    "AddName": "La amiga",
+    "AddGen": "fem",
     "RefName": "Julia",
     "RefGen": "fem", 
     "TrialType": "filler",
@@ -467,6 +501,8 @@ var all_stims =
     "condition": "neutralCG",
     "SpeakName":"Rafael",
     "SpeakGen": "masc",
+    "AddName": "El otro carnicero",
+    "AddGen": "masc",
     "RefName": "Florencia",
     "RefGen": "fem", 
     "TrialType": "filler",
@@ -479,6 +515,8 @@ var all_stims =
     "condition": "negative",
     "SpeakName":"Roberto",
     "SpeakGen": "masc",
+    "AddName": "La esposa",
+    "AddGen": "fem",
     "RefName": "Sofía",
     "RefGen": "fem", 
     "TrialType": "filler",
@@ -491,6 +529,8 @@ var all_stims =
     "condition": "neutralNoCG",
     "SpeakName":"Alejandra",
     "SpeakGen": "fem",
+    "AddName": "La cliente",
+    "AddGen": "fem",
     "RefName": "Ana",
     "RefGen": "fem", 
     "TrialType": "filler",
@@ -503,6 +543,8 @@ var all_stims =
     "condition": "positive",
     "SpeakName":"Benjamín",
     "SpeakGen": "masc",
+    "AddName": "El colega",
+    "AddGen": "masc",
     "RefName": "Mateo",
     "RefGen": "masc", 
     "TrialType": "filler",
@@ -515,8 +557,38 @@ var all_stims =
     "condition": "neutralCG",
     "SpeakName":"Jorge",
     "SpeakGen": "masc",
+    "AddName": "El otro empleado",
+    "AddGen": "masc",
     "RefName": "Gabriel",
     "RefGen": "masc", 
+    "TrialType": "filler",
+    },  {
+    
+    "ItemType": "doctor",
+
+    "filler_context": "Carlos es enfermero en una clínica. Una mujer le pregunta si la Dra. Sánchez la puede atender porque es la única doctora que conoce en esta clínica. Como la Dra. Sánchez no se encuentra hoy, la Dra. Carolina Ramírez está atendiendo a todos sus pacientes. Carlos le dice a la mujer:",
+    "filler_target_sentence": '“La Dra. Ramírez la va a atender.” ',
+    "condition": "neutralNoCG",
+    "SpeakName":"Carlos",
+    "SpeakGen": "masc",
+    "AddName": "La mujer",
+    "AddGen": "fem",
+    "RefName": "Carolina",
+    "RefGen": "fem", 
+    "TrialType": "filler",
+    },  {
+    
+    "ItemType": "teacher",
+
+    "filler_context": "Rocío es una maestra y está conversando con otra maestra sobre el nuevo año escolar. Rocío sabe que una de sus estudiantes del año pasado, Vanesa, va a estar en la clase de la otra maestra. La otra maestra todavía no ha conocido a sus nuevos estudiantes. Rocío le dice:",
+    "filler_target_sentence": '“Vanesita va a estar en tu clase.” ',
+    "condition": "neutralNoCG",
+    "SpeakName":"Rocío",
+    "SpeakGen": "fem",
+    "AddName": "La otra maestra",
+    "AddGen": "fem",
+    "RefName": "Vanesa",
+    "RefGen": "fem", 
     "TrialType": "filler",
     },  
 

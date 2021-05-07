@@ -65,6 +65,7 @@ function make_slides(f) {
         "speaker_gender": "fem",
         "referent_name": "Pilar",
         "referent_gender": "fem",
+        "attention": "NA",
 
       });
     },
@@ -125,6 +126,7 @@ function make_slides(f) {
         "speaker_gender": "fem",
         "referent_name": "Marcel",
         "referent_gender": "masc",
+        "attention": "NA",
 
       });
     },
@@ -143,9 +145,11 @@ function make_slides(f) {
 
     // handle button click
     button: function() {
+
+    exp.attention = $('input[name="attn_check_example"]:checked').val();
     //checks for an affect rating less than .5 (i.e. label > "muy negativo")
     this.affect = exp.affectPost;
-    if ((this.affect != null) && (this.affect < .5)){
+    if ((this.affect != null) && (this.affect < .5) && (exp.attention = "Yes")){
       this.log_responses();
       exp.go();
     } else {
@@ -175,6 +179,7 @@ function make_slides(f) {
         "speaker_gender": "fem",
         "referent_name": "Marco Antonio",
         "referent_gender": "masc",
+        "attention": exp.attention,
 
       });
     },
@@ -200,11 +205,13 @@ function make_slides(f) {
       this.init_sliders();
       exp.affectPost = null;
       exp.felicityPost = null;
+      $('input[name="attn_check"]').prop("checked", false);
 
       // store stimulus data
       this.stim = stim;
       var speaker_name = this.stim.SpeakName;
-      var referent_name = this.stim.RefName
+      var referent_name = this.stim.RefName;
+      var addressee_name = this.stim.AddName;
 
       if (stim.TrialType == 'critical') {
       var trial_condition = exp.conditions.pop();
@@ -231,7 +238,9 @@ function make_slides(f) {
       $("#trial-targetSen").html(exp.target_sentence);
       $("#speaker_name").html(speaker_name);
       $("#referent_name").html(referent_name);
+      $("#addressee_name").html(addressee_name);
       $("#speaker_name_two").html(speaker_name);
+      $("#referent_name_two").html(referent_name);
       $(".err").hide();
 
     },
@@ -239,10 +248,12 @@ function make_slides(f) {
     // handle click on "Continue" button
     button: function() {
       // this.radio = $("input[name='number']:checked").val();
-      // this.strange = $("#check-strange:checked").val() === undefined ? 0 : 1;
+
       this.felicity = exp.felicityPost;
       this.affect = exp.affectPost;
-      if ((this.felicity != null) && (this.affect != null)){
+      exp.attention = $('input[name="attn_check"]:checked').val();
+
+      if ((this.felicity != null) && (this.affect != null) && (exp.attention)){
         this.log_responses();
         _stream.apply(this); //use _stream.apply(this) if there is a list of "present" stimuli to rotate through
       } else {
@@ -274,6 +285,7 @@ function make_slides(f) {
         "referent_gender": this.stim.RefGen,
         "speaker_name": this.stim.SpeakName,
         "speaker_gender": this.stim.SpeakGen,
+        "attention": exp.attention,
 
       });
     },
