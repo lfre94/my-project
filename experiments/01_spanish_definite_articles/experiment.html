@@ -160,8 +160,8 @@
         “Ese tonto estará allí.” 
       </p>
       <div class="instruction">
-        ¿Marcel conoce a Marco Antonio?
-        <label><input type="radio" name="attn_check_example" value="No">No</label> <label><input type="radio" name="attn_check_example" value="Yes">Sí</label>
+        Marcel sabe que Marco Antonio trabaja con Pilar.
+        <label><input type="radio" name="attn_check_example" value="True">Cierto</label> <label><input type="radio" name="attn_check_example" value="False">Falso</label>
       </div>
        <div class="instruction">
         <i>¿Usted piensa que <strong>Pilar</strong> expresa una actitud positiva o negativa hacia <strong>Marco Antonio</strong>? (La frase en azul.)</i>
@@ -172,7 +172,7 @@
       <button class ="continueButton" onclick="_s.button()">Siguiente</button>
         <br>
         <br>
-        <div class="err">La frase azul no es una expresión positiva en esta situación. <p>Por favor ajuste la escala hacia "Expresa una actitud muy negativa."</div>
+        <div class="err">Marcel sí sabe quien es Marco Antonio, entonces seleccione 'Cierto.'<p>Asimismo, la frase azul no es una expresión positiva en esta situación. Por favor ajuste la escala hacia "Expresa una actitud muy negativa."</p></div>
       </div>
     </div>
 
@@ -181,7 +181,7 @@
       <br>
       <br>
       <p id="instruct-text" class="left">
-        ¡Muy bien! Ahora podemos comenzar el experimento real. <strong>Se le presentarán 24 escenas. Su tarea es contestar TRES preguntas sobre lo que se ha dicho en estas conversaciones.</strong> Primero, tiene que contestar una breve pregunta sobre la escena. Segundo, tiene que evaluar si la frase en azul le parece extraña o natural. Tercero, tiene que evaluar si la persona que ha dicho la frase en azul expresa una actitud positiva o negativa. Cuando este listo/a para comenzar, por favor haga clic en el botón que dice "Siguiente."
+        ¡Muy bien! Ahora podemos comenzar el experimento real. <strong>Se le presentarán 22 escenas. Su tarea es contestar TRES preguntas sobre lo que se ha dicho en estas conversaciones.</strong> Primero, tiene que contestar una breve pregunta sobre la escena. Segundo, tiene que evaluar si la frase en azul le parece extraña o natural. Tercero, tiene que evaluar si la persona que ha dicho la frase en azul expresa una actitud positiva o negativa. Cuando este listo/a para comenzar, por favor haga clic en el botón que dice "Siguiente."
       </p>
       <div class="center">
         <button class="continueButton" onclick="_s.button()">Siguiente</button>
@@ -199,8 +199,8 @@
         {{target sentence}}
       </p>
       <div class="instruction">
-        ¿<span id="addressee_name">{{addressee_name}}</span> conoce a <span id="referent_name_two">{{referent_name}}</span>?
-        <label><input type="radio" name="attn_check" value="No">No</label> <label><input type="radio" name="attn_check" value="Yes">Sí</label>
+        <span id="attention_question">{{attention_question}}</span>
+        <label><input type="radio" name="attn_check" value="True">Cierto</label> <label><input type="radio" name="attn_check" value="False">Falso</label>
       </div>
       <div class="instruction">
         <i>Imagínese que <strong><span id="speaker_name">{{speaker_name}}</span></strong> es de la misma comunidad que usted. ¿Cómo le parece lo que ha dicho? (La frase en azul.)</i>

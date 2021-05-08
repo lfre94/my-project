@@ -36,6 +36,8 @@ var all_stims =
     "AddGen": "fem", 
     "RefName": "Lina",
     "RefGen": "fem",
+    "AttnQuestion": "Lina es una estilista.",
+    "AttnCorrect":"False",
     "TrialType": "critical",
     },  {
     
@@ -71,6 +73,8 @@ var all_stims =
     "AddGen": "masc",
     "RefName": "Carmen",
     "RefGen": "fem",
+    "AttnQuestion": "Miguel Ángel está platicando con su primo.",
+    "AttnCorrect":"True",
     "TrialType": "critical",
     },   {
     
@@ -106,6 +110,8 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Antonio",
     "RefGen": "masc",
+    "AttnQuestion": "Antonio es estudiante en la universidad.",
+    "AttnCorrect":"True",
     "TrialType": "critical",
     },   {    
     
@@ -141,12 +147,14 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Sebastián",
     "RefGen": "masc",
+    "AttnQuestion": "Sebastián es primo de María.",
+    "AttnCorrect":"False",
     "TrialType": "critical",
     },   {
     
     "ItemType": "boss",
 
-    "neutralNoCG_DA_context": "Ignacio y su amigo están en bar. Esta es la primera vez que platican sobre sus vidas laborales, ya que los dos trabajan en lugares distintos. Ignacio nunca ha platicado de su jefe, Diego. Su amigo le pregunta a Ignacio si hay alguna novedad con respecto a su trabajo. Ignacio le responde:",
+    "neutralNoCG_DA_context": "Ignacio y su amigo están en un bar. Esta es la primera vez que platican sobre sus vidas laborales, ya que los dos trabajan en lugares distintos. Ignacio nunca ha platicado de su jefe, Diego. Su amigo le pregunta a Ignacio si hay alguna novedad con respecto a su trabajo. Ignacio le responde:",
     "neutralNoCG_DA_target_sentence": '“El Diego va a seguir en el mismo puesto.” ',
 
     "neutralCG_DA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
@@ -158,7 +166,7 @@ var all_stims =
     "negative_DA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Diego es un jefe muy exigente y desagradable. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
     "negative_DA_target_sentence": '“El Diego va a seguir en el mismo puesto.” ',
 
-    "neutralNoCG_noDA_context": "Ignacio y su amigo están en bar. Esta es la primera vez que platican sobre sus vidas laborales, ya que los dos trabajan en lugares distintos. Ignacio nunca ha platicado de su jefe, Diego. Su amigo le pregunta a Ignacio si hay alguna novedad con respecto a su trabajo. Ignacio le responde:",
+    "neutralNoCG_noDA_context": "Ignacio y su amigo están en un bar. Esta es la primera vez que platican sobre sus vidas laborales, ya que los dos trabajan en lugares distintos. Ignacio nunca ha platicado de su jefe, Diego. Su amigo le pregunta a Ignacio si hay alguna novedad con respecto a su trabajo. Ignacio le responde:",
     "neutralNoCG_noDA_target_sentence":'“Diego va a seguir en el mismo puesto.” ',
 
     "neutralCG_noDA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
@@ -176,6 +184,8 @@ var all_stims =
     "AddGen": "masc",
     "RefName": "Diego",
     "RefGen": "masc",
+    "AttnQuestion": "Diego es el jefe de Ignacio.",
+    "AttnCorrect":"True",
     "TrialType": "critical",
     },   {
     
@@ -211,6 +221,8 @@ var all_stims =
     "AddGen": "masc",
     "RefName": "Fernando",
     "RefGen": "masc",
+    "AttnQuestion": "Fernando es uno de los jugadores.",
+    "AttnCorrect":"False",
     "TrialType": "critical",
     },   {
     
@@ -246,6 +258,8 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Valeria",
     "RefGen": "fem",
+    "AttnQuestion": "Abril está cocinando con su hermana.",
+    "AttnCorrect":"True",
     "TrialType": "critical",
     },   {
     
@@ -281,12 +295,14 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Adrián",
     "RefGen": "masc",
+    "AttnQuestion": "Mariana es hermana de Adrián.",
+    "AttnCorrect":"False",
     "TrialType": "critical",
     },   {
     
     "ItemType": "colleague",
 
-    "neutralNoCG_DA_context": "Gabriela trabaja para una pequeña empresa de tecnología. Hoy se encuentra entrenando a la nueva recepcionista. Como es su primer día, Gabriela le presenta al resto de sus colegas, menos a Tomás quien esta de vacaciones. Gabriela le dice a la recepcionista: ",
+    "neutralNoCG_DA_context": "Gabriela trabaja para una pequeña empresa de tecnología. Hoy se encuentra entrenando a la nueva recepcionista. Como es su primer día, Gabriela le presenta al resto de sus colegas, menos a Tomás quien está de vacaciones. Gabriela le dice a la recepcionista: ",
     "neutralNoCG_DA_target_sentence": '“El Tomás va a llegar mañana.” ',
 
     "neutralCG_DA_context": "Gabriela trabaja para una pequeña empresa de tecnología. Una mañana, Gabriela se encuentra platicando con la recepcionista. La recepcionista le pregunta a Gabriela cuando regresa Tomás de su viaje. Tomás es un compañero de trabajo que está de vacaciones. Gabriela le dice a la recepcionista: ",
@@ -298,7 +314,7 @@ var all_stims =
     "negative_DA_context": "Gabriela trabaja para una pequeña empresa de tecnología. Una mañana, Gabriela se encuentra platicando con la recepcionista. La recepcionista le pregunta a Gabriela cuando regresa Tomás de su viaje. Tomás es un colega muy irresponsable, grosero y descortés. Gabriela le dice a la recepcionista: ",
     "negative_DA_target_sentence": '“El Tomás va a llegar mañana.” ',
 
-    "neutralNoCG_noDA_context": "Gabriela trabaja para una pequeña empresa de tecnología. Hoy se encuentra entrenando a la nueva recepcionista. Como es su primer día, Gabriela le presenta al resto de sus colegas, menos a Tomás quien esta de vacaciones. Gabriela le dice a la recepcionista: ",
+    "neutralNoCG_noDA_context": "Gabriela trabaja para una pequeña empresa de tecnología. Hoy se encuentra entrenando a la nueva recepcionista. Como es su primer día, Gabriela le presenta al resto de sus colegas, menos a Tomás quien está de vacaciones. Gabriela le dice a la recepcionista: ",
     "neutralNoCG_noDA_target_sentence":'“Tomás va a llegar mañana.” ',
 
     "neutralCG_noDA_context": "Gabriela trabaja para una pequeña empresa de tecnología. Una mañana, Gabriela se encuentra platicando con la recepcionista. La recepcionista le pregunta a Gabriela cuando regresa Tomás de su viaje. Tomás es un compañero de trabajo que está de vacaciones. Gabriela le dice a la recepcionista: ",
@@ -316,6 +332,8 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Tomás",
     "RefGen": "masc",
+    "AttnQuestion": "Gabriela está hablando con la recepcionista.",
+    "AttnCorrect":"True",
     "TrialType": "critical",
     },   {
     
@@ -351,6 +369,8 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Andrea",
     "RefGen": "fem",
+    "AttnQuestion": "Santiago fue por sus tres hijos a un evento escolar.",
+    "AttnCorrect":"False",
     "TrialType": "critical",
     },   {
 
@@ -386,6 +406,8 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Renata",
     "RefGen": "fem",
+    "AttnQuestion": "Solo hay una caja abierta en el supermercado.",
+    "AttnCorrect":"True",
     "TrialType": "critical",
     },   {
     
@@ -421,6 +443,8 @@ var all_stims =
     "AddGen": "masc",
     "RefName": "Sara",
     "RefGen": "fem",
+    "AttnQuestion": "Cristian contrató a una fotógrafa para la boda de su tío.",
+    "AttnCorrect":"False",
     "TrialType": "critical",
     },   {
     
@@ -434,7 +458,9 @@ var all_stims =
     "AddName": "El vendedor ambulante",
     "AddGen": "masc",
     "RefName": "Armando",
-    "RefGen": "masc", 
+    "RefGen": "masc",
+    "AttnQuestion": "Laura vio al vendedor ambulante.",
+    "AttnCorrect":"True",
     "TrialType": "filler"
     },  {
 
@@ -449,6 +475,8 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Miguel",
     "RefGen": "masc", 
+    "AttnQuestion": "Miguel nunca acompaña a Ximena a visitar su mamá.",
+    "AttnCorrect":"False",
     "TrialType": "filler"
     },  {
 
@@ -463,6 +491,8 @@ var all_stims =
     "AddGen": "masc",
     "RefName": "Felipe",
     "RefGen": "masc", 
+    "AttnQuestion": "Felipe se fue sin limpiar.",
+    "AttnCorrect":"True",
     "TrialType": "filler"
     },  {
 
@@ -477,6 +507,8 @@ var all_stims =
     "AddGen": "masc",
     "RefName": "Karen",
     "RefGen": "fem", 
+    "AttnQuestion": "Francisco hizo la reservación en persona.",
+    "AttnCorrect":"False",
     "TrialType": "filler",
     },  {
     
@@ -491,6 +523,8 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Julia",
     "RefGen": "fem", 
+    "AttnQuestion": "Rodrigo y Julia son los dueños del apartamento.",
+    "AttnCorrect":"True",
     "TrialType": "filler",
     },  {
     
@@ -505,6 +539,8 @@ var all_stims =
     "AddGen": "masc",
     "RefName": "Florencia",
     "RefGen": "fem", 
+    "AttnQuestion": "Florencia nunca va a la carnicería en lunes.",
+    "AttnCorrect":"False",
     "TrialType": "filler",
     },  {
 
@@ -519,6 +555,8 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Sofía",
     "RefGen": "fem", 
+    "AttnQuestion": "Sofía está en un restaurante.",
+    "AttnCorrect":"True",
     "TrialType": "filler",
     },  {
     
@@ -533,6 +571,8 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Ana",
     "RefGen": "fem", 
+    "AttnQuestion": "A la cliente se le olvidaron cuatro blusas en casa.",
+    "AttnCorrect":"False",
     "TrialType": "filler",
     },  {
     
@@ -547,6 +587,8 @@ var all_stims =
     "AddGen": "masc",
     "RefName": "Mateo",
     "RefGen": "masc", 
+    "AttnQuestion": "El colega de Benjamín conoce a Mateo.",
+    "AttnCorrect":"True",
     "TrialType": "filler",
     },  {
     
@@ -561,35 +603,41 @@ var all_stims =
     "AddGen": "masc",
     "RefName": "Gabriel",
     "RefGen": "masc", 
+    "AttnQuestion": "Jorge trabaja en una panadería.",
+    "AttnCorrect":"False",
     "TrialType": "filler",
-    },  {
+    },
+    // },  {
     
-    "ItemType": "doctor",
+    // "ItemType": "doctor",
 
-    "filler_context": "Carlos es enfermero en una clínica. Una mujer le pregunta si la Dra. Sánchez la puede atender porque es la única doctora que conoce en esta clínica. Como la Dra. Sánchez no se encuentra hoy, la Dra. Carolina Ramírez está atendiendo a todos sus pacientes. Carlos le dice a la mujer:",
-    "filler_target_sentence": '“La Dra. Ramírez la va a atender.” ',
-    "condition": "neutralNoCG",
-    "SpeakName":"Carlos",
-    "SpeakGen": "masc",
-    "AddName": "La mujer",
-    "AddGen": "fem",
-    "RefName": "Carolina",
-    "RefGen": "fem", 
-    "TrialType": "filler",
-    },  {
+    // "filler_context": "Carlos es enfermero en una clínica. Una mujer le pregunta si la Dra. Sánchez la puede atender porque es la única doctora que conoce en esta clínica. Como la Dra. Sánchez no se encuentra hoy, la Dra. Carolina Ramírez está atendiendo a todos sus pacientes. Carlos le dice a la mujer:",
+    // "filler_target_sentence": '“La Dra. Ramírez la va a atender.” ',
+    // "condition": "neutralNoCG",
+    // "SpeakName":"Carlos",
+    // "SpeakGen": "masc",
+    // "AddName": "La mujer",
+    // "AddGen": "fem",
+    // "RefName": "Carolina",
+    // "RefGen": "fem", 
+    // "AttnQuestion": "test",
+    // "AttnCorrectAnswer":"",
+    // "TrialType": "filler",
+    // },  {
     
-    "ItemType": "teacher",
+    // "ItemType": "teacher",
 
-    "filler_context": "Rocío es una maestra y está conversando con otra maestra sobre el nuevo año escolar. Rocío sabe que una de sus estudiantes del año pasado, Vanesa, va a estar en la clase de la otra maestra. La otra maestra todavía no ha conocido a sus nuevos estudiantes. Rocío le dice:",
-    "filler_target_sentence": '“Vanesita va a estar en tu clase.” ',
-    "condition": "neutralNoCG",
-    "SpeakName":"Rocío",
-    "SpeakGen": "fem",
-    "AddName": "La otra maestra",
-    "AddGen": "fem",
-    "RefName": "Vanesa",
-    "RefGen": "fem", 
-    "TrialType": "filler",
-    },  
+    // "filler_context": "Rocío es una maestra y está conversando con otra maestra sobre el nuevo año escolar. Rocío sabe que una de sus estudiantes del año pasado, Vanesa, va a estar en la clase de la otra maestra. La otra maestra todavía no ha conocido a sus nuevos estudiantes. Rocío le dice:",
+    // "filler_target_sentence": '“Vanesita va a estar en tu clase.” ',
+    // "condition": "neutralNoCG",
+    // "SpeakName":"Rocío",
+    // "SpeakGen": "fem",
+    // "AddName": "La otra maestra",
+    // "AddGen": "fem",
+    // "RefName": "Vanesa",
+    // "RefGen": "fem",
+    // "AttnQuestion": "test", 
+    // "TrialType": "filler",
+    // },  
 
     ]

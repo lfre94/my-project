@@ -61,11 +61,15 @@ function make_slides(f) {
         "felicity_rating": this.felicity,
         "affect_rating" : "NA",
         "condition" : "felicity_test",
-        "speaker_name": "Karlita",
-        "speaker_gender": "fem",
         "referent_name": "Pilar",
         "referent_gender": "fem",
+        "speaker_name": "Karlita",
+        "speaker_gender": "fem",
+        "addressee_name": "Pilar",
+        "addressee_gender": "fem",      
         "attention": "NA",
+        "attention_question":"NA",
+        "attention_correct_ans": "NA",
 
       });
     },
@@ -122,11 +126,15 @@ function make_slides(f) {
         "felicity_rating": "NA",
         "affect_rating" : this.affect,
         "condition" : "positive_affect_test",
-        "speaker_name": "Pilar",
-        "speaker_gender": "fem",
         "referent_name": "Marcel",
         "referent_gender": "masc",
+        "speaker_name": "Pilar",
+        "speaker_gender": "fem",
+        "addressee_name": "Marcel",
+        "addressee_gender": "masc",
         "attention": "NA",
+        "attention_question":"NA",
+        "attention_correct_ans": "NA",
 
       });
     },
@@ -149,7 +157,7 @@ function make_slides(f) {
     exp.attention = $('input[name="attn_check_example"]:checked').val();
     //checks for an affect rating less than .5 (i.e. label > "muy negativo")
     this.affect = exp.affectPost;
-    if ((this.affect != null) && (this.affect < .5) && (exp.attention == "Yes")){
+    if ((this.affect != null) && (this.affect < .5) && (exp.attention == "True")){
       this.log_responses();
       exp.go();
     } else {
@@ -175,11 +183,15 @@ function make_slides(f) {
         "felicity_rating": "NA",
         "affect_rating" : this.affect,
         "condition" : "negative_affect_test",
-        "speaker_name": "Pilar",
-        "speaker_gender": "fem",
         "referent_name": "Marco Antonio",
         "referent_gender": "masc",
+        "speaker_name": "Pilar",
+        "speaker_gender": "fem",
+        "addressee_name": "Marcel",
+        "addressee_gender": "masc",
         "attention": exp.attention,
+        "attention_question":"Marcel sabe que Marco Antonio trabaja con Pilar.",
+        "attention_correct_ans": "True",
 
       });
     },
@@ -212,6 +224,7 @@ function make_slides(f) {
       var speaker_name = this.stim.SpeakName;
       var referent_name = this.stim.RefName;
       var addressee_name = this.stim.AddName;
+      var attention_question = this.stim.AttnQuestion;
 
       if (stim.TrialType == 'critical') {
       var trial_condition = exp.conditions.pop();
@@ -241,6 +254,8 @@ function make_slides(f) {
       $("#addressee_name").html(addressee_name);
       $("#speaker_name_two").html(speaker_name);
       $("#referent_name_two").html(referent_name);
+      $("#attention_question").html(attention_question);
+
       $(".err").hide();
 
     },
@@ -285,7 +300,11 @@ function make_slides(f) {
         "referent_gender": this.stim.RefGen,
         "speaker_name": this.stim.SpeakName,
         "speaker_gender": this.stim.SpeakGen,
+        "addressee_name": this.stim.AddName,
+        "addressee_gender": this.stim.AddGen,
         "attention": exp.attention,
+        "attention_question":this.stim.AttnQuestion,
+        "attention_correct_ans": this.stim.AttnCorrect,
 
       });
     },
