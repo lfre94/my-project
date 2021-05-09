@@ -482,7 +482,7 @@ var all_stims =
 
     "ItemType": "kitchen",
 
-    "filler_context": "Christopher y su compañero de cuarto están limpiando su cocina. Ellos comparten la cocina con Felipe. Felipe dejó un desastre en la cocina y luego se fue sin limpiar, algo que pasa muy seguido con Felipe. Por lo tanto, Christopher y su compañero de cuarto piensan que Lucas es muy desconsiderado y egoísta. El compañero le pregunta a Christopher a donde se fue Felipe. Christopher le contesta:",
+    "filler_context": "Christopher y su compañero de cuarto están limpiando su cocina. Ellos comparten la cocina con Felipe. Felipe dejó un desastre en la cocina y luego se fue sin limpiar, algo que pasa muy seguido con Felipe. Por lo tanto, Christopher y su compañero de cuarto piensan que Felipe es muy desconsiderado y egoísta. El compañero de cuarto le pregunta a Christopher a donde se fue Felipe. Christopher le contesta:",
     "filler_target_sentence": '“Ese Felipe está en la tienda.”',
     "condition": "negative",
     "SpeakName":"Christopher",
@@ -523,7 +523,7 @@ var all_stims =
     "AddGen": "fem",
     "RefName": "Julia",
     "RefGen": "fem", 
-    "AttnQuestion": "Rodrigo y Julia son los dueños del apartamento.",
+    "AttnQuestion": "Montserrat comparte un apartamento con su amiga.",
     "AttnCorrect":"True",
     "TrialType": "filler",
     },  {
@@ -562,7 +562,7 @@ var all_stims =
     
     "ItemType": "seamstress",
 
-    "filler_context": "Alejandra es una costurera y está atendiendo a una cliente nueva. La cliente se da cuenta que olvido un vestido en casa que también necesita ajustes. Ella le pregunta a Alejandra si va a trabajar mañana para así traerle el vestido el siguiente día. Alejandra le responde que no y le dice: ",
+    "filler_context": "Alejandra es una costurera y está atendiendo a una cliente nueva. La cliente se da cuenta que olvidó un vestido en casa que también necesita ajustes. Ella le pregunta a Alejandra si va a trabajar mañana para así traerle el vestido el siguiente día. Alejandra descansa el siguiente día, pero la otra costurera, Ana, sí va a trabajar. Alejandra le dice: ",
     "filler_target_sentence": '“Anita va trabajar mañana.”  ',
     "condition": "neutralNoCG",
     "SpeakName":"Alejandra",
