@@ -237,7 +237,7 @@ var all_stims =
     "positive_DA_context": "Abril y su hermana están cocinando juntas en su apartamento. Su hermana se da cuenta que les hace falta más harina y le sugiere a Abril que le pida harina a la vecina Valeria, quien es una mujer muy servicial, amable, y una muy buena amiga de las dos. Abril le contesta a su hermana:",
     "positive_DA_target_sentence": '“La Valeria no está en su apartamento.” ',
 
-    "negative_DA_context": "Abril y su hermana están cocinando juntas en su apartamento. Su hermana se da cuenta que les hace falta más harina y le sugiere a Abril que le pida harina a la vecina Valeria, quien es una mujer muy antipatica, enojona, y chismosa. Abril le contesta a su hermana:",
+    "negative_DA_context": "Abril y su hermana están cocinando juntas en su apartamento. Su hermana se da cuenta que les hace falta más harina y le sugiere a Abril que le pida harina a la vecina Valeria, quien es una mujer muy antipática, enojona, y chismosa. Abril le contesta a su hermana:",
     "negative_DA_target_sentence": '“La Valeria no está en su apartamento.” ',
 
     "neutralNoCG_noDA_context": "Abril y su hermana están cocinando juntas en el apartamento de Abril. Su hermana se da cuenta que les hace falta más harina y le sugiere a Abril que le pida harina a algún vecino. Como su hermana no vive en este apartamento, no conoce a los vecinos, incluyendo a Valeria, una vecina de Abril. Abril le contesta a su hermana:",
@@ -249,7 +249,7 @@ var all_stims =
     "positive_noDA_context": "Abril y su hermana están cocinando juntas en su apartamento. Su hermana se da cuenta que les hace falta más harina y le sugiere a Abril que le pida harina a la vecina Valeria, quien es una mujer muy servicial, amable, y una muy buena amiga de las dos. Abril le contesta a su hermana:",
     "positive_noDA_target_sentence": '“Valeria no está en su apartamento.” ',
 
-    "negative_noDA_context": "Abril y su hermana están cocinando juntas en su apartamento. Su hermana se da cuenta que les hace falta más harina y le sugiere a Abril que le pida harina a la vecina Valeria, quien es una mujer muy antipatica, enojona, y chismosa. Abril le contesta a su hermana:",
+    "negative_noDA_context": "Abril y su hermana están cocinando juntas en su apartamento. Su hermana se da cuenta que les hace falta más harina y le sugiere a Abril que le pida harina a la vecina Valeria, quien es una mujer muy antipática, enojona, y chismosa. Abril le contesta a su hermana:",
     "negative_noDA_target_sentence": '“Valeria no está en su apartamento.” ',
 
     "SpeakName":"Abril",
@@ -452,7 +452,7 @@ var all_stims =
 
     "filler_context": "Laura está regando sus plantas. Ve que un vendedor ambulante le está tocando la puerta al vecino de enseguida. Ella sabe que su vecino, Armando, se acaba de ir a trabajar. Laura le dice al vendedor: ",
     "filler_target_sentence": '“Don Armando no está en su casa.”',
-    "condition": "neutralNoCG",
+    "condition": "neutralNoCG_filler",
     "SpeakName":"Laura",
     "SpeakGen": "fem",
     "AddName": "El vendedor ambulante",
@@ -468,7 +468,7 @@ var all_stims =
 
     "filler_context": "Ximena está hojeando una revista en la sala de su mamá. Su mamá le pregunta por qué su hermano no la acompañó a visitarla. Su hermano, Miguel, siempre la acompaña, pero hoy tuvo práctica de natación. Ximena le dice: ",
     "filler_target_sentence": '“Miguelito está nadando.”',
-    "condition": "positive",
+    "condition": "positive_filler",
     "SpeakName":"Ximena",
     "SpeakGen": "fem",
     "AddName": "La mamá",
@@ -484,7 +484,7 @@ var all_stims =
 
     "filler_context": "Christopher y su compañero de cuarto están limpiando su cocina. Ellos comparten la cocina con Felipe. Felipe dejó un desastre en la cocina y luego se fue sin limpiar, algo que pasa muy seguido con Felipe. Por lo tanto, Christopher y su compañero de cuarto piensan que Felipe es muy desconsiderado y egoísta. El compañero de cuarto le pregunta a Christopher a donde se fue Felipe. Christopher le contesta:",
     "filler_target_sentence": '“Ese Felipe está en la tienda.”',
-    "condition": "negative",
+    "condition": "negative_filler",
     "SpeakName":"Christopher",
     "SpeakGen": "masc",
     "AddName": "El compañero de cuarto",
@@ -500,7 +500,7 @@ var all_stims =
 
     "filler_context": "Francisco está haciendo una reservación por teléfono en un restaurante. Él quiere mucho a su hermana menor, Karen. Hoy la va a ver por primera vez en más de un año y la quiere invitar a comer a su restaurante favorito. Su papá escucha a Francisco en el teléfono y cuando Francisco cuelga, su papá le pregunta a quién va a invitar a cenar. Francisco le explica:",
     "filler_target_sentence": '“Esta Karen va a llegar hoy.”',
-    "condition": "positive",
+    "condition": "positive_filler",
     "SpeakName":"Francisco",
     "SpeakGen": "masc",
     "AddName": "El papá",
@@ -516,7 +516,7 @@ var all_stims =
 
     "filler_context": "Montserrat está escribiendo un cheque para la renta de este mes. Montserrat y su amiga le rentan un apartamento a una pareja, llamados Rodrigo y Julia. La amiga de Montserrat le pregunta quien va a recoger la renta. Montserrat le dice:",
     "filler_target_sentence": '“La Sra. Julia va a recoger la renta.”',
-    "condition": "neutralCG",
+    "condition": "neutralCG_filler",
     "SpeakName":"Montserrat",
     "SpeakGen": "fem",
     "AddName": "La amiga",
@@ -532,7 +532,7 @@ var all_stims =
 
     "filler_context": "Rafael trabaja en una carnicería. Cada lunes, Florencia compra un kilo de carne. Hoy es lunes y otro carnicero le pregunta a Rafael si ya vino Florencia. Rafael le responde: ",
     "filler_target_sentence": '“Doña Florencia está pagando su cuenta.” ',
-    "condition": "neutralCG",
+    "condition": "neutralCG_filler",
     "SpeakName":"Rafael",
     "SpeakGen": "masc",
     "AddName": "El otro carnicero",
@@ -546,9 +546,9 @@ var all_stims =
 
     "ItemType": "cellphone",
 
-    "filler_context": "Roberto y su esposa están comiendo en restaurante. Una familia que conocen también está en el mismo restaurante, sentados en otra mesa. Roberto observa que Sofía, la hija de los conocidos, no platica con el resto de su familia. Sofía solo se la pasa en su teléfono. Roberto voltea con su esposa y le dice:",
+    "filler_context": "Roberto y su esposa están comiendo en un restaurante. Una familia que conocen también está en el mismo restaurante, sentados en otra mesa. Roberto observa que Sofía, la hija de los conocidos, no platica con el resto de su familia. Sofía solo se la pasa en su teléfono. Roberto voltea con su esposa y le dice:",
     "filler_target_sentence": '“Esa Sofía va a seguir en su teléfono.”',
-    "condition": "negative",
+    "condition": "negative_filler",
     "SpeakName":"Roberto",
     "SpeakGen": "masc",
     "AddName": "La esposa",
@@ -564,7 +564,7 @@ var all_stims =
 
     "filler_context": "Alejandra es una costurera y está atendiendo a una cliente nueva. La cliente se da cuenta que olvidó un vestido en casa que también necesita ajustes. Ella le pregunta a Alejandra si va a trabajar mañana para así traerle el vestido el siguiente día. Alejandra descansa el siguiente día, pero la otra costurera, Ana, sí va a trabajar. Alejandra le dice: ",
     "filler_target_sentence": '“Anita va trabajar mañana.”  ',
-    "condition": "neutralNoCG",
+    "condition": "neutralNoCG_filler",
     "SpeakName":"Alejandra",
     "SpeakGen": "fem",
     "AddName": "La cliente",
@@ -580,7 +580,7 @@ var all_stims =
 
     "filler_context": "Benjamín es un editor de libros. El está revisando un libro que su mejor amigo escribió. Su amigo se llama Mateo. Aunque Mateo no ha terminado el libro, Benjamín piensa que Mateo es un escritor fantástico. En ese momento, un colega le pregunta a Benjamín que está leyendo. El colega también conoce a Mateo, pero no sabe del libro. Benjamín le dice:",
     "filler_target_sentence": '“Este Mateo va a escribir un libro.”',
-    "condition": "positive",
+    "condition": "positive_filler",
     "SpeakName":"Benjamín",
     "SpeakGen": "masc",
     "AddName": "El colega",
@@ -596,7 +596,7 @@ var all_stims =
 
     "filler_context": "Jorge trabaja en una zapatería. Otro empleado le pregunta en donde se encuentra su jefe, Gabriel. Jorge le contesta:",
     "filler_target_sentence": '“El Sr. Gabriel está en su oficina.”',
-    "condition": "neutralCG",
+    "condition": "neutralCG_filler",
     "SpeakName":"Jorge",
     "SpeakGen": "masc",
     "AddName": "El otro empleado",
