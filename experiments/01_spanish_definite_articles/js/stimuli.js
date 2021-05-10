@@ -416,25 +416,25 @@ var all_stims =
     "neutralNoCG_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Nadie mas que los novios conocen a la fotógrafa. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian si contrató a alguien para tomar fotos. Cristian le responde:",
     "neutralNoCG_DA_target_sentence": '“La Sara está en su carro.” ',
 
-    "neutralCG_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia, por lo tanto todos en el pueblo la conocen. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian donde está la fotógrafa. Cristian le responde: ",
+    "neutralCG_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia, por lo tanto todos en el pueblo la conocen. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde: ",
     "neutralCG_DA_target_sentence": '“La Sara está en su carro.” ',
 
-    "positive_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia.  Sara es muy estimada por toda la gente en el pueblo por su carisma y dedicación. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian donde está la fotógrafa. Cristian le responde:",
+    "positive_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia.  Sara es muy estimada por toda la gente en el pueblo por su carisma y dedicación. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde:",
     "positive_DA_target_sentence": '“La Sara está en su carro.” ',
 
-    "negative_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia. Todos saben que Sara es una persona engreída y altanera pero Cristian la contrató por cuestiones de tiempo. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian donde esta la fotógrafa. Cristian le responde:",
+    "negative_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia. Todos saben que Sara es una persona engreída y altanera pero Cristian la contrató por cuestiones de tiempo. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde esta la fotógrafa. Cristian le responde:",
     "negative_DA_target_sentence": '“La Sara está en su carro.” ',
 
     "neutralNoCG_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Nadie mas que los novios conocen a la fotógrafa. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian si contrató a alguien para tomar fotos. Cristian le responde:",
     "neutralNoCG_noDA_target_sentence":'“Sara está en su carro.” ',
 
-    "neutralCG_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia, por lo tanto todos en el pueblo la conocen. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian donde está la fotógrafa. Cristian le responde: ",
+    "neutralCG_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia, por lo tanto todos en el pueblo la conocen. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde: ",
     "neutralCG_noDA_target_sentence": '“Sara está en su carro.” ',
 
-    "positive_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia.  Sara es muy estimada por toda la gente en el pueblo por su carisma y dedicación. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian donde está la fotógrafa. Cristian le responde:",
+    "positive_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia.  Sara es muy estimada por toda la gente en el pueblo por su carisma y dedicación. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde:",
     "positive_noDA_target_sentence": '“Sara está en su carro.” ',
 
-    "negative_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia. Todos saben que Sara es una persona engreída y altanera pero Cristian la contrató por cuestiones de tiempo. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian donde esta la fotógrafa. Cristian le responde:",
+    "negative_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia. Todos saben que Sara es una persona engreída y altanera pero Cristian la contrató por cuestiones de tiempo. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde esta la fotógrafa. Cristian le responde:",
     "negative_noDA_target_sentence": '“Sara está en su carro.” ',
 
     "SpeakName":"Cristian",
@@ -482,7 +482,7 @@ var all_stims =
 
     "ItemType": "kitchen",
 
-    "filler_context": "Christopher y su compañero de cuarto están limpiando su cocina. Ellos comparten la cocina con Felipe. Felipe dejó un desastre en la cocina y luego se fue sin limpiar, algo que pasa muy seguido con Felipe. Por lo tanto, Christopher y su compañero de cuarto piensan que Felipe es muy desconsiderado y egoísta. El compañero de cuarto le pregunta a Christopher a donde se fue Felipe. Christopher le contesta:",
+    "filler_context": "Christopher y su compañero de cuarto están limpiando su cocina. Ellos comparten la cocina con Felipe. Felipe dejó un desastre en la cocina y luego se fue sin limpiar, algo que pasa muy seguido con Felipe. Por lo tanto, Christopher y su compañero de cuarto piensan que Felipe es muy desconsiderado y egoísta. El compañero de cuarto le pregunta a Christopher a dónde se fue Felipe. Christopher le contesta:",
     "filler_target_sentence": '“Ese Felipe está en la tienda.”',
     "condition": "negative_filler",
     "SpeakName":"Christopher",
@@ -514,7 +514,7 @@ var all_stims =
     
     "ItemType": "rent",
 
-    "filler_context": "Montserrat está escribiendo un cheque para la renta de este mes. Montserrat y su amiga le rentan un apartamento a una pareja, llamados Rodrigo y Julia. La amiga de Montserrat le pregunta quien va a recoger la renta. Montserrat le dice:",
+    "filler_context": "Montserrat está escribiendo un cheque para la renta de este mes. Montserrat y su amiga le rentan un apartamento a una pareja, llamados Rodrigo y Julia. La amiga de Montserrat le pregunta quién va a recoger la renta. Montserrat le dice:",
     "filler_target_sentence": '“La Sra. Julia va a recoger la renta.”',
     "condition": "neutralCG_filler",
     "SpeakName":"Montserrat",
@@ -594,7 +594,7 @@ var all_stims =
     
     "ItemType": "shoes",
 
-    "filler_context": "Jorge trabaja en una zapatería. Otro empleado le pregunta en donde se encuentra su jefe, Gabriel. Jorge le contesta:",
+    "filler_context": "Jorge trabaja en una zapatería. Otro empleado le pregunta en dónde se encuentra su jefe, Gabriel. Jorge le contesta:",
     "filler_target_sentence": '“El Sr. Gabriel está en su oficina.”',
     "condition": "neutralCG_filler",
     "SpeakName":"Jorge",
