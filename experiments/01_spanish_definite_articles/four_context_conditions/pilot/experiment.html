@@ -55,6 +55,23 @@
 
   <body onload="init()">
     <noscript>This task requires JavaScript.</noscript>
+    
+    <!-- bot slide -->
+  <div class="slide" id="bot" >
+    <h3>¿Eres un robot?</h3>
+    <p id="s"></p>
+    <p id="q"></p>
+    <input type="text" id="text_box"/></question>
+    <br><br><br>
+      <div class="err1">
+        <p2>Fallar esta pregunta dos veces más lo descalificará de este estudio.</p2></div>
+      <div class="err2">
+        <p2>Fallar esta pregunta una vez más lo descalificará de este estudio.</p2></div>
+      <div class="disq">
+        <p2>Falló la pregunta y está descalificado/a. </p2></div>
+      <div class="button">
+        <button onclick="_s.button()">Siguiente</button></div>
+  </div>
 
     <!-- initial slide -->
     <div class="slide" id="i0">
@@ -64,7 +81,7 @@
       <p class="left">
         Va a leer escenas ficticias que abarcan una variedad de temas cotidianos. Cada escena consiste de una conversación. <strong>Su tarea es contestar tres preguntas sobre lo que se ha dicho en estas conversaciones.</strong><br>
         <br>
-        El experimento le tomará aproximadamente 30 minutos. ¡Empecemos con unos ejemplos!
+        El experimento le tomará aproximadamente 20 minutos. ¡Empecemos con unos ejemplos!
       </p><button id="start_button" type="button">Comenzar experimento</button>
       <p class="left legal">
         <strong><br>
@@ -89,6 +106,29 @@
         Si acepta participar, por favor proceda al estudio.
       </p>
     </div>
+
+    <!-- sound test slide -->
+<!--     <div class="slide" id="sound_test">
+      <div class="text-center">
+          <br><br><br>
+          Press the play button to hear what word to type in the box. Once you type the word in the box below, you can continue.
+          <br><br>
+          Text
+          <br><br>
+          <input type="text" class="sound_test">
+          <br><br>
+          In the task, the audio will play automatically and you'll only hear each word once so listen carefully!
+          <br><br>
+        <button id="soundtest_OK" onclick="_s.soundtest_OK()"> Continue </button>
+                       
+        <div class="err">
+          <br>
+          <p>
+            Please listen to the audio and type in the word indicated.
+          </p>
+        </div>
+      </div>
+    </div> -->
 
     <!-- first example slide -->
      <div class="slide" id="example1">
@@ -194,7 +234,7 @@
       <br>
       <br>
       <p id="instruct-text" class="left">
-        ¡Muy bien! Ahora podemos comenzar el experimento real. <strong>Se le presentarán 22 escenas. Su tarea es contestar TRES preguntas sobre lo que se ha dicho en estas conversaciones.</strong> Primero, tiene que contestar una breve pregunta sobre la escena. Segundo, tiene que evaluar si la frase en azul le parece extraña o natural. Tercero, tiene que evaluar si la persona que ha dicho la frase en azul expresa una actitud positiva o negativa. Cuando esté listo/a para comenzar, por favor haga clic en el botón que dice "Siguiente."
+        ¡Muy bien! Ahora podemos comenzar el experimento real. <strong>Se le presentarán 16 escenas. Su tarea es contestar TRES preguntas sobre lo que se ha dicho en estas conversaciones.</strong> Primero, tiene que contestar una breve pregunta sobre la escena. Segundo, tiene que evaluar si la frase en azul le parece extraña o natural. Tercero, tiene que evaluar si la persona que ha dicho la frase en azul expresa una actitud positiva o negativa. Cuando esté listo/a para comenzar, por favor haga clic en el botón que dice "Siguiente."
       </p>
       <div class="center">
         <button class="continueButton" onclick="_s.button()">Siguiente</button>

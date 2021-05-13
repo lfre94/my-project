@@ -152,42 +152,42 @@ var all_stims =
     "TrialType": "critical",
     },   {
     
-    "ItemType": "boss",
+    // "ItemType": "boss",
 
-    "neutralNoCG_DA_context": "Ignacio y su amigo están en un bar. Esta es la primera vez que platican sobre sus vidas laborales, ya que los dos trabajan en lugares distintos. Ignacio nunca ha platicado de su jefe, Diego. Su amigo le pregunta a Ignacio si hay alguna novedad con respecto a su trabajo. Ignacio le responde:",
-    "neutralNoCG_DA_target_sentence": '“El Diego va a seguir en el mismo puesto.” ',
+    // "neutralNoCG_DA_context": "Ignacio y su amigo están en un bar. Esta es la primera vez que platican sobre sus vidas laborales, ya que los dos trabajan en lugares distintos. Ignacio nunca ha platicado de su jefe, Diego. Su amigo le pregunta a Ignacio si hay alguna novedad con respecto a su trabajo. Ignacio le responde:",
+    // "neutralNoCG_DA_target_sentence": '“El Diego va a seguir en el mismo puesto.” ',
 
-    "neutralCG_DA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
-    "neutralCG_DA_target_sentence": '“El Diego va a seguir en el mismo puesto.” ',
+    // "neutralCG_DA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
+    // "neutralCG_DA_target_sentence": '“El Diego va a seguir en el mismo puesto.” ',
 
-    "positive_DA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Diego es conocido por ser una persona muy simpática y un jefe excepcional. Resulta que Diego y su amigo también se conocen.  Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
-    "positive_DA_target_sentence": '“El Diego va a seguir en el mismo puesto.” ',
+    // "positive_DA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Diego es conocido por ser una persona muy simpática y un jefe excepcional. Resulta que Diego y su amigo también se conocen.  Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
+    // "positive_DA_target_sentence": '“El Diego va a seguir en el mismo puesto.” ',
 
-    "negative_DA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Diego es un jefe muy exigente y desagradable. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
-    "negative_DA_target_sentence": '“El Diego va a seguir en el mismo puesto.” ',
+    // "negative_DA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Diego es un jefe muy exigente y desagradable. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
+    // "negative_DA_target_sentence": '“El Diego va a seguir en el mismo puesto.” ',
 
-    "neutralNoCG_noDA_context": "Ignacio y su amigo están en un bar. Esta es la primera vez que platican sobre sus vidas laborales, ya que los dos trabajan en lugares distintos. Ignacio nunca ha platicado de su jefe, Diego. Su amigo le pregunta a Ignacio si hay alguna novedad con respecto a su trabajo. Ignacio le responde:",
-    "neutralNoCG_noDA_target_sentence":'“Diego va a seguir en el mismo puesto.” ',
+    // "neutralNoCG_noDA_context": "Ignacio y su amigo están en un bar. Esta es la primera vez que platican sobre sus vidas laborales, ya que los dos trabajan en lugares distintos. Ignacio nunca ha platicado de su jefe, Diego. Su amigo le pregunta a Ignacio si hay alguna novedad con respecto a su trabajo. Ignacio le responde:",
+    // "neutralNoCG_noDA_target_sentence":'“Diego va a seguir en el mismo puesto.” ',
 
-    "neutralCG_noDA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
-    "neutralCG_noDA_target_sentence": '“Diego va a seguir en el mismo puesto.” ',
+    // "neutralCG_noDA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
+    // "neutralCG_noDA_target_sentence": '“Diego va a seguir en el mismo puesto.” ',
 
-    "positive_noDA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Diego es conocido por ser una persona muy simpática y un jefe excepcional. Resulta que Diego y su amigo también se conocen.  Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
-    "positive_noDA_target_sentence": '“Diego va a seguir en el mismo puesto.” ',
+    // "positive_noDA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Diego es conocido por ser una persona muy simpática y un jefe excepcional. Resulta que Diego y su amigo también se conocen.  Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
+    // "positive_noDA_target_sentence": '“Diego va a seguir en el mismo puesto.” ',
 
-    "negative_noDA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Diego es un jefe muy exigente y desagradable. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
-    "negative_noDA_target_sentence": '“Diego va a seguir en el mismo puesto.” ',
+    // "negative_noDA_context": "Ignacio y su amigo están en un bar. Usualmente, ellos recurren a este lugar para hablar de sus vidas laborales. Ignacio platica con su amigo sobre su trabajo y su jefe, Diego. Diego es un jefe muy exigente y desagradable. Resulta que Diego y su amigo también se conocen. Su amigo sabe que Diego tal vez cambie de trabajo, y por lo tanto, le pregunta a Ignacio si hay alguna novedad. Ignacio le responde:",
+    // "negative_noDA_target_sentence": '“Diego va a seguir en el mismo puesto.” ',
 
-    "SpeakName":"Ignacio",
-    "SpeakGen": "masc",
-    "AddName": "El amigo",
-    "AddGen": "masc",
-    "RefName": "Diego",
-    "RefGen": "masc",
-    "AttnQuestion": "Diego es el jefe de Ignacio.",
-    "AttnCorrect":"True",
-    "TrialType": "critical",
-    },   {
+    // "SpeakName":"Ignacio",
+    // "SpeakGen": "masc",
+    // "AddName": "El amigo",
+    // "AddGen": "masc",
+    // "RefName": "Diego",
+    // "RefGen": "masc",
+    // "AttnQuestion": "Diego es el jefe de Ignacio.",
+    // "AttnCorrect":"True",
+    // "TrialType": "critical",
+    // },   {
     
     "ItemType": "soccer",
 
@@ -263,42 +263,42 @@ var all_stims =
     "TrialType": "critical",
     },   {
     
-    "ItemType": "electrician",
+    // "ItemType": "electrician",
 
-    "neutralNoCG_DA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Esta es la primera vez que trabaja para Mariana. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa:",
-    "neutralNoCG_DA_target_sentence": '“El Adrián está en la cocina.” ',
+    // "neutralNoCG_DA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Esta es la primera vez que trabaja para Mariana. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa:",
+    // "neutralNoCG_DA_target_sentence": '“El Adrián está en la cocina.” ',
 
-    "neutralCG_DA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. La casa es vieja y Adrián ha venido muchas veces por problemas eléctricos. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa: ",
-    "neutralCG_DA_target_sentence": '“El Adrián está en la cocina.” ',
+    // "neutralCG_DA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. La casa es vieja y Adrián ha venido muchas veces por problemas eléctricos. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa: ",
+    // "neutralCG_DA_target_sentence": '“El Adrián está en la cocina.” ',
 
-    "positive_DA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Mariana y Adrián se conocen desde niños y él es un buen amigo de la familia. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa: ",
-    "positive_DA_target_sentence": '“El Adrián está en la cocina.” ',
+    // "positive_DA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Mariana y Adrián se conocen desde niños y él es un buen amigo de la familia. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa: ",
+    // "positive_DA_target_sentence": '“El Adrián está en la cocina.” ',
 
-    "negative_DA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Mariana conoció a Adrián hace años. Aun así, a Mariana no le agrada Adrián. Ella piensa que sus bromas son vulgares y que él es muy presumido. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa:",
-    "negative_DA_target_sentence": '“El Adrián está en la cocina.” ',
+    // "negative_DA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Mariana conoció a Adrián hace años. Aun así, a Mariana no le agrada Adrián. Ella piensa que sus bromas son vulgares y que él es muy presumido. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa:",
+    // "negative_DA_target_sentence": '“El Adrián está en la cocina.” ',
 
-    "neutralNoCG_noDA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Esta es la primera vez que trabaja para Mariana. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa:",
-    "neutralNoCG_noDA_target_sentence":'“Adrián está en la cocina.” ',
+    // "neutralNoCG_noDA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Esta es la primera vez que trabaja para Mariana. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa:",
+    // "neutralNoCG_noDA_target_sentence":'“Adrián está en la cocina.” ',
 
-    "neutralCG_noDA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. La casa es vieja y Adrián ha venido muchas veces por problemas eléctricos. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa: ",
-    "neutralCG_noDA_target_sentence": '“Adrián está en la cocina.” ',
+    // "neutralCG_noDA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. La casa es vieja y Adrián ha venido muchas veces por problemas eléctricos. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa: ",
+    // "neutralCG_noDA_target_sentence": '“Adrián está en la cocina.” ',
 
-    "positive_noDA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Mariana y Adrián se conocen desde niños y él es un buen amigo de la familia. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa: ",
-    "positive_noDA_target_sentence": '“Adrián está en la cocina.” ',
+    // "positive_noDA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Mariana y Adrián se conocen desde niños y él es un buen amigo de la familia. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa: ",
+    // "positive_noDA_target_sentence": '“Adrián está en la cocina.” ',
 
-    "negative_noDA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Mariana conoció a Adrián hace años. Aun así, a Mariana no le agrada Adrián. Ella piensa que sus bromas son vulgares y que él es muy presumido. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa:",
-    "negative_noDA_target_sentence": '“Adrián está en la cocina.” ',
+    // "negative_noDA_context": "Mariana contrató a un electricista para que arregle las luces en su cocina. El electricista se llama Adrián. Mariana conoció a Adrián hace años. Aun así, a Mariana no le agrada Adrián. Ella piensa que sus bromas son vulgares y que él es muy presumido. Mariana vive con su hermana. Cuando su hermana llega a la casa, Mariana le avisa:",
+    // "negative_noDA_target_sentence": '“Adrián está en la cocina.” ',
 
-    "SpeakName":"Mariana",
-    "SpeakGen": "fem",
-    "AddName": "La hermana",
-    "AddGen": "fem",
-    "RefName": "Adrián",
-    "RefGen": "masc",
-    "AttnQuestion": "Mariana es hermana de Adrián.",
-    "AttnCorrect":"False",
-    "TrialType": "critical",
-    },   {
+    // "SpeakName":"Mariana",
+    // "SpeakGen": "fem",
+    // "AddName": "La hermana",
+    // "AddGen": "fem",
+    // "RefName": "Adrián",
+    // "RefGen": "masc",
+    // "AttnQuestion": "Mariana es hermana de Adrián.",
+    // "AttnCorrect":"False",
+    // "TrialType": "critical",
+    // },   {
     
     "ItemType": "colleague",
 
@@ -374,79 +374,79 @@ var all_stims =
     "TrialType": "critical",
     },   {
 
-    "ItemType": "supermarket",
+    // "ItemType": "supermarket",
 
-    "neutralNoCG_DA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Es la primera vez que su amiga viene a este supermercado y no conoce a los otros empleados. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde:",
-    "neutralNoCG_DA_target_sentence": '“La Renata está en su descanso.”',
+    // "neutralNoCG_DA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Es la primera vez que su amiga viene a este supermercado y no conoce a los otros empleados. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde:",
+    // "neutralNoCG_DA_target_sentence": '“La Renata está en su descanso.”',
 
-    "neutralCG_DA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a la otra empleada. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde: ",
-    "neutralCG_DA_target_sentence": '“La Renata está en su descanso.”',
+    // "neutralCG_DA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a la otra empleada. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde: ",
+    // "neutralCG_DA_target_sentence": '“La Renata está en su descanso.”',
 
-    "positive_DA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a la otra empleada. Las tres vivieron juntas hace algunos años y han mantenido un amistad muy bonita. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde:",
-    "positive_DA_target_sentence": '“La Renata está en su descanso.”',
+    // "positive_DA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a la otra empleada. Las tres vivieron juntas hace algunos años y han mantenido un amistad muy bonita. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde:",
+    // "positive_DA_target_sentence": '“La Renata está en su descanso.”',
 
-    "negative_DA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a Renata. Natalia y su amiga no tienen una muy buena relación con Renata ya que Renata las metió en muchos problemas cuando trabajaban juntas. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde: ",
-    "negative_DA_target_sentence": '“La Renata está en su descanso.”',
+    // "negative_DA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a Renata. Natalia y su amiga no tienen una muy buena relación con Renata ya que Renata las metió en muchos problemas cuando trabajaban juntas. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde: ",
+    // "negative_DA_target_sentence": '“La Renata está en su descanso.”',
 
-    "neutralNoCG_noDA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Es la primera vez que su amiga viene a este supermercado y no conoce a los otros empleados. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde:",
-    "neutralNoCG_noDA_target_sentence":'“Renata está en su descanso.”',
+    // "neutralNoCG_noDA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Es la primera vez que su amiga viene a este supermercado y no conoce a los otros empleados. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde:",
+    // "neutralNoCG_noDA_target_sentence":'“Renata está en su descanso.”',
 
-    "neutralCG_noDA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a la otra empleada. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde: ",
-    "neutralCG_noDA_target_sentence": '“Renata está en su descanso.”',
+    // "neutralCG_noDA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a la otra empleada. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde: ",
+    // "neutralCG_noDA_target_sentence": '“Renata está en su descanso.”',
 
-    "positive_noDA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a la otra empleada. Las tres vivieron juntas hace algunos años y han mantenido un amistad muy bonita. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde:",
-    "positive_noDA_target_sentence": '“Renata está en su descanso.”',
+    // "positive_noDA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a la otra empleada. Las tres vivieron juntas hace algunos años y han mantenido un amistad muy bonita. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde:",
+    // "positive_noDA_target_sentence": '“Renata está en su descanso.”',
 
-    "negative_noDA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a Renata. Natalia y su amiga no tienen una muy buena relación con Renata ya que Renata las metió en muchos problemas cuando trabajaban juntas. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde: ",
-    "negative_noDA_target_sentence": '“Renata está en su descanso.”',
+    // "negative_noDA_context": "Natalia trabaja de cajera en un supermercado. Natalia tiene la única caja abierta porque la otra empleada, Renata, está en su descanso. Natalia atiende a su amiga, la siguiente cliente en la fila. Su amiga antes trabajaba en este supermercado y por lo tanto conoce a Renata. Natalia y su amiga no tienen una muy buena relación con Renata ya que Renata las metió en muchos problemas cuando trabajaban juntas. Como hay muchos clientes en espera, su amiga le pregunta a Natalia si van a abrir la otra caja. Natalia le responde: ",
+    // "negative_noDA_target_sentence": '“Renata está en su descanso.”',
 
-    "SpeakName":"Natalia",
-    "SpeakGen": "fem",
-    "AddName": "La amiga",
-    "AddGen": "fem",
-    "RefName": "Renata",
-    "RefGen": "fem",
-    "AttnQuestion": "Solo hay una caja abierta en el supermercado.",
-    "AttnCorrect":"True",
-    "TrialType": "critical",
-    },   {
+    // "SpeakName":"Natalia",
+    // "SpeakGen": "fem",
+    // "AddName": "La amiga",
+    // "AddGen": "fem",
+    // "RefName": "Renata",
+    // "RefGen": "fem",
+    // "AttnQuestion": "Solo hay una caja abierta en el supermercado.",
+    // "AttnCorrect":"True",
+    // "TrialType": "critical",
+    // },   {
     
-    "ItemType": "photographer",
+    // "ItemType": "photographer",
 
-    "neutralNoCG_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Nadie mas que los novios conocen a la fotógrafa. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian si contrató a alguien para tomar fotos. Cristian le responde:",
-    "neutralNoCG_DA_target_sentence": '“La Sara está en su carro.” ',
+    // "neutralNoCG_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Nadie mas que los novios conocen a la fotógrafa. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian si contrató a alguien para tomar fotos. Cristian le responde:",
+    // "neutralNoCG_DA_target_sentence": '“La Sara está en su carro.” ',
 
-    "neutralCG_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia, por lo tanto todos en el pueblo la conocen. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde: ",
-    "neutralCG_DA_target_sentence": '“La Sara está en su carro.” ',
+    // "neutralCG_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia, por lo tanto todos en el pueblo la conocen. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde: ",
+    // "neutralCG_DA_target_sentence": '“La Sara está en su carro.” ',
 
-    "positive_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia.  Sara es muy estimada por toda la gente en el pueblo por su carisma y dedicación. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde:",
-    "positive_DA_target_sentence": '“La Sara está en su carro.” ',
+    // "positive_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia.  Sara es muy estimada por toda la gente en el pueblo por su carisma y dedicación. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde:",
+    // "positive_DA_target_sentence": '“La Sara está en su carro.” ',
 
-    "negative_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia. Todos saben que Sara es una persona engreída y altanera pero Cristian la contrató por cuestiones de tiempo. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde esta la fotógrafa. Cristian le responde:",
-    "negative_DA_target_sentence": '“La Sara está en su carro.” ',
+    // "negative_DA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia. Todos saben que Sara es una persona engreída y altanera pero Cristian la contrató por cuestiones de tiempo. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde esta la fotógrafa. Cristian le responde:",
+    // "negative_DA_target_sentence": '“La Sara está en su carro.” ',
 
-    "neutralNoCG_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Nadie mas que los novios conocen a la fotógrafa. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian si contrató a alguien para tomar fotos. Cristian le responde:",
-    "neutralNoCG_noDA_target_sentence":'“Sara está en su carro.” ',
+    // "neutralNoCG_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Nadie mas que los novios conocen a la fotógrafa. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian si contrató a alguien para tomar fotos. Cristian le responde:",
+    // "neutralNoCG_noDA_target_sentence":'“Sara está en su carro.” ',
 
-    "neutralCG_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia, por lo tanto todos en el pueblo la conocen. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde: ",
-    "neutralCG_noDA_target_sentence": '“Sara está en su carro.” ',
+    // "neutralCG_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia, por lo tanto todos en el pueblo la conocen. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde: ",
+    // "neutralCG_noDA_target_sentence": '“Sara está en su carro.” ',
 
-    "positive_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia.  Sara es muy estimada por toda la gente en el pueblo por su carisma y dedicación. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde:",
-    "positive_noDA_target_sentence": '“Sara está en su carro.” ',
+    // "positive_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia.  Sara es muy estimada por toda la gente en el pueblo por su carisma y dedicación. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde está la fotógrafa. Cristian le responde:",
+    // "positive_noDA_target_sentence": '“Sara está en su carro.” ',
 
-    "negative_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia. Todos saben que Sara es una persona engreída y altanera pero Cristian la contrató por cuestiones de tiempo. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde esta la fotógrafa. Cristian le responde:",
-    "negative_noDA_target_sentence": '“Sara está en su carro.” ',
+    // "negative_noDA_context": "Cristian contrató a una fotógrafa llamada Sara para su boda. Sara es una fotógrafa del pueblo donde viven Cristian y su familia. Todos saben que Sara es una persona engreída y altanera pero Cristian la contrató por cuestiones de tiempo. Antes de la celebración, Sara prepara su equipo de fotografía en el salón de fiestas. En ese momento, pero en la sala de recepción, el tío de Cristian le pregunta a Cristian dónde esta la fotógrafa. Cristian le responde:",
+    // "negative_noDA_target_sentence": '“Sara está en su carro.” ',
 
-    "SpeakName":"Cristian",
-    "SpeakGen": "masc",
-    "AddName": "El tío",
-    "AddGen": "masc",
-    "RefName": "Sara",
-    "RefGen": "fem",
-    "AttnQuestion": "Cristian contrató a una fotógrafa para la boda de su tío.",
-    "AttnCorrect":"False",
-    "TrialType": "critical",
-    },   {
+    // "SpeakName":"Cristian",
+    // "SpeakGen": "masc",
+    // "AddName": "El tío",
+    // "AddGen": "masc",
+    // "RefName": "Sara",
+    // "RefGen": "fem",
+    // "AttnQuestion": "Cristian contrató a una fotógrafa para la boda de su tío.",
+    // "AttnCorrect":"False",
+    // "TrialType": "critical",
+    // },   {
     
     "ItemType": "plants",
 
@@ -496,21 +496,21 @@ var all_stims =
     "TrialType": "filler"
     },  {
 
-    "ItemType": "sister",
+    // "ItemType": "sister",
 
-    "filler_context": "Francisco está haciendo una reservación por teléfono en un restaurante. Él quiere mucho a su hermana menor, Karen. Hoy la va a ver por primera vez en más de un año y la quiere invitar a comer a su restaurante favorito. Su papá escucha a Francisco en el teléfono y cuando Francisco cuelga, su papá le pregunta a quién va a invitar a cenar. Francisco le explica:",
-    "filler_target_sentence": '“Esta Karen va a llegar hoy.”',
-    "condition": "positive_filler",
-    "SpeakName":"Francisco",
-    "SpeakGen": "masc",
-    "AddName": "El papá",
-    "AddGen": "masc",
-    "RefName": "Karen",
-    "RefGen": "fem", 
-    "AttnQuestion": "Francisco hizo la reservación en persona.",
-    "AttnCorrect":"False",
-    "TrialType": "filler",
-    },  {
+    // "filler_context": "Francisco está haciendo una reservación por teléfono en un restaurante. Él quiere mucho a su hermana menor, Karen. Hoy la va a ver por primera vez en más de un año y la quiere invitar a comer a su restaurante favorito. Su papá escucha a Francisco en el teléfono y cuando Francisco cuelga, su papá le pregunta a quién va a invitar a cenar. Francisco le explica:",
+    // "filler_target_sentence": '“Esta Karen va a llegar hoy.”',
+    // "condition": "positive_filler",
+    // "SpeakName":"Francisco",
+    // "SpeakGen": "masc",
+    // "AddName": "El papá",
+    // "AddGen": "masc",
+    // "RefName": "Karen",
+    // "RefGen": "fem", 
+    // "AttnQuestion": "Francisco hizo la reservación en persona.",
+    // "AttnCorrect":"False",
+    // "TrialType": "filler",
+    // },  {
     
     "ItemType": "rent",
 
@@ -528,9 +528,25 @@ var all_stims =
     "TrialType": "filler",
     },  {
     
-    "ItemType": "butcher",
+    // "ItemType": "butcher",
 
-    "filler_context": "Rafael trabaja en una carnicería. Cada lunes, Florencia compra un kilo de carne. Hoy es lunes y otro carnicero le pregunta a Rafael si ya vino Florencia. Rafael le responde: ",
+    // "filler_context": "Rafael trabaja en una carnicería. Cada lunes, Florencia compra un kilo de carne. Hoy es lunes y otro carnicero le pregunta a Rafael si ya vino Florencia. Rafael le responde: ",
+    // "filler_target_sentence": '“Doña Florencia está pagando su cuenta.” ',
+    // "condition": "neutralCG_filler",
+    // "SpeakName":"Rafael",
+    // "SpeakGen": "masc",
+    // "AddName": "El otro carnicero",
+    // "AddGen": "masc",
+    // "RefName": "Florencia",
+    // "RefGen": "fem", 
+    // "AttnQuestion": "Florencia nunca va a la carnicería en lunes.",
+    // "AttnCorrect":"False",
+    // "TrialType": "filler",
+    // },  {
+
+    "ItemType": "butcher_positive",
+
+    "filler_context": "Rafael trabaja en una carnicería. Cada lunes, Florencia compra un kilo de carne. Florencia es muy querida por todos en la vecindad. Hoy es lunes y otro carnicero le pregunta a Rafael si ya vino Florencia. Rafael le responde: ",
     "filler_target_sentence": '“Doña Florencia está pagando su cuenta.” ',
     "condition": "neutralCG_filler",
     "SpeakName":"Rafael",
@@ -576,21 +592,21 @@ var all_stims =
     "TrialType": "filler",
     },  {
     
-    "ItemType": "book",
+    // "ItemType": "book",
 
-    "filler_context": "Benjamín es un editor de libros. El está revisando un libro que su mejor amigo escribió. Su amigo se llama Mateo. Aunque Mateo no ha terminado el libro, Benjamín piensa que Mateo es un escritor fantástico. En ese momento, un colega le pregunta a Benjamín que está leyendo. El colega también conoce a Mateo, pero no sabe del libro. Benjamín le dice:",
-    "filler_target_sentence": '“Este Mateo va a escribir un libro.”',
-    "condition": "positive_filler",
-    "SpeakName":"Benjamín",
-    "SpeakGen": "masc",
-    "AddName": "El colega",
-    "AddGen": "masc",
-    "RefName": "Mateo",
-    "RefGen": "masc", 
-    "AttnQuestion": "El colega de Benjamín conoce a Mateo.",
-    "AttnCorrect":"True",
-    "TrialType": "filler",
-    },  {
+    // "filler_context": "Benjamín es un editor de libros. El está revisando un libro que su mejor amigo escribió. Su amigo se llama Mateo. Aunque Mateo no ha terminado el libro, Benjamín piensa que Mateo es un escritor fantástico. En ese momento, un colega le pregunta a Benjamín que está leyendo. El colega también conoce a Mateo, pero no sabe del libro. Benjamín le dice:",
+    // "filler_target_sentence": '“Este Mateo va a escribir un libro.”',
+    // "condition": "positive_filler",
+    // "SpeakName":"Benjamín",
+    // "SpeakGen": "masc",
+    // "AddName": "El colega",
+    // "AddGen": "masc",
+    // "RefName": "Mateo",
+    // "RefGen": "masc", 
+    // "AttnQuestion": "El colega de Benjamín conoce a Mateo.",
+    // "AttnCorrect":"True",
+    // "TrialType": "filler",
+    // },  {
     
     "ItemType": "shoes",
 

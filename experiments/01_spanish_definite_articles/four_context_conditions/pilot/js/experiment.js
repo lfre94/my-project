@@ -2,6 +2,88 @@
 function make_slides(f) {
   var slides = {};
 
+  //bot slide
+  slides.bot = slide({
+    name : "bot",
+    start: function() {
+      $('.err1').hide();
+      $('.err2').hide();
+      $('.disq').hide();
+      exp.speaker = _.shuffle(["Hugo", "Pablo", "Sergio", "Alejandro", "Diego", "Carlos", "Ricardo", "Juan", "Lucas", "Felipe"])[0];
+      exp.listener = _.shuffle(["Ana", "Victoria", "Camila", "Linda", "Daniela", "Isabella", "Yuri", "Martina", "Marta", "Andrea"])[0];
+      exp.lives = 0;
+      var story = exp.speaker + ' le dice a ' + exp.listener + ': "Es un día hermoso, ¿no?"'
+      var question = '¿Con quién habla ' + exp.speaker + '?';
+      document.getElementById("s").innerHTML = story;
+      document.getElementById("q").innerHTML = question;
+    },
+    button : function() {
+      exp.text_input = document.getElementById("text_box").value;
+      var lower = exp.listener.toLowerCase();
+      var upper = exp.listener.toUpperCase();
+
+      if ((exp.lives < 3) && ((exp.text_input == exp.listener)|(exp.text_input == lower) | (exp.text_input== upper))){
+        exp.data_trials.push({
+          "trial_type": "NA",
+          "item_type" : "NA",
+          "sentence": "NA",
+          "context": "NA",
+          "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
+          "felicity_rating": "NA",
+          "affect_rating" : "NA",
+          "condition" : "NA",
+          "referent_name": "NA",
+          "referent_gender": "NA",
+          "speaker_name": "NA",
+          "speaker_gender": "NA",
+          "addressee_name": "NA",
+          "addressee_gender": "NA",      
+          "attention_question":"NA",
+          "attention_response": "NA",
+          "attention_correct_response": "NA",
+          "bot_correct_answer": exp.listener,
+          "bot_response" : [0, exp.text_input],
+        });
+        exp.go();
+      }
+      else {
+        exp.data_trials.push({
+          "trial_type": "NA",
+          "item_type" : "NA",
+          "sentence": "NA",
+          "context": "NA",
+          "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
+          "felicity_rating": "NA",
+          "affect_rating" : "NA",
+          "condition" : "NA",
+          "referent_name": "NA",
+          "referent_gender": "NA",
+          "speaker_name": "NA",
+          "speaker_gender": "NA",
+          "addressee_name": "NA",
+          "addressee_gender": "NA",      
+          "attention_question":"NA",
+          "attention_response": "NA",
+          "attention_correct_response": "NA",
+          "bot_correct_answer": exp.listener,
+          "bot_response" : [0, exp.text_input],
+        });
+        if (exp.lives == 0){
+          $('.err1').show();
+        }if (exp.lives == 1){
+          $('.err1').hide();
+          $('.err2').show();
+        }if (exp.lives == 2){
+          $('.err2').hide();
+          $('.disq').show();
+          $('.button').hide();
+        }
+        exp.lives++;
+      } 
+    },
+  });
+
+
   // set up initial slide
   slides.i0 = slide({
     name: "i0",
@@ -67,9 +149,11 @@ function make_slides(f) {
         "speaker_gender": "fem",
         "addressee_name": "Pilar",
         "addressee_gender": "fem",      
-        "attention": "NA",
         "attention_question":"NA",
-        "attention_correct_ans": "NA",
+        "attention_response": "NA",
+        "attention_correct_response": "NA",
+        "bot_correct_answer": "NA",
+        "bot_response" : "NA",
 
       });
     },
@@ -132,9 +216,11 @@ function make_slides(f) {
         "speaker_gender": "fem",
         "addressee_name": "Marcel",
         "addressee_gender": "masc",
-        "attention": "NA",
         "attention_question":"NA",
-        "attention_correct_ans": "NA",
+        "attention_response": "NA",
+        "attention_correct_response": "NA",
+        "bot_correct_answer": "NA",
+        "bot_response" : "NA",
 
       });
     },
@@ -189,9 +275,11 @@ function make_slides(f) {
         "speaker_gender": "fem",
         "addressee_name": "Marcel",
         "addressee_gender": "masc",
-        "attention": exp.attention,
         "attention_question":"Marcel sabe que Marco Antonio trabaja con Pilar.",
-        "attention_correct_ans": "True",
+        "attention_response": exp.attention,
+        "attention_correct_response": "True",
+        "bot_correct_answer": "NA",
+        "bot_response" : "NA",
 
       });
     },
@@ -302,9 +390,11 @@ function make_slides(f) {
         "speaker_gender": this.stim.SpeakGen,
         "addressee_name": this.stim.AddName,
         "addressee_gender": this.stim.AddGen,
-        "attention": exp.attention,
         "attention_question":this.stim.AttnQuestion,
-        "attention_correct_ans": this.stim.AttnCorrect,
+        "attention_response": exp.attention,
+        "attention_correct_response": this.stim.AttnCorrect,
+        "bot_correct_answer": "NA",
+        "bot_response" : "NA",
 
       });
     },
@@ -395,7 +485,9 @@ function init() {
 
   //blocks of the experiment:
   exp.structure = [
+    "bot",
     "i0",
+    // "sound_test",
     "example1",
     "example2",
     "example3",
@@ -428,9 +520,6 @@ function init() {
     }
   });
 
-  $("#start_button").click(function() {
-    exp.go();
-  });
 
   exp.go(); //show first slide
 }
