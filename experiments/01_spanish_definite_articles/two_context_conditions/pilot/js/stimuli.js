@@ -652,7 +652,7 @@ var all_stims =
     "RefName": "Carolina",
     "RefGen": "fem", 
     "AttnQuestion": "Carlos trabaja en una clínica.",
-    "AttnCorrectAnswer":"True",
+    "AttnCorrect":"True",
     "TrialType": "filler",
     },  {
     
@@ -668,7 +668,7 @@ var all_stims =
     "RefName": "Miguel",
     "RefGen": "masc",
     "AttnQuestion": "Rocío no conoce a Miguel.",
-    "AttnCorrectAnswer":"False",
+    "AttnCorrect":"False",
     "TrialType": "filler",
     },  
 
