@@ -43,7 +43,7 @@ function make_slides(f) {
           "attention_response": "NA",
           "attention_correct_response": "NA",
           "bot_correct_answer": "victoria",
-          "bot_response" : [0, sound_test],
+          "bot_response" : [exp.lives, sound_test],
         });
         exp.go();
       }
@@ -67,7 +67,7 @@ function make_slides(f) {
           "attention_response": "NA",
           "attention_correct_response": "NA",
           "bot_correct_answer": "victoria",
-          "bot_response" : [0,  sound_test],
+          "bot_response" : [exp.lives,  sound_test],
         });
         if (exp.lives == 0){
           $('.err1').show();
