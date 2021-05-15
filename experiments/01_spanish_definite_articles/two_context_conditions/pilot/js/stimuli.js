@@ -464,21 +464,21 @@ var all_stims =
     "TrialType": "filler"
     },  {
 
-    // "ItemType": "swimming",
+    "ItemType": "swimming",
 
-    // "filler_context": "Ximena está hojeando una revista en la sala de su mamá. Su mamá le pregunta por qué su hermano no la acompañó a visitarla. Su hermano, Miguel, siempre la acompaña, pero hoy tuvo práctica de natación. Ximena le dice: ",
-    // "filler_target_sentence": '“Miguelito está nadando.”',
-    // "condition": "positive_filler",
-    // "SpeakName":"Ximena",
-    // "SpeakGen": "fem",
-    // "AddName": "La mamá",
-    // "AddGen": "fem",
-    // "RefName": "Miguel",
-    // "RefGen": "masc", 
-    // "AttnQuestion": "Miguel nunca acompaña a Ximena a visitar su mamá.",
-    // "AttnCorrect":"False",
-    // "TrialType": "filler"
-    // },  {
+    "filler_context": "Ximena está hojeando una revista en la sala de su mamá. Su mamá le pregunta por qué su hermano no la acompañó a visitarla. Su hermano favorito, Miguel, siempre la acompaña, pero hoy tuvo práctica de natación. Ximena le dice: ",
+    "filler_target_sentence": '“Miguelito está nadando.”',
+    "condition": "positive_filler",
+    "SpeakName":"Ximena",
+    "SpeakGen": "fem",
+    "AddName": "La mamá",
+    "AddGen": "fem",
+    "RefName": "Miguel",
+    "RefGen": "masc", 
+    "AttnQuestion": "Miguel nunca acompaña a Ximena a visitar su mamá.",
+    "AttnCorrect":"False",
+    "TrialType": "filler"
+    },  {
 
     // "ItemType": "kitchen",
 
@@ -496,7 +496,7 @@ var all_stims =
     // "TrialType": "filler"
     // },  {
 
-        "ItemType": "kitchen_neutral",
+    "ItemType": "kitchen_neutral",
 
     "filler_context": "Christopher y su compañero de cuarto están limpiando su cocina. Ellos comparten la cocina con Felipe. El compañero de cuarto le pregunta a Christopher a dónde se fue Felipe. Christopher le contesta:",
     "filler_target_sentence": '“Ese Felipe está en la tienda.”',
@@ -576,21 +576,21 @@ var all_stims =
     // "TrialType": "filler",
     // },  {
 
-    // "ItemType": "cellphone",
+    "ItemType": "cellphone",
 
-    // "filler_context": "Roberto y su esposa están comiendo en un restaurante. Una familia que conocen también está en el mismo restaurante, sentados en otra mesa. Roberto observa que Sofía, la hija de los conocidos, no platica con el resto de su familia. Sofía solo se la pasa en su teléfono. Roberto voltea con su esposa y le dice:",
-    // "filler_target_sentence": '“Esa Sofía va a seguir en su teléfono.”',
-    // "condition": "negative_filler",
-    // "SpeakName":"Roberto",
-    // "SpeakGen": "masc",
-    // "AddName": "La esposa",
-    // "AddGen": "fem",
-    // "RefName": "Sofía",
-    // "RefGen": "fem", 
-    // "AttnQuestion": "Sofía está en un restaurante.",
-    // "AttnCorrect":"True",
-    // "TrialType": "filler",
-    // },  {
+    "filler_context": "Roberto y su esposa están comiendo en un restaurante. Una familia que conocen también está en el mismo restaurante, sentados en otra mesa. Roberto observa que Sofía, la hija de los conocidos, no platica con el resto de su familia. Sofía solo se la pasa en su teléfono. Roberto voltea con su esposa y le dice:",
+    "filler_target_sentence": '“Esa Sofía va a seguir en su teléfono.”',
+    "condition": "negative_filler",
+    "SpeakName":"Roberto",
+    "SpeakGen": "masc",
+    "AddName": "La esposa",
+    "AddGen": "fem",
+    "RefName": "Sofía",
+    "RefGen": "fem", 
+    "AttnQuestion": "Sofía está en un restaurante.",
+    "AttnCorrect":"True",
+    "TrialType": "filler",
+    },  {
     
     "ItemType": "seamstress",
 
@@ -638,38 +638,39 @@ var all_stims =
     "AttnQuestion": "Jorge trabaja en una panadería.",
     "AttnCorrect":"False",
     "TrialType": "filler",
-    },  {
+    },
+    // },  {
     
-    "ItemType": "doctor",
+    // "ItemType": "doctor",
 
-    "filler_context": "Carlos es enfermero en una clínica. Una mujer le pregunta si la Dra. Sánchez la puede atender porque es la única doctora que conoce en esta clínica. Como la Dra. Sánchez no se encuentra hoy, la Dra. Carolina Ramírez está atendiendo a todos sus pacientes. Carlos le dice a la mujer:",
-    "filler_target_sentence": '“La Dra. Carolina Ramírez la va a atender.” ',
-    "condition": "neutralNoCG",
-    "SpeakName":"Carlos",
-    "SpeakGen": "masc",
-    "AddName": "La mujer",
-    "AddGen": "fem",
-    "RefName": "Carolina",
-    "RefGen": "fem", 
-    "AttnQuestion": "Carlos trabaja en una clínica.",
-    "AttnCorrect":"True",
-    "TrialType": "filler",
-    },  {
+    // "filler_context": "Carlos es enfermero en una clínica. Una mujer le pregunta si la Dra. Sánchez la puede atender porque es la única doctora que conoce en esta clínica. Como la Dra. Sánchez no se encuentra hoy, la Dra. Carolina Ramírez está atendiendo a todos sus pacientes. Carlos le dice a la mujer:",
+    // "filler_target_sentence": '“La Dra. Carolina Ramírez la va a atender.” ',
+    // "condition": "neutralNoCG",
+    // "SpeakName":"Carlos",
+    // "SpeakGen": "masc",
+    // "AddName": "La mujer",
+    // "AddGen": "fem",
+    // "RefName": "Carolina",
+    // "RefGen": "fem", 
+    // "AttnQuestion": "Carlos trabaja en una clínica.",
+    // "AttnCorrect":"True",
+    // "TrialType": "filler",
+    // },  {
     
-    "ItemType": "teacher",
+    // "ItemType": "teacher",
 
-    "filler_context": "Rocío es una maestra y está conversando con otra maestra sobre el nuevo año escolar. Rocío sabe que uno de sus estudiantes del año pasado, Miguel, va a estar en la clase de la otra maestra. La otra maestra todavía no ha conocido a sus nuevos estudiantes. Rocío le dice:",
-    "filler_target_sentence": '“Miguelito va a estar en tu clase.” ',
-    "condition": "neutralNoCG_filler",
-    "SpeakName":"Rocío",
-    "SpeakGen": "fem",
-    "AddName": "La otra maestra",
-    "AddGen": "fem",
-    "RefName": "Miguel",
-    "RefGen": "masc",
-    "AttnQuestion": "Rocío no conoce a Miguel.",
-    "AttnCorrect":"False",
-    "TrialType": "filler",
-    },  
+    // "filler_context": "Rocío es una maestra y está conversando con otra maestra sobre el nuevo año escolar. Rocío sabe que uno de sus estudiantes del año pasado, Miguel, va a estar en la clase de la otra maestra. La otra maestra todavía no ha conocido a sus nuevos estudiantes. Rocío le dice:",
+    // "filler_target_sentence": '“Miguelito va a estar en tu clase.” ',
+    // "condition": "neutralNoCG_filler",
+    // "SpeakName":"Rocío",
+    // "SpeakGen": "fem",
+    // "AddName": "La otra maestra",
+    // "AddGen": "fem",
+    // "RefName": "Miguel",
+    // "RefGen": "masc",
+    // "AttnQuestion": "Rocío no conoce a Miguel.",
+    // "AttnCorrect":"False",
+    // "TrialType": "filler",
+    // },  
 
     ]
