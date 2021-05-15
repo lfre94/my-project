@@ -23,7 +23,7 @@ function make_slides(f) {
            // } else {
            //        $('.err').show();
            // }
-        if ((exp.lives < 3) && (sound_test == "victoria")){
+        if ((exp.lives < 3) && ((sound_test == "victoria") | (sound_test == "victoria "))){
         exp.data_trials.push({
           "trial_type": "NA",
           "item_type" : "NA",
@@ -77,7 +77,7 @@ function make_slides(f) {
         }if (exp.lives == 2){
           $('.err2').hide();
           $('.disq').show();
-          $('.soundtest_OK').hide();
+          $('#soundtest_OK').hide();
         }
         exp.lives++;
       } 
