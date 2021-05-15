@@ -2,27 +2,28 @@
 function make_slides(f) {
   var slides = {};
 
-  //bot slide
-  slides.bot = slide({
-    name : "bot",
-    start: function() {
-      $('.err1').hide();
-      $('.err2').hide();
-      $('.disq').hide();
-      exp.speaker = _.shuffle(["Hugo", "Pablo", "Sergio", "Alejandro", "Diego", "Carlos", "Ricardo", "Juan", "Lucas", "Felipe"])[0];
-      exp.listener = _.shuffle(["Ana", "Victoria", "Camila", "Linda", "Daniela", "Isabella", "Yuri", "Martina", "Marta", "Andrea"])[0];
-      exp.lives = 0;
-      var story = exp.speaker + ' le dice a ' + exp.listener + ': "Es un día hermoso, ¿no?"'
-      var question = '¿Con quién habla ' + exp.speaker + '?';
-      document.getElementById("s").innerHTML = story;
-      document.getElementById("q").innerHTML = question;
-    },
-    button : function() {
-      exp.text_input = document.getElementById("text_box").value;
-      var lower = exp.listener.toLowerCase();
-      var upper = exp.listener.toUpperCase();
+  // SOUND CHECK
+  slides.sound_test = slide({
+     name: "sound_test",
+          start: function(){
+            // $('.err').hide();
+            $('.err1').hide();
+            $('.err2').hide();
+            $('.disq').hide();
+            exp.lives = 0
+          },
+     soundtest_OK : function(e){
+       // exp.trial_no = 0;
 
-      if ((exp.lives < 3) && ((exp.text_input == exp.listener)|(exp.text_input == lower) | (exp.text_input== upper))){
+           var sound_test = $(".sound_test").val();
+           sound_test = sound_test.toLowerCase();
+
+           // if (sound_test == "victoria") {
+           //         exp.go();
+           // } else {
+           //        $('.err').show();
+           // }
+        if ((exp.lives < 3) && (sound_test == "victoria")){
         exp.data_trials.push({
           "trial_type": "NA",
           "item_type" : "NA",
@@ -41,8 +42,8 @@ function make_slides(f) {
           "attention_question":"NA",
           "attention_response": "NA",
           "attention_correct_response": "NA",
-          "bot_correct_answer": exp.listener,
-          "bot_response" : [0, exp.text_input],
+          "bot_correct_answer": "victoria",
+          "bot_response" : [0, sound_test],
         });
         exp.go();
       }
@@ -65,8 +66,8 @@ function make_slides(f) {
           "attention_question":"NA",
           "attention_response": "NA",
           "attention_correct_response": "NA",
-          "bot_correct_answer": exp.listener,
-          "bot_response" : [0, exp.text_input],
+          "bot_correct_answer": "victoria",
+          "bot_response" : [0,  sound_test],
         });
         if (exp.lives == 0){
           $('.err1').show();
@@ -76,12 +77,92 @@ function make_slides(f) {
         }if (exp.lives == 2){
           $('.err2').hide();
           $('.disq').show();
-          $('.button').hide();
+          $('.soundtest_OK').hide();
         }
         exp.lives++;
       } 
-    },
-  });
+     }
+   });
+  //bot slide
+  // slides.bot = slide({
+  //   name : "bot",
+  //   start: function() {
+  //     $('.err1').hide();
+  //     $('.err2').hide();
+  //     $('.disq').hide();
+  //     exp.speaker = _.shuffle(["Hugo", "Pablo", "Sergio", "Alejandro", "Diego", "Carlos", "Ricardo", "Juan", "Lucas", "Felipe"])[0];
+  //     exp.listener = _.shuffle(["Ana", "Victoria", "Camila", "Linda", "Daniela", "Isabella", "Yuri", "Martina", "Marta", "Andrea"])[0];
+  //     exp.lives = 0;
+  //     var story = exp.speaker + ' le dice a ' + exp.listener + ': "Es un día hermoso, ¿no?"'
+  //     var question = '¿Con quién habla ' + exp.speaker + '?';
+  //     document.getElementById("s").innerHTML = story;
+  //     document.getElementById("q").innerHTML = question;
+  //   },
+  //   button : function() {
+  //     exp.text_input = document.getElementById("text_box").value;
+  //     var lower = exp.listener.toLowerCase();
+  //     var upper = exp.listener.toUpperCase();
+
+  //     if ((exp.lives < 3) && ((exp.text_input == exp.listener)|(exp.text_input == lower) | (exp.text_input== upper))){
+  //       exp.data_trials.push({
+  //         "trial_type": "NA",
+  //         "item_type" : "NA",
+  //         "sentence": "NA",
+  //         "context": "NA",
+  //         "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
+  //         "felicity_rating": "NA",
+  //         "affect_rating" : "NA",
+  //         "condition" : "NA",
+  //         "referent_name": "NA",
+  //         "referent_gender": "NA",
+  //         "speaker_name": "NA",
+  //         "speaker_gender": "NA",
+  //         "addressee_name": "NA",
+  //         "addressee_gender": "NA",      
+  //         "attention_question":"NA",
+  //         "attention_response": "NA",
+  //         "attention_correct_response": "NA",
+  //         "bot_correct_answer": exp.listener,
+  //         "bot_response" : [0, exp.text_input],
+  //       });
+  //       exp.go();
+  //     }
+  //     else {
+  //       exp.data_trials.push({
+  //         "trial_type": "NA",
+  //         "item_type" : "NA",
+  //         "sentence": "NA",
+  //         "context": "NA",
+  //         "slide_number_in_experiment": exp.phase, //exp.phase is a built-in trial number tracker
+  //         "felicity_rating": "NA",
+  //         "affect_rating" : "NA",
+  //         "condition" : "NA",
+  //         "referent_name": "NA",
+  //         "referent_gender": "NA",
+  //         "speaker_name": "NA",
+  //         "speaker_gender": "NA",
+  //         "addressee_name": "NA",
+  //         "addressee_gender": "NA",      
+  //         "attention_question":"NA",
+  //         "attention_response": "NA",
+  //         "attention_correct_response": "NA",
+  //         "bot_correct_answer": exp.listener,
+  //         "bot_response" : [0, exp.text_input],
+  //       });
+  //       if (exp.lives == 0){
+  //         $('.err1').show();
+  //       }if (exp.lives == 1){
+  //         $('.err1').hide();
+  //         $('.err2').show();
+  //       }if (exp.lives == 2){
+  //         $('.err2').hide();
+  //         $('.disq').show();
+  //         $('.button').hide();
+  //       }
+  //       exp.lives++;
+  //     } 
+  //   },
+  // });
 
 
   // set up initial slide
@@ -485,9 +566,9 @@ function init() {
 
   //blocks of the experiment:
   exp.structure = [
-    "bot",
+    // "bot",
+    "sound_test",
     "i0",
-    // "sound_test",
     "example1",
     "example2",
     "example3",

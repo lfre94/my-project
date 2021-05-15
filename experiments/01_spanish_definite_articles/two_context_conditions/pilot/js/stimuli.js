@@ -660,7 +660,7 @@ var all_stims =
 
     "filler_context": "Rocío es una maestra y está conversando con otra maestra sobre el nuevo año escolar. Rocío sabe que uno de sus estudiantes del año pasado, Miguel, va a estar en la clase de la otra maestra. La otra maestra todavía no ha conocido a sus nuevos estudiantes. Rocío le dice:",
     "filler_target_sentence": '“Miguelito va a estar en tu clase.” ',
-    "condition": "neutralNoCG",
+    "condition": "neutralNoCG_filler",
     "SpeakName":"Rocío",
     "SpeakGen": "fem",
     "AddName": "La otra maestra",

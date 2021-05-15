@@ -55,9 +55,38 @@
 
   <body onload="init()">
     <noscript>This task requires JavaScript.</noscript>
-    
+   
+    <!-- sound test slide -->
+    <div class="slide" id="sound_test">
+    <div class="text-center">
+     <br><br><br>
+      Press the play button to hear what word to type in the box. Once you type the word in the box below, you can continue.
+      <br><br>
+      <audio id="soundtest" controls src='soundtest.wav'> </audio>
+      <br><br>
+      <input type="text" class="sound_test">
+      <br><br>
+      In the task, the audio will play automatically and you'll only hear each word once so listen carefully!
+      <br><br>
+      <button id="soundtest_OK" onclick="_s.soundtest_OK()"> Continue </button>
+                       
+      <!-- <div class="err"> -->
+      <div class="err1">
+        <p2>Fallar esta pregunta dos veces más lo descalificará de este estudio.</p2></div>
+      <div class="err2">
+        <p2>Fallar esta pregunta una vez más lo descalificará de este estudio.</p2></div>
+      <div class="disq">
+        <p2>Falló la pregunta y está descalificado/a. </p2></div>
+        <br>
+        <p>
+        Please listen to the audio and type in the word indicated.
+        </p>
+      </div>
+    </div>
+    </div>
+
     <!-- bot slide -->
-  <div class="slide" id="bot" >
+<!--   <div class="slide" id="bot" >
     <h3>¿Eres un robot?</h3>
     <p id="s"></p>
     <p id="q"></p>
@@ -71,7 +100,7 @@
         <p2>Falló la pregunta y está descalificado/a. </p2></div>
       <div class="button">
         <button onclick="_s.button()">Siguiente</button></div>
-  </div>
+  </div> -->
 
     <!-- initial slide -->
     <div class="slide" id="i0">
