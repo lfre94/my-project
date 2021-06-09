@@ -1,0 +1,971 @@
+---
+title: "spanish_definite_articles"
+output: html_notebook
+---
+
+# libraries
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(dbplyr)
+library(lmerTest)
+library(languageR)
+library(lme4)
+library(wesanderson)
+cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "D55E00", "#CC79A7")
+source("helpers.r")
+```
+
+# data filtering
+
+```{r}
+data = read.csv("main-trials.csv")
+demo = read.csv("main-subject_information.csv")
+```
+
+```{r}
+data <- data %>%
+  left_join(demo, by="workerid")
+```
+
+
+```{r}
+data = data %>%
+  filter(attention_response != "NA" & item_type != "example3") %>%
+  mutate(attention_pass = ifelse(attention_response == attention_correct_response, 1, 0)) %>%
+  arrange(workerid)
+```
+
+```{r}
+attention_exclusion = data %>%
+  group_by(workerid) %>%
+  summarize(accuracy = mean(attention_pass)) %>%
+  mutate(exclude = ifelse(accuracy < 0.8, "yes", "no")) %>%
+  filter(exclude == "yes")
+```
+
+```{r}
+attention_correct = data %>%
+  group_by(workerid) %>%
+  summarize(accuracy = mean(attention_pass)) %>%
+  mutate(exclude = ifelse(accuracy < 0.8, "yes", "no")) %>%
+  filter(exclude == "no")
+```
+
+```{r}
+nonnative = demo %>%
+  filter(native != "yes")
+```
+
+experiment completion times before exclusions
+```{r}
+data %>%
+  group_by(workerid) %>%
+  summarize(time = mean(Answer.time_in_minutes)) %>%
+  ggplot(aes(x=time)) +
+  geom_histogram()  +
+  xlab("Average completion time") +
+  ylab("Number of cases") +
+  theme_bw()
+```
+
+Excluding from data frames
+```{r}
+data = data[!(data$workerid %in% attention_exclusion$workerid),]
+data = data[!(data$workerid %in% nonnative$workerid),]
+
+demo = demo[!(demo$workerid %in% attention_exclusion$workerid),]
+demo = demo[!(demo$workerid %in% nonnative$workerid),]
+
+```
+
+
+Time exclusions after filtering data based on attention checks and native language
+```{r}
+time_exclusions = data %>%
+  group_by(workerid) %>%
+  summarize(time = mean(Answer.time_in_minutes)) %>%
+  filter(time < 10)
+
+length(unique(time_exclusions$workerid))
+```
+
+experiment completion times before time exclusions
+```{r}
+data %>%
+  group_by(workerid) %>%
+  summarize(time = mean(Answer.time_in_minutes)) %>%
+  ggplot(aes(x=time)) +
+  geom_histogram()  +
+  xlab("Average completion time") +
+  ylab("Number of cases") +
+  theme_bw()
+```
+
+```{r}
+data = data[!(data$workerid %in% time_exclusions$workerid),]
+demo = demo[!(demo$workerid %in% time_exclusions$workerid),]
+```
+
+
+double check demo and data are the same
+```{r}
+length(demo$workerid)
+length(unique(data$workerid))
+```
+
+```{r}
+write.csv(demo, "demo.csv")
+```
+
+
+change character variable to factor variables
+```{r}
+data = data %>%
+  mutate(age = as.numeric(age)) %>% 
+  mutate_if(is.character,as.factor)
+
+demo = demo %>%
+  mutate(age = as.numeric(age))
+
+demo = demo %>%
+  mutate_if(is.character,as.factor)
+
+```
+
+
+# Main data visualizations
+
+Set the background to be white instead of gray.
+```{r}
+theme_set(theme_bw())
+```
+
+experiment completion times
+```{r}
+data %>%
+  group_by(workerid) %>%
+  summarize(time = mean(Answer.time_in_minutes)) %>%
+  ggplot(aes(x=time)) +
+  geom_histogram()  +
+  xlab("Average completion time") +
+  ylab("Number of cases") +
+  theme_bw()
+```
+
+Filtering data by critical and filler trials.
+droplevels() gets rid of unused factor levels (i.e. "filler" in data_critical)
+```{r}
+data_critical = data %>%
+  filter(trial_type == "critical") %>% 
+  droplevels() 
+
+data_filler = data %>% 
+  filter(trial_type == "filler")
+```
+
+
+```{r felicity barplot}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  group_by(context_condition, DA_presence) %>%
+  summarize(mean_felicity = mean(felicity_rating), CI.Low = ci.low(felicity_rating), CI.High = ci.high(felicity_rating)) %>%
+  mutate(YMin = mean_felicity - CI.Low, YMax = mean_felicity + CI.High) %>% 
+  ggplot(aes(x=reorder(context_condition, mean_felicity), y=mean_felicity, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  #geom_jitter(data=data_critical,aes(y=felicity_rating),alpha=.5,color="lightblue") +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  labs (x="Context Condition", y= "Mean Felicity Rating", fill = "DA Presence") +
+  scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_manual(values = cbPalette) +
+  scale_fill_manual(labels=c("DA", "no DA"), values = wes_palette("FantasticFox1")[2:4]) +
+  #geom_text(aes(label = mean_felicity), size = 3) +
+  theme(axis.text.x = element_text(vjust = 0.7))
+```
+
+
+```{r}
+ggsave(file = "graphs/felicity_barplot.png",width=5,height=4)
+```
+
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  group_by(DA_presence, context_condition) %>%
+  summarize(mean_felicity = mean(felicity_rating), CI.Low = ci.low(felicity_rating), CI.High = ci.high(felicity_rating)) %>%
+  mutate(YMin = mean_felicity - CI.Low, YMax = mean_felicity + CI.High) %>% 
+  ggplot(aes(x=DA_presence, y=mean_felicity, fill = context_condition)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  #geom_jitter(data=data_critical,aes(y=felicity_rating),alpha=.5,color="lightblue") +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  labs (x="Context Condition", y= "Mean Felicity Rating", fill = "DA Presence") +
+  scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_manual(values = cbPalette) +
+  scale_fill_manual(values = wes_palette("FantasticFox1")[2:4]) +
+ #geom_text(aes(label = mean_felicity), size = 3) +
+  theme(axis.text.x = element_text(vjust = 0.7))
+```
+
+
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  group_by(DA_presence) %>%
+  summarize(mean_felicity = mean(felicity_rating), CI.Low = ci.low(felicity_rating), CI.High = ci.high(felicity_rating)) %>%
+  mutate(YMin = mean_felicity - CI.Low, YMax = mean_felicity + CI.High) %>% 
+  ggplot(aes(x=DA_presence, y=mean_felicity)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  #geom_jitter(data=data_critical,aes(y=felicity_rating),alpha=.5,color="lightblue") +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  #labs (x="Context Condition", y= "Mean Felicity Rating", fill = "DA Presence") +
+  #scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  #scale_fill_manual(values = cbPalette) +
+  #scale_fill_manual(values = wes_palette("FantasticFox1")[2:4]) +
+ geom_text(aes(label = mean_felicity), size = 3) +
+  theme(axis.text.x = element_text(vjust = 0.7))
+```
+
+
+```{r felicity box plot}
+  data_critical %>% 
+  group_by(context_condition, DA_presence) %>%
+  ggplot(aes(x = context_condition,y=felicity_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  labs (x="Context Condition", y= "Felicity Rating", fill = "DA Presence") +
+  scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_discrete(labels=c("DA", "no DA")) +
+  scale_fill_manual(values = wes_palette("FantasticFox1")[2:4])
+```
+
+
+```{r affect bar plot}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  group_by(context_condition, DA_presence) %>%
+  summarize(mean_affect = mean(affect_rating), CI.Low = ci.low(affect_rating), CI.High = ci.high(affect_rating)) %>%
+  mutate(YMin = mean_affect - CI.Low, YMax = mean_affect + CI.High) %>% 
+  ggplot(aes(x=reorder(context_condition, mean_affect), y=mean_affect, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  #geom_jitter(data=data_critical,aes(y=affect_rating),alpha=.5,color="lightblue") +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  labs (x="Context Condition", y= "Mean Affect Rating", fill = "DA Presence") +
+  scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  #scale_fill_manual(values = cbPalette) +
+  scale_fill_manual(labels=c("DA", "no DA"), values = wes_palette("FantasticFox1")[2:4]) +
+ #geom_text(aes(label = mean_affect), size = 3) +
+  theme(axis.text.x = element_text(vjust = 0.7))
+
+```
+
+```{r}
+ggsave(file = "graphs/affect_barplot.png",width=5,height=4)
+```
+
+```{r  affect box plot}
+  data_critical %>% 
+  group_by(context_condition, DA_presence) %>%
+  ggplot(aes(x = context_condition,y=affect_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  labs (x="Context Condition", y= "Affect Rating", fill = "DA Presence") +
+  scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_discrete(labels=c("DA", "no DA")) +
+  scale_fill_manual(values = wes_palette("FantasticFox1")[2:4])
+```
+
+
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  group_by(DA_presence) %>%
+  summarize(mean_affect = mean(affect_rating), CI.Low = ci.low(affect_rating), CI.High = ci.high(affect_rating)) %>%
+  mutate(YMin = mean_affect - CI.Low, YMax = mean_affect + CI.High) %>% 
+  ggplot(aes(x=DA_presence, y=mean_affect)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  #geom_jitter(data=data_critical,aes(y=felicity_rating),alpha=.5,color="lightblue") +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  #labs (x="Context Condition", y= "Mean Felicity Rating", fill = "DA Presence") +
+  #scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  #scale_fill_manual(values = cbPalette) +
+  #scale_fill_manual(values = wes_palette("FantasticFox1")[2:4]) +
+ geom_text(aes(label = mean_affect), size = 3) +
+  theme(axis.text.x = element_text(vjust = 0.7))
+```
+
+
+```{r}
+dodge = position_dodge(.9)
+
+data %>% 
+  group_by(context_condition, DA_presence) %>%
+  summarize(mean_felicity = mean(felicity_rating), CI.Low = ci.low(felicity_rating), CI.High = ci.high(felicity_rating)) %>%
+  mutate(YMin = mean_felicity - CI.Low, YMax = mean_felicity + CI.High) %>% 
+  ggplot(aes(x=context_condition, y=mean_felicity, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  #scale_fill_manual(values = cbPalette) +
+  theme_bw() +
+  theme(axis.text.x = element_text(vjust = 0.7))
+```
+
+```{r}
+dodge = position_dodge(.9)
+
+data %>% 
+  group_by(context_condition, DA_presence) %>%
+  summarize(mean_affect = mean(affect_rating), CI.Low = ci.low(affect_rating), CI.High = ci.high(affect_rating)) %>%
+  mutate(YMin = mean_affect - CI.Low, YMax = mean_affect + CI.High) %>% 
+  ggplot(aes(x=context_condition, y=mean_affect, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  #scale_fill_manual(values = cbPalette) +
+  theme_bw() +
+  theme(axis.text.x = element_text(vjust = 0.7))
+```
+
+
+```{r}
+data %>% 
+  group_by(condition) %>%
+  summarize(mean_affect = mean(affect_rating)) %>%
+  ggplot(aes(x=reorder(condition,mean_affect), y=mean_affect)) + 
+  geom_bar(stat = "identity") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.7))
+```
+
+```{r}
+data_critical %>%
+  ggplot(aes(x = affect_rating, y = felicity_rating, color = condition)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  theme_bw()
+```
+
+```{r}
+data %>%
+  group_by(condition) %>%
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating)) %>%
+  ggplot(aes(x = mean_affect, y = mean_felicity, color = condition)) +
+  geom_point() +
+  theme_bw()
+```
+
+```{r}
+data_critical %>%
+  group_by(context_condition, DA_presence) %>%
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating)) %>%
+  ggplot(aes(x = mean_affect, y = mean_felicity, color = DA_presence, shape = context_condition)) +
+  geom_point(size =3) +
+  theme_bw()
+```
+
+
+
+```{r}
+data_critical %>%
+  group_by(context_condition, DA_presence, item_type) %>%
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating)) %>%
+  ggplot(aes(x = mean_affect, y = mean_felicity, color = DA_presence, shape = context_condition, group = DA_presence)) +
+  geom_point(size =3) +
+  geom_smooth(method = "lm") + 
+  theme_bw()
+```
+## Variation by item types
+```{r}
+data_critical %>%
+  group_by(context_condition, DA_presence, item_type) %>%
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating)) %>%
+  ggplot(aes(x = mean_affect, y = mean_felicity, color = DA_presence, shape = context_condition, group = DA_presence, label = item_type)) +
+  geom_point(size =3) +
+  geom_text() +
+  geom_smooth(method = "lm")
+```
+
+```{r}
+  data_critical %>% 
+  group_by(context_condition, DA_presence, item_type) %>%
+  ggplot(aes(x = context_condition,y=felicity_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  labs (x="Context Condition", y= "Felicity Rating", fill = "DA Presence") +
+  scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_discrete(labels=c("DA", "no DA")) +
+  scale_fill_manual(values = wes_palette("FantasticFox1")[2:4]) +
+  facet_wrap(~item_type)
+```
+
+
+```{r}
+  data_critical %>% 
+  group_by(context_condition, DA_presence, item_type) %>%
+  ggplot(aes(x = context_condition,y=affect_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  labs (x="Context Condition", y= "Affect Rating", fill = "DA Presence") +
+  scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_discrete(labels=c("DA", "no DA")) +
+  facet_wrap(~item_type)
+```
+
+```{r}
+  data_critical %>% 
+  group_by(DA_presence, item_type) %>%
+  ggplot(aes(x = item_type,y=felicity_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  labs (x="Item Type", y= "Felicity Rating", fill = "DA Presence") +
+  #scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_discrete(labels=c("DA", "no DA"))
+```
+
+```{r}
+  data_critical %>% 
+  group_by(DA_presence, item_type) %>%
+  ggplot(aes(x = item_type,y=affect_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  labs (x="Item Type", y= "Affect Rating", fill = "DA Presence") +
+  #scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_discrete(labels=c("DA", "no DA"))
+```
+
+Plot the felcity and affect ratings for each item_type by using facets.
+
+```{r}
+ggplot(data, aes(x=affect_rating,y=felicity_rating, color=condition)) +
+  geom_point() +
+  geom_smooth(method="lm") + 
+  facet_wrap(~item_type)
+```
+
+Plot the felcity and affect ratings for each item_type by using facets.
+
+```{r}
+ggplot(data_critical, aes(x=affect_rating,y=felicity_rating, color=condition)) +
+  geom_point() +
+  #geom_smooth(method="lm") + 
+  geom_smooth() + 
+  facet_wrap(~item_type)
+```
+
+```{r}
+ggplot(data_critical, aes(x=affect_rating,y=felicity_rating, color=context_condition)) +
+  geom_point() +
+  geom_smooth(method="lm") + 
+  facet_wrap(~item_type)
+```
+
+```{r}
+ggplot(data_filler, aes(x=affect_rating,y=felicity_rating, color=context_condition)) +
+  geom_point() +
+  geom_smooth(method="lm") + 
+  facet_wrap(~item_type)
+```
+
+```{r Positive and Negative Filler plots}
+data_filler %>% 
+  filter(item_type == "cellphone" | item_type == "swimming") %>%  
+  ggplot(aes(x=affect_rating,y=felicity_rating, color=context_condition)) +
+  geom_point() +
+  geom_smooth(method="lm") + 
+  labs (x="Affect Rating", y= "Felicity Rating", color = "Context Condition") +
+  scale_color_manual(labels=c("Negative Filler", "Positive Filler"), values = wes_palette("Darjeeling1")) +
+  facet_wrap(~item_type)
+```
+
+```{r}
+ggsave(file = "graphs/affect_fillers_scatterplot.png",width=8,height=4)
+```
+
+```{r DA presence by item type}
+ggplot(data_critical, aes(x=affect_rating,y=felicity_rating, color=DA_presence)) +
+  geom_point() +
+  #geom_smooth(method="lm") + 
+  geom_smooth() + 
+  labs (x="Affect Rating", y= "Felicity Rating", color = "DA Presence") +
+  #scale_color_discrete(labels=c("DA", "no DA"), values = wes_palette("FantasticFox1")[2:4]) +
+  scale_color_manual(labels=c("DA", "no DA"), values = cbPalette) +
+  facet_wrap(~item_type)
+```
+ 
+```{r}
+ggsave(file = "graphs/DA_by_item_type.png",width=10,height=7)
+```
+ 
+```{r referent gender}
+ggplot(data_critical, aes(x=affect_rating,y=felicity_rating, color=DA_presence)) +
+  geom_point() +
+  geom_smooth(method="lm") + 
+  #geom_smooth() + 
+  labs (x="Affect Rating", y= "Felicity Rating", color = "DA Presence") +
+  #scale_color_discrete(labels=c("DA", "no DA"), values = wes_palette("FantasticFox1")[2:4]) +
+  scale_color_manual(values = cbPalette) +
+  facet_wrap(~referent_gender)
+```
+ 
+```{r}
+ggplot(data_critical, aes(x=affect_rating,y=felicity_rating, color=DA_presence)) +
+  geom_point() +
+  geom_smooth(method="lm") + 
+  #geom_smooth() + 
+  labs (x="Affect Rating", y= "Felicity Rating", color = "DA Presence") +
+  #scale_color_discrete(labels=c("DA", "no DA"), values = wes_palette("FantasticFox1")[2:4]) +
+  scale_color_manual(values = cbPalette) +
+  facet_grid(rows = vars(item_type), cols = vars(referent_gender))
+``` 
+
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  group_by(referent_gender, DA_presence, item_type) %>%
+  summarize(mean_felicity = mean(felicity_rating), CI.Low = ci.low(felicity_rating), CI.High = ci.high(felicity_rating)) %>%
+  mutate(YMin = mean_felicity - CI.Low, YMax = mean_felicity + CI.High) %>% 
+  ggplot(aes(x=referent_gender, y=mean_felicity, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  #scale_fill_manual(values = cbPalette) +
+  theme_bw() +
+  theme(axis.text.x = element_text(vjust = 0.7)) +
+  facet_wrap(~item_type)
+```
+
+
+```{r}
+  data_critical %>% 
+  group_by(DA_presence, referent_gender) %>%
+  ggplot(aes(x = referent_gender,y=felicity_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  #labs (x="Context Condition", y= "Felicity Rating", fill = "DA Presence") +
+  #scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_discrete(labels=c("DA", "no DA")) +
+  scale_fill_manual(values = wes_palette("FantasticFox1")[2:4])
+```
+
+```{r}
+  data_critical %>% 
+  group_by(DA_presence, referent_gender) %>%
+  ggplot(aes(x = referent_gender,y=affect_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  #labs (x="Context Condition", y= "Felicity Rating", fill = "DA Presence") +
+  #scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_discrete(labels=c("DA", "no DA")) +
+  scale_fill_manual(values = wes_palette("FantasticFox1")[2:4])
+```
+ 
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  group_by(context_condition, DA_presence, item_type) %>%
+  summarize(mean_felicity = mean(felicity_rating), CI.Low = ci.low(felicity_rating), CI.High = ci.high(felicity_rating)) %>%
+  mutate(YMin = mean_felicity - CI.Low, YMax = mean_felicity + CI.High) %>% 
+  ggplot(aes(x=context_condition, y=mean_felicity, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  #scale_fill_manual(values = cbPalette) +
+  theme_bw() +
+  theme(axis.text.x = element_text(vjust = 0.7)) +
+  facet_wrap(~item_type)
+```
+
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  group_by(context_condition, DA_presence, item_type) %>%
+  summarize(mean_affect = mean(affect_rating), CI.Low = ci.low(affect_rating), CI.High = ci.high(affect_rating)) %>%
+  mutate(YMin = mean_affect - CI.Low, YMax = mean_affect + CI.High) %>% 
+  ggplot(aes(x=context_condition, y=mean_affect, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  #scale_fill_manual(values = cbPalette) +
+  theme_bw() +
+  theme(axis.text.x = element_text(vjust = 0.7)) +
+  facet_wrap(~item_type)
+```
+
+
+# Exploratory data visualizations for social variables
+
+```{r}
+data %>%
+  group_by(region_country) %>%
+  ggplot(aes(x = fct_infreq(region_country), fill=region_country)) +
+  geom_bar(stat = 'count') +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.7)) +
+  scale_fill_manual(values = wes_palette("Zissou1", 15, type = "continuous")) +
+  theme(legend.position = "none")
+```
+
+```{r Participants by country}
+demo %>%
+  group_by(region_country) %>%
+  ggplot(aes(x = fct_infreq(region_country), fill=region_country)) +
+  geom_bar(stat = 'count') +
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.7)) +
+  scale_fill_manual(values = wes_palette("Zissou1", 15, type = "continuous")) +
+  theme(legend.position = "none") +
+  labs (x="Country", y= "Number of Participants")
+```
+
+```{r}
+ggsave(file = "graphs/participants_country.png",width=5,height=4)
+```
+
+
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  group_by(context_condition, DA_presence, region_country) %>%
+  summarize(mean_felicity = mean(felicity_rating), CI.Low = ci.low(felicity_rating), CI.High = ci.high(felicity_rating)) %>%
+  mutate(YMin = mean_felicity - CI.Low, YMax = mean_felicity + CI.High) %>% 
+  ggplot(aes(x=context_condition, y=mean_felicity, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  #scale_fill_manual(values = cbPalette) +
+  theme_bw() +
+  theme(axis.text.x = element_text(vjust = 0.7)) +
+  facet_wrap(~region_country)
+```
+
+```{r}
+data_critical %>%
+  group_by(context_condition, DA_presence, region_country) %>%
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating), trial_sum = n()) %>%
+  ggplot(aes(x = mean_affect, y = mean_felicity, color = DA_presence, shape = context_condition, size = trial_sum)) +
+  geom_point() +
+  facet_wrap(~region_country) +
+  theme_bw()
+```
+
+```{r}
+data_critical %>%
+  group_by(context_condition, DA_presence, region_country) %>%
+  filter(region_country == "argentina" | region_country == "mexico" | region_country == "spain" | region_country == "usa" | region_country == "venezuela") %>% 
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating), trial_sum = n()) %>%
+  #filter(trial_sum > 25) %>% 
+  ggplot(aes(x = mean_affect, y = mean_felicity, color = DA_presence, shape = context_condition, size = trial_sum)) +
+  geom_point() +
+  facet_wrap(~region_country) +
+  theme_bw()
+```
+
+```{r}
+  data_critical %>% 
+  group_by(context_condition, DA_presence, region_country) %>%
+  ggplot(aes(x = context_condition,y=felicity_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  labs (x="Context Condition", y= "Felicity Rating", fill = "DA Presence") +
+  scale_x_discrete(labels=c("neutralCG" = "CG", "neutralNoCG" = "No CG")) +
+  scale_fill_discrete(labels=c("DA", "no DA")) +
+  facet_wrap(~region_country)
+```
+
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  group_by(context_condition, DA_presence, region_country) %>%
+  filter(region_country == "argentina" | region_country == "mexico" | region_country == "spain" | region_country == "usa" | region_country == "venezuela") %>%
+  summarize(mean_felicity = mean(felicity_rating), CI.Low = ci.low(felicity_rating), CI.High = ci.high(felicity_rating)) %>%
+  mutate(YMin = mean_felicity - CI.Low, YMax = mean_felicity + CI.High) %>% 
+  ggplot(aes(x=context_condition, y=mean_felicity, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  #scale_fill_manual(values = cbPalette) +
+  theme_bw() +
+  theme(axis.text.x = element_text(vjust = 0.7)) +
+  facet_wrap(~region_country)
+```
+
+
+
+```{r Felicity by top 5 countries}
+  data_critical %>% 
+  filter(region_country == "argentina" | region_country == "mexico" | region_country == "spain" | region_country == "usa" | region_country == "venezuela") %>%
+  group_by(DA_presence, region_country) %>%
+  ggplot(aes(x = region_country,y=felicity_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  labs (x="Country", y= "Felicity Rating", fill = "DA Presence") +
+  scale_fill_discrete(labels=c("DA", "no DA")) +
+  scale_fill_manual(values = wes_palette("FantasticFox1")[2:4])
+```
+
+```{r}
+ggsave(file = "graphs/country_felicity_boxplot.png",width=7,height=5)
+```
+
+```{r}
+  data_critical %>% 
+  filter(region_country == "argentina" | region_country == "mexico" | region_country == "spain" | region_country == "usa" | region_country == "venezuela") %>%
+  group_by(condition, region_country) %>%
+  ggplot(aes(x = region_country,y=felicity_rating, fill = condition)) +
+  geom_boxplot() +
+  labs (x="Item Type", y= "Felicity Rating", fill = "DA Presence")
+  #scale_fill_discrete(labels=c("DA", "no DA"))
+```
+
+```{r}
+  data_critical %>% 
+  filter(region_country == "argentina" | region_country == "mexico" | region_country == "spain" | region_country == "usa" | region_country == "venezuela") %>%
+  group_by(DA_presence, region_country) %>%
+  ggplot(aes(x = region_country,y=affect_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  labs (x="Country", y= "Affect Rating", fill = "DA Presence") +
+  scale_fill_discrete(labels=c("DA", "no DA")) +
+ scale_fill_manual(values = wes_palette("FantasticFox1")[2:4])
+```
+
+
+```{r}
+ggsave(file = "graphs/country_affect_boxplot.png",width=7,height=5)
+```
+
+```{r education}
+data_critical %>%
+  group_by(context_condition, DA_presence, education) %>%
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating), trial_sum = n()) %>%
+  ggplot(aes(x = mean_affect, y = mean_felicity, color = DA_presence, shape = context_condition, size = trial_sum)) +
+  geom_point() +
+  facet_wrap(~education) +
+  theme_bw()
+```
+
+```{r age}
+data_critical %>%
+  filter(!is.na(age)) %>% 
+  group_by(workerid, age, DA_presence) %>%
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating)) %>%
+  ggplot(aes(x = age, y = mean_felicity, color = DA_presence)) +
+  geom_point(size =3) +
+  geom_smooth(method = "lm") +
+  theme_bw()
+```
+
+```{r}
+data_critical %>%
+  filter(!is.na(age)) %>% 
+  filter(reported_usage == "0" | reported_usage == "1" | reported_usage == "2" | reported_usage == "3" ) %>%
+  group_by(workerid, age) %>%
+  summarize(reported_usage = paste(unique(reported_usage))) %>%
+  ggplot(aes(x = age, y = as.numeric(reported_usage))) +
+  geom_point(size =3) +
+  geom_smooth(method = "lm") +
+  theme_bw()
+```
+
+```{r}
+data_critical %>%
+  filter(!is.na(age)) %>% 
+  group_by(workerid, age, DA_presence) %>%
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating)) %>%
+  ggplot(aes(x = age, y = mean_affect, color = DA_presence)) +
+  geom_point(size =3) +
+  geom_smooth(method = "lm") +
+  geom_hline(yintercept = 0.5) +
+  theme_bw()
+```
+
+
+```{r reported_usage}
+data_critical %>%
+  group_by(context_condition, DA_presence, reported_usage) %>%
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating), trial_sum = n()) %>%
+  ggplot(aes(x = mean_affect, y = mean_felicity, color = DA_presence, shape = context_condition, size = trial_sum)) +
+  geom_point() +
+  facet_wrap(~reported_usage)
+```
+
+```{r}
+  data_critical %>% 
+  filter(reported_usage == "0" | reported_usage == "1" | reported_usage == "2" | reported_usage == "3" ) %>%
+  group_by(DA_presence, reported_usage) %>%
+  ggplot(aes(x = reported_usage,y=felicity_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  #labs (x="Item Type", y= "Felicity Rating", fill = "DA Presence") +
+  scale_fill_discrete(labels=c("DA", "no DA"))
+```
+
+
+```{r}
+  data_critical %>% 
+  filter(reported_usage == "0" | reported_usage == "1" | reported_usage == "2" | reported_usage == "3") %>%
+  group_by(DA_presence, reported_usage) %>%
+  ggplot(aes(x = reported_usage,y=affect_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  #labs (x="Item Type", y= "Affect Rating", fill = "DA Presence") +
+  scale_fill_discrete(labels=c("DA", "no DA"))
+```
+
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  filter(reported_usage == "0" | reported_usage == "1" | reported_usage == "2" | reported_usage == "3" ) %>%
+  group_by(condition, reported_usage) %>%
+  summarize(mean_felicity = mean(felicity_rating), CI.Low = ci.low(felicity_rating), CI.High = ci.high(felicity_rating)) %>%
+  mutate(YMin = mean_felicity - CI.Low, YMax = mean_felicity + CI.High) %>% 
+  ggplot(aes(x= reorder(reported_usage, mean_felicity), y=mean_felicity, fill = condition)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  #geom_jitter(data=data_critical,aes(y=felicity_rating),alpha=.5,color="lightblue") +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  #labs (x="Context Condition", y= "Felicity Rating", fill = "DA Presence") +
+  #scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_manual(values = cbPalette) +
+  #scale_fill_manual(values = wes_palette("FantasticFox1")) +
+  theme_bw() +
+  theme(axis.text.x = element_text(vjust = 0.7))
+```
+
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  filter(reported_usage == "0" | reported_usage == "1" | reported_usage == "2" | reported_usage == "3" ) %>%
+  group_by(DA_presence, reported_usage, context_condition) %>%
+  summarize(mean_felicity = mean(felicity_rating), CI.Low = ci.low(felicity_rating), CI.High = ci.high(felicity_rating)) %>%
+  mutate(YMin = mean_felicity - CI.Low, YMax = mean_felicity + CI.High) %>% 
+  ggplot(aes(x=context_condition, y=mean_felicity, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  labs (x="Context Condition", y= "Felicity Rating", fill = "DA Presence") +
+  scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_manual(values = cbPalette) +
+  #scale_fill_manual(values = wes_palette("FantasticFox1")[2:4]) +
+  theme(axis.text.x = element_text(vjust = 0.7)) +
+  facet_wrap(~ reported_usage)
+```
+
+```{r}
+dodge = position_dodge(.9)
+
+data_critical %>% 
+  filter(reported_usage == "0" | reported_usage == "1" | reported_usage == "2" | reported_usage == "3" ) %>%
+  group_by(DA_presence, reported_usage, context_condition) %>%
+  summarize(mean_affect = mean(affect_rating), CI.Low = ci.low(affect_rating), CI.High = ci.high(affect_rating)) %>%
+  mutate(YMin = mean_affect - CI.Low, YMax = mean_affect + CI.High) %>% 
+  ggplot(aes(x=context_condition, y=mean_affect, fill = DA_presence)) + 
+  geom_bar(stat = "identity", position = dodge) +
+  #geom_jitter(data=data_critical,aes(y=felicity_rating),alpha=.5,color="lightblue") +
+  geom_errorbar(aes(ymin = YMin, ymax = YMax), width = .25, position = dodge) +
+  labs (x="Context Condition", y= "Affect Rating", fill = "DA Presence") +
+  scale_x_discrete(labels=c("neutralCG" = "Common Ground", "neutralNoCG" = "No Common Ground")) +
+  scale_fill_manual(values = cbPalette) +
+  #scale_fill_manual(values = wes_palette("FantasticFox1")) +
+  theme(axis.text.x = element_text(vjust = 0.7)) +
+  facet_wrap(~ reported_usage)
+```
+
+```{r reported familiarity}
+data_critical %>% 
+  filter(reported_familiarity == "0" | reported_familiarity == "1" | reported_familiarity == "2" | reported_familiarity == "3" ) %>%
+  group_by(DA_presence, reported_familiarity, context_condition) %>%
+  ggplot(aes(x=affect_rating,y=felicity_rating, color=DA_presence)) +
+  geom_point() +
+  #geom_smooth(method="lm") + 
+  geom_smooth() + 
+  labs (x="Affect Rating", y= "Felicity Rating", color = "DA Presence") +
+  #scale_color_discrete(labels=c("DA", "no DA"), values = wes_palette("FantasticFox1")[2:4]) +
+  scale_color_manual(values = cbPalette) +
+  facet_wrap(~reported_familiarity)
+``` 
+
+```{r}
+data_critical %>%
+  group_by(context_condition, DA_presence, reported_familiarity) %>%
+  summarize(mean_affect = mean(affect_rating), mean_felicity = mean(felicity_rating), trial_sum = n()) %>%
+  ggplot(aes(x = mean_affect, y = mean_felicity, color = DA_presence, shape = context_condition, size = trial_sum)) +
+  geom_point() +
+  facet_wrap(~reported_familiarity)
+```
+
+```{r}
+  data_critical %>% 
+  #filter(reported_familiarity == "0" | reported_familiarity == "1" | reported_familiarity == "2" | reported_familiarity == "3" ) %>%
+  group_by(DA_presence, reported_familiarity) %>%
+  ggplot(aes(x = reported_familiarity,y=felicity_rating, fill = DA_presence)) +
+  geom_boxplot() +
+  #labs (x="Item Type", y= "Felicity Rating", fill = "DA Presence") +
+  scale_fill_discrete(labels=c("DA", "no DA"))
+```
+
+
+
+```{r}
+  data_critical %>% 
+  #filter(reported_familiarity == "0" | reported_familiarity == "1" | reported_familiarity == "2" | reported_familiarity == "3") %>%
+  group_by(DA_presence, reported_familiarity) %>%
+  ggplot(aes(x = reported_familiarity,y=affect_rating, fill = DA_presence)) +
+  geom_boxplot() +
+ #labs (x="Item Type", y= "Affect Rating", fill = "DA Presence") +
+  scale_fill_discrete(labels=c("DA", "no DA"))
+```
+
+# Data modeling
+
+Releveling (changing reference level) and centering DA predictor and context condition predictor
+```{r}
+data_model = data_critical %>% 
+  mutate(context_condition = fct_relevel(context_condition, "neutralNoCG")) %>% 
+  mutate(numDA_presence = as.numeric(DA_presence), numcontext_condition = as.numeric(context_condition)) %>% 
+  mutate(cDA_presence = scale(numDA_presence), cContext_condition = scale(numcontext_condition))
+```
+
+
+1. (OSF preregistered analysis) Linear mixed effects analysis, predicting felicity from a centered presence of the DA predictor and a centered context condition predictor. By subject and by item, random intercepts as well as random slopes for condition and DA presence. 
+
+```{r felicity model}
+felicity_mdl <- lmer(felicity_rating ~ cDA_presence*cContext_condition + (1 + cDA_presence + cContext_condition|workerid) + (1 + cDA_presence + cContext_condition|item_type), data=data_model, REML=F)
+summary(felicity_mdl)
+```
+
+Simple regressions to analyze interaction in felicity_mdl
+```{r}
+felicity_mdl.simple <- lmer(felicity_rating ~ DA_presence*context_condition - context_condition + (1 + DA_presence + context_condition|workerid) + (1 + DA_presence + context_condition|item_type), data=data_model, REML=F)
+summary(felicity_mdl.simple)
+```
+
+```{r}
+felicity_mdl.simple1.2 <- lmer(felicity_rating ~ DA_presence*context_condition - context_condition + (1 + DA_presence + context_condition|workerid) + (1|item_type), data=data_model, REML=F)
+summary(felicity_mdl.simple1.2)
+```
+
+
+```{r}
+felicity_mdl.simple2 <- lmer(felicity_rating ~ context_condition*DA_presence - DA_presence + (1 + DA_presence + context_condition|workerid) + (1 + DA_presence + context_condition|item_type), data=data_model, REML=F)
+summary(felicity_mdl.simple2)
+```
+
+
+2. Linear mixed effects analysis, predicting affect from a centered presence of DA predictor and and a centered context condition predictor. By subject and by item, random intercepts as well as random slopes for condition and DA presence. 
+
+```{r affect model}
+affect_mdl <- lmer(affect_rating ~ cDA_presence*cContext_condition + (1 + cDA_presence + cContext_condition|workerid) + (1|item_type), data=data_model, REML=F)
+summary(affect_mdl)
+```
+
+```{r}
+affect_mdl.simple <- lmer(affect_rating ~ DA_presence*context_condition - context_condition + (1 + DA_presence + context_condition|workerid) + (1|item_type), data=data_model, REML=F)
+summary(affect_mdl.simple)
+```
+
+```{r}
+affect_mdl.simple2 <- lmer(affect_rating ~ context_condition*DA_presence - DA_presence + (1 + DA_presence + context_condition|workerid) + (1|item_type), data=data_model, REML=F)
+summary(affect_mdl.simple2)
+```
+
+```{r}
+data_region = data_model %>% 
+filter(region_country == "argentina" | region_country == "mexico" | region_country == "spain" | region_country == "usa" | region_country == "venezuela")
+```
+
+
+```{r}
+region_mdl <- lmer(felicity_rating ~ cDA_presence*cContext_condition + region_country + (1 + cDA_presence + cContext_condition|workerid) + (1 + cDA_presence + cContext_condition|item_type), data=data_region, REML=F)
+summary(region_mdl)
+```
+
